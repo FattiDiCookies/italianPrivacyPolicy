@@ -8,7 +8,7 @@ Il presente testo illustra la nostra politica sul trattamento dei dati personali
 
 ## 1) Tipologia dei dati raccolti
 
-I dati personali inviati attraverso i moduli di contatto presenti sul sito museumperugia.com sono i seguenti: nome e cognome; numero di telefono (quando fornito); indirizzo di posta elettronica.
+I dati personali inviati attraverso i moduli di contatto presenti sul sito **nome sito** sono i seguenti: nome e cognome; numero di telefono (quando fornito); indirizzo di posta elettronica.
 
 ## 2) Scopi
 
