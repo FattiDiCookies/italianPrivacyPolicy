@@ -1,5 +1,5 @@
 # italianPrivacyPolicy
-Questo repository contiene un'informativa sulla privacy e il trattamento dei dati personali secondo le vigenti norme di legge.
+Questo repository contiene un'informativa sulla privacy, il trattamento dei dati personali e l'uso dei cookies secondo le vigenti norme di legge.
 
 ## Il progetto
 Questo progetto nasce con l'idea di creare un testo a norma di legge che sia modulare (con parti indipendenti redatte per ogni diversa esigenza) da far includere agli sviluppatori nelle proprie pagine web.
