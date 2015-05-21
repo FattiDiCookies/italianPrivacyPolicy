@@ -101,3 +101,9 @@ Per maggiori informazioni visita la [pagina dedicata](http://support.apple.com/k
     *   Non accettare mai i cookie: tutti i cookie non verranno mai salvati
 
 Per maggiori informazioni visita la [pagina dedicata](http://windows.microsoft.com/it-it/windows-vista/block-or-allow-cookies).
+
+## Come disabilitare i cookie di servizi di terzi
+
+*   [Servizi di Google](http://www.google.com/ads/preferences/?hl=it)
+*   [Facebook](https://www.facebook.com/help/cookies?ref_type=sitefooter)
+*   [Twitter](https://support.twitter.com/articles/20170519-uso-dei-cookie-e-di-altre-tecnologie-simili-da-parte-di-twitter#)
