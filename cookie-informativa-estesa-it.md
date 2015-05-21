@@ -12,7 +12,7 @@ Queste informazioni sono generiche e non possono essere associate a persone iden
 Gli utenti che visitano il sito vedranno inserite delle quantità minime di informazioni nei loro dispositivi (computer, tablet e smartphone) che utilizzano per navigare il sito.
 Vi sono vari tipi di cookie: alcuni rendono più efficace l’uso di un sito, altri ne abilitano determinate funzionalità. 
 
-Analizzandoli in maniera particolareggiata i cookie permettono di:
+In sintesi i cookie permettono di:
 * memorizzare le preferenze inserite
 * evitare di reinserire le stesse informazioni più volte durante la visita
 * analizzare l’utilizzo che l’utente fa dei servizi e dei contenuti forniti dal sito, cosicché il proprietario del sito possa * ottimizzarne l’esperienza di navigazione e i servizi offerti
@@ -23,7 +23,23 @@ Analizzandoli in maniera particolareggiata i cookie permettono di:
 * permettere la condivisione dei contenuti del sito nei social network
 * proteggere i dati degli utenti da accesso non autorizzato
 * servire annunci pubblicitari personalizzati agli utenti per rendere più efficace la campagna pubblicitaria
-* 
+
+## Servizi
+
+### Statistiche
+I servizi elencati nella presente sezione vengono utilizzati dal **Titolare del Trattamento** al fine
+di monitorare e analizzare i dati di traffico generati dal sito.
+Tali strumenti servono a tener traccia del comportamento dell’Utente durante la navigazione all'interno del sito.
+#### Google Analytics con IP anonimizzato (Google Inc.)
+Google Analytics è un servizio di analisi web fornito da Google Inc. (“Google”). 
+Google utilizza i Dati Personali raccolti allo scopo di tenere traccia ed analizzare le modalità di utilizzo e i flussi di navigazione di questo sito, stilare report da condividere con altri servizi sviluppati da Google.
+Google potrebbe utilizzare i Dati Personali per contestualizzare e personalizzare gli annunci del proprio network pubblicitario.
+In questo sito, il servizio fornito da Google è stato attivato anonimizzando gli indirizzi IP degli utenti.
+Questo significa che all'interno degli Stati Membri dell'Unione Europea o in altri Paesi aderenti all'accordo sullo Spazio Economico Europeo l'indirizzo IP degli Utenti viene registrato in modo abbreviato al fine di garantire un completo anonimato.
+Solo in casi eccezionali, l'indirizzo IP sarà inviato ai server di Google ed abbreviato all'interno degli Stati Uniti.
+
+Dati personali raccolti: Cookie e Dati di utilizzo.
+Luogo del trattamento : USA – [Privacy Policy](http://www.google.com/intl/en/policies/privacy/) – [Eliminare Servizio](http://tools.google.com/dlpage/gaoptout?hl=it)
 
 ## Come disabilitare i cookie mediante configurazione del browser
 
