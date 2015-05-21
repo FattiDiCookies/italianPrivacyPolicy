@@ -1,4 +1,4 @@
-#COOKIES
+#COOKIES (v0.0.0 alpha)
 *informativa sull'uso dei cookies*
 
 La seguente Informativa sui cookie descrive il loro utilizzo all’interno del Sito.
