@@ -1,4 +1,4 @@
-## Privacy Policy ITA
+## Privacy Policy ITA (v. 0.0.0 alpha)
 
 *Informativa sul trattamento dei dati personali* 
 
