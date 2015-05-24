@@ -123,3 +123,10 @@ Per maggiori informazioni visita la [pagina dedicata](http://windows.microsoft.c
 *   [Servizi di Google](http://www.google.com/ads/preferences/?hl=it)
 *   [Facebook](https://www.facebook.com/help/cookies?ref_type=sitefooter)
 *   [Twitter](https://support.twitter.com/articles/20170519-uso-dei-cookie-e-di-altre-tecnologie-simili-da-parte-di-twitter#)
+*   
+     
+
+È possibile inoltre visitare il sito, in lingua inglese, [www.aboutcookies.org](http://www.aboutcookies.org/) per informazioni su come poter gestire/eliminare i cookie in base al tipo di browser utilizzato. 
+Per eliminare i cookie dal browser Internet del proprio smartphone/tablet, è necessario fare riferimento al manuale d'uso del dispositivo.
+
+Questa pagina è visibile, mediante link presente in tutte le pagine del Sito ai sensi dell'art. 122 secondo comma del D.lgs. 196/2003 e a seguito delle modalità semplificate per l'informativa e l'acquisizione del consenso per l'uso dei cookie pubblicata sulla Gazzetta Ufficiale n.126 del 3 giugno 2014 e relativo registro dei provvedimenti n.229 dell'8 maggio 2014.
