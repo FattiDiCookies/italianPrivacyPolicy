@@ -31,7 +31,7 @@ nella persona di **Nome e Cognome del responsabile** e suoi eventuali delegati.
 
 1.  l'aggiornamento, la rettificazione ovvero, quando vi ha interesse, l'integrazione dei dati;
 2.  la cancellazione, la trasformazione in forma anonima o il blocco dei dati trattati in violazione di legge, compresi quelli di cui non è necessaria la conservazione in relazione agli scopi per i quali i dati sono stati raccolti o successivamente trattati;
-3.  l'attestazione che le operazioni di cui alle lettere **a.** e **b.** sono state portate a conoscenza, anche per quanto riguarda il loro contenuto, di coloro ai quali i dati sono stati comunicati o diffusi, eccettuato il caso in cui tale adempimento si rivela impossibile o comporta un impiego di mezzi manifestamente sproporzionato rispetto al diritto tutelato.
+3.  l'attestazione che le operazioni di cui ai punti **1** e **2** sono state portate a conoscenza, anche per quanto riguarda il loro contenuto, di coloro ai quali i dati sono stati comunicati o diffusi, eccettuato il caso in cui tale adempimento si rivela impossibile o comporta un impiego di mezzi manifestamente sproporzionato rispetto al diritto tutelato.
 
 **4.2) L'interessato ha diritto di opporsi, in tutto o in parte:**
 
