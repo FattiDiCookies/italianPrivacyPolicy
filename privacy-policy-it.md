@@ -12,11 +12,15 @@ I dati personali inviati attraverso i moduli di contatto presenti sul sito **nom
 
 ## 2) Scopi
 
-I dati personali inviati verranno utilizzati ai seguenti fini: instaurare una comunicazione richiesta dall’utente al fine di poter godere appieno dei servizi offerti dalla nostra attività; invio di future proposte commerciali legate alla nostra attività; compimento di ricerche di mercato e scopi statistici riguardanti la nostra attività. I dati raccolti saranno conservati in forma digitale negli archivi della società incaricata della conservazione e del trattamento.
+I dati personali inviati verranno utilizzati ai seguenti fini: 
+* instaurare una comunicazione richiesta dall’utente al fine di poter godere appieno dei servizi offerti dalla nostra attività; 
+* invio di future proposte commerciali legate alla nostra attività; compimento di ricerche di mercato e scopi statistici riguardanti la nostra attività. 
+
+I dati raccolti saranno conservati in forma digitale negli archivi della società incaricata della conservazione e del trattamento.
 
 ## 3) Responsabile del trattamento dei dati personali
 
-I dati personali inviati saranno conservati e trattati dalla società:  
+I dati personali saranno conservati e trattati dalla società:  
 **Società responsabile**  
 nella persona di **Nome e Cognome del responsabile** e suoi eventuali delegati.  
 **I dati personali inviati non saranno ceduti a soggetti terzi non facenti capo ai soggetti appena indicati.**
