@@ -4,7 +4,7 @@ Questo repository contiene un'informativa sulla privacy, il trattamento dei dati
 ## Il progetto
 Questo progetto nasce con l'idea di creare un testo a norma di legge che sia modulare (con parti indipendenti redatte per ogni diversa esigenza) da far includere agli sviluppatori nelle proprie pagine web.
 
-## Attenzione
+## Attenzione!!!
 Questo progetto è ancora in fase alpha, quindi consigliamo di non integrare ancora nei vostri siti i testi presenti nel repository.
 
 ## Come contribuire
