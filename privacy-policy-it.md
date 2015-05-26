@@ -4,11 +4,11 @@
 
 # PRIVACY POLICY <small>sul trattamento dei dati personali</small>
 
-Il presente testo illustra la nostra politica sul trattamento dei dati personali trasmessi durante l’invio di un messaggio utilizzando i nostri sistemi di contatto e/o prenotazione presenti sul sito: **URL sito** (denominato di seguito **nome sito**)
+Il presente testo illustra la nostra politica sul trattamento dei dati personali raccolti attraverso i nostri sistemi di contatto e/o altri servizi presenti nel sito: **[[URL SITO]]** (denominato di seguito **[[NOME SITO]]**)
 
 ## 1) Tipologia dei dati raccolti
 
-I dati personali inviati attraverso i moduli di contatto presenti sul sito **nome sito** sono i seguenti: nome e cognome; numero di telefono (quando fornito); indirizzo di posta elettronica.
+I dati personali inviati attraverso i moduli di contatto presenti sul sito **[[NOME SITO]]** sono i seguenti: nome e cognome; numero di telefono (quando fornito); indirizzo di posta elettronica.
 
 ## 2) Scopi
 
@@ -21,8 +21,8 @@ I dati raccolti saranno conservati in forma digitale negli archivi della societ�
 ## 3) Responsabile del trattamento dei dati personali
 
 I dati personali saranno conservati e trattati dalla società:  
-**Società responsabile**  
-nella persona di **Nome e Cognome del responsabile** e suoi eventuali delegati.  
+**[[SOCIETA' RESPONSABILE]]**  
+nella persona di **[[NOME E COGNOME DEL RESPONSABILE]]** e suoi eventuali delegati.  
 **I dati personali inviati non saranno ceduti a soggetti terzi non facenti capo ai soggetti appena indicati.**
 
 ## 4) Diritti dell’interessato
@@ -40,7 +40,7 @@ nella persona di **Nome e Cognome del responsabile** e suoi eventuali delegati.
 
 ## 5) Esercizio dei diritti
 
-L’interessato potrà far valere i propri diritti inviando una richiesta all’indirizzo di posta elettronica: **indirizzo e-mail** nella quale potrà esplicitare la propria richiesta per quanto previsto e descritto nei paragrafi 4.1 e 4.2\. del presente testo.
+L’interessato potrà far valere i propri diritti inviando una richiesta all’indirizzo di posta elettronica: **[[EMAIL DI CONTATTO]]** nella quale potrà esplicitare la propria richiesta per quanto previsto e descritto nei paragrafi 4.1 e 4.2\. del presente testo.
 
 ## 6) Conclusione
 
