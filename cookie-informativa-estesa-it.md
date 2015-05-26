@@ -140,7 +140,7 @@ Per maggiori informazioni visita la [pagina dedicata](http://support.apple.com/k
     *   Accetta i cookie solo dal sito che si visita: i cookie di terze parti e che vengono inviati da un dominio diverso da quello che si sta visitando verranno rifiutati
     *   Non accettare mai i cookie: tutti i cookie non verranno mai salvati
 
-Per maggiori informazioni visita la [pagina dedicata](http://windows.microsoft.com/it-it/windows-vista/block-or-allow-cookies).
+Per maggiori informazioni visita la [pagina dedicata](http://help.opera.com/Windows/10.00/it/cookies.html).
 
 * * *
 
