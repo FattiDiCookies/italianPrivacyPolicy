@@ -42,7 +42,8 @@ Ricordiamo che i diritti di seguito riportati sono previsti dall'**art.7 del d.l
 
 ## 5) Esercizio dei diritti
 
-L’interessato potrà far valere i propri diritti inviando una richiesta all’indirizzo di posta elettronica: **[[EMAIL DI CONTATTO]]** nella quale potrà esplicitare la propria richiesta per quanto previsto e descritto nei paragrafi 4.1 e 4.2\. del presente testo.
+L'esercizio dei diritti (di cui all'art.7 del d.leg.n.196/03) descritto nei paragrafi **4.1** e **4.2** potrà effettuarsi attraverso specifica comunicazione al responsabile del trattamento di  **[[NOME E COGNOME DEL RESPONSABILE]]** c/o **[[SOCIETA' RESPONSABILE]]**  
+oppure inviando una eMail a **[[EMAIL DI CONTATTO]]**
 
 ## 6) Conclusione
 
