@@ -1,4 +1,4 @@
-## Privacy Policy ITA (v. 0.0.0 alpha)
+## Privacy Policy ITA (v. 0.1.0 alpha)
 
 *Informativa sul trattamento dei dati personali* 
 
@@ -8,7 +8,7 @@ Il presente testo illustra la nostra politica sul trattamento dei dati personali
 
 ## 1) Tipologia dei dati raccolti
 
-I dati personali inviati attraverso i moduli di contatto presenti sul sito **[[NOME SITO]]** sono i seguenti: nome e cognome; numero di telefono (quando fornito); indirizzo di posta elettronica.
+I dati personali inviati attraverso i moduli di contatto e/o gli altri servizi presenti nel sito **[[NOME SITO]]** sono i seguenti: **[[esempio di dati raccolti: nome e cognome; numero di telefono (quando fornito); indirizzo di posta elettronica]]**.
 
 ## 2) Scopi
 
