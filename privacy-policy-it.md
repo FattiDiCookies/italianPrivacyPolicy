@@ -1,4 +1,4 @@
-## Privacy Policy ITA (v. 0.1.0 alpha)
+## Privacy Policy ITA (v. 0.5.0 alpha)
 
 *Informativa sul trattamento dei dati personali* 
 
@@ -10,11 +10,24 @@ Il presente testo illustra la nostra politica sul trattamento dei dati personali
 
 I dati personali inviati attraverso i moduli di contatto e/o gli altri servizi presenti nel sito **[[NOME SITO]]** sono i seguenti: **[[esempio di dati raccolti: nome e cognome; numero di telefono (quando fornito); indirizzo di posta elettronica]]**.
 
+### 1.1) Obbligatorietà del consenso
+
+L'invio e il consenso al trattamento dei dati è facoltativo.
+L'utente è libero di negare in tutto o in parte (qualora concesso) il consenso all'invio e/o al trattamento dei propri dati personali, rinuciando al contempo anche alla possibilità di usufruire dei servizi forniti dal sito **[[NOME SITO]]** per i quali si richiede l'invio e il consenso al trattamento dei dati personali.
+Il consenso è quindi obbligatorio per l'ergazione dei servizi offerti e per i quali viene richiesto.
+
+### 1.2) Rifiuto del consenso
+
+L'utente è libero di rifiutare il consenso secondo quanto riportato al punto 1.1
+Il rifiuto del consenso al trattamento dei dati personali comporterà una mancata erogazione del servizio per il quale il consenso viene richiesto.
+
+
 ## 2) Scopi
 
 I dati personali inviati verranno utilizzati ai seguenti fini: 
-* instaurare una comunicazione richiesta dall’utente al fine di poter godere appieno dei servizi offerti dalla nostra attività; 
-* invio di future proposte commerciali legate alla nostra attività; compimento di ricerche di mercato e scopi statistici riguardanti la nostra attività. 
+* instaurare una comunicazione richiesta dall’interessato al fine di poter godere appieno dei servizi offerti dalla nostra attività; 
+* invio di future proposte commerciali legate alla nostra attività *(quando espressamente consentito dall'interessato)*; 
+* compimento di ricerche di mercato e scopi statistici riguardanti la nostra attività. 
 
 I dati raccolti saranno conservati in forma digitale negli archivi della società incaricata della conservazione e del trattamento.
 
