@@ -27,6 +27,8 @@ nella persona di **[[NOME E COGNOME DEL RESPONSABILE]]** e suoi eventuali delega
 
 ## 4) Diritti dell’interessato
 
+Ricordiamo che i diritti di seguito riportati sono previsti dall'**art.7 del d.leg.n.19/2003**
+
 **4.1) L’interessato ha il diritto di ottenere:**
 
 1.  l'aggiornamento, la rettificazione ovvero, quando vi ha interesse, l'integrazione dei dati;
