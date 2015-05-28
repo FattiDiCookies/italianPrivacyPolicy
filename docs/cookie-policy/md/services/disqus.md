@@ -3,4 +3,4 @@ Attraverso la piattaforma *DISQUS* è possibile scrivere commenti personali in c
 Per quanto riguarda la gestione e l'uso dei cookie rilasciati da DISQUS rimandiamo ai link di riferimento del servizio.
 
 ##### Link di riferimento
-[https://help.disqus.com/customer/portal/articles/466235-use-of-cookies](https://help.disqus.com/customer/portal/articles/466235-use-of-cookies)
+* [https://help.disqus.com/customer/portal/articles/466235-use-of-cookies](https://help.disqus.com/customer/portal/articles/466235-use-of-cookies)
