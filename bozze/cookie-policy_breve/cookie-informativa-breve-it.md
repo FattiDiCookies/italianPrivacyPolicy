@@ -10,6 +10,9 @@ Scusate se uso cosi' git, non sono ancora abituato. Proposta:
 ###Sito senza cookies e senza embed
 Non ci sono cookies, nessuna informativa e' dovuta.
 
+###Sito con soli cookies tecnici
+Nessuna informativa e' dovuta, potrebbe però essere il caso di far comparire lo stesso l'informativa breve per maggiore trasparenza.
+
 ###Sito senza cookies tecnici ma con embed
 Il sito non usa cookies propri, ma utilizza embed di terze parti. Nell'informativa estesa sono disponibili i link alle terze parti ove negare i cookies dei terzi che possono profilare se attivati dall'utente sul sito del terzo. Procedendo nella navigazione o cliccando su ok si acconsente all'uso dei cookie.
 
