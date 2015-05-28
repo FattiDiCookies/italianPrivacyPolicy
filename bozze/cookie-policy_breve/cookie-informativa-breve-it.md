@@ -26,7 +26,7 @@ Il sito usa cookies tecnici e di profilazione in prima parte e tramite terze par
 
 NOTA:
 
-In ogni caso in ogni pagina deve essere presente un link alla  cookie policy estesa, di solito il link viene messo nel footer, la cosa importante è che il link sia ben visibile.
+In ogni caso in ogni pagina deve essere presente un link alla  cookie policy estesa, la normativa specifica che deve essere in calce alla pagina
 
 Ricorda: i cookies di profilazione vanno installati solo dopo consenso (prima parte, quelli di terze parti v, faq 14 del garante)
 
