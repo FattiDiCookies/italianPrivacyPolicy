@@ -6,6 +6,6 @@ Per ulteriori informazioni e per la disattivazione dei cookie relativi a questo 
 
 
 ##### Link di riferimento
-[https://www.google.com/intl/it_IT/help/terms_maps.html](https://www.google.com/intl/it_IT/help/terms_maps.html)
-[https://www.google.it/intl/it/policies/technologies/cookies/](https://www.google.it/intl/it/policies/technologies/cookies/)
-[https://www.google.it/intl/it/policies/technologies/managing/](https://www.google.it/intl/it/policies/technologies/managing/)
+* [https://www.google.com/intl/it_IT/help/terms_maps.html](https://www.google.com/intl/it_IT/help/terms_maps.html)
+* [https://www.google.it/intl/it/policies/technologies/cookies/](https://www.google.it/intl/it/policies/technologies/cookies/)
+* [https://www.google.it/intl/it/policies/technologies/managing/](https://www.google.it/intl/it/policies/technologies/managing/)
