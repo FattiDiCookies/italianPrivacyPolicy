@@ -27,7 +27,7 @@ function setPrivacy(element,jsonConfig) {
             $(element).find('.siteEmail').text(data.site.email);
             $(element).find('.companyName').text(data.company.name);
             $(element).find('.companyAddress').text(data.company.address);
-            $(element).find('.companyVatNumber').text(data.company.vatNumber);
+            if (data.company.vatLabel != "") $(element).find('.companyVatNumber').text(data.company.vatLabel+" "+data.company.vatNumber);
             $(element).find('.adminName').text(data.administrator.name);
             $(element).find('.adminSurname').text(data.administrator.surname);
              
