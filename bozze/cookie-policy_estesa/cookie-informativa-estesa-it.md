@@ -1,17 +1,17 @@
 ## Uso dei cookie
 
-www.mio.com o il “**Sito**” utilizza i Cookie per rendere i propri servizi semplici e efficienti per l’utenza che visiona le pagine di www.mio.com.  
+ [[URL SITO]] o il “**Sito**” utilizza i Cookie per rendere i propri servizi semplici e efficienti per l’utenza che visiona le pagine di  [[URL SITO]].  
  Gli utenti che visionano il Sito, vedranno inserite delle **quantità minime di informazioni** nei dispositivi in uso, che siano computer e periferiche mobili, in piccoli file di testo denominati “cookie” salvati nelle directory utilizzate dal browser web dell’Utente.  
  Vi sono **vari tipi di cookie**, alcuni per rendere più efficace l’uso del Sito, altri per abilitare determinate funzionalità.  
  Analizzandoli in maniera particolareggiata i nostri cookie permettono di:
 
 *   memorizzare le preferenze inserite
 *   evitare di reinserire le stesse informazioni più volte durante la visita quali ad esempio nome utente e password
-*   analizzare l’utilizzo dei servizi e dei contenuti forniti da www.mio.com per ottimizzarne l’esperienza di navigazione e i servizi offerti
+*   analizzare l’utilizzo dei servizi e dei contenuti forniti da  [[URL SITO]] per ottimizzarne l’esperienza di navigazione e i servizi offerti
 
-## Tipologie di Cookie utilizzati da www.mio.com
+## Tipologie di Cookie utilizzati da  [[URL SITO]]
 
-A seguire i vari tipi di cookie utilizzati da www.mio.com in funzione delle finalità d’uso
+A seguire i vari tipi di cookie utilizzati da  [[URL SITO]] in funzione delle finalità d’uso
 
 ### Cookie Tecnici
 
@@ -24,7 +24,7 @@ Questi cookie, inviati sempre dal nostro dominio, **sono necessari a visualizzar
 
 ### Cookie analitici
 
-I cookie in questa categoria vengono utilizzati per **collezionare informazioni sull’uso del sito**. www.mio.com userà queste informazioni in merito ad **analisi statistiche anonime** al fine di migliorare l’utilizzo del Sito e per rendere i contenuti più interessanti e attinenti ai desideri dell’utenza. Questa tipologia di cookie raccoglie dati in **forma anonima** sull’attività dell’utenza e su come è arrivata sul Sito. I cookie analitici sono inviati dal Sito Stesso o da domini di terze parti.
+I cookie in questa categoria vengono utilizzati per **collezionare informazioni sull’uso del sito**.  [[URL SITO]] userà queste informazioni in merito ad **analisi statistiche anonime** al fine di migliorare l’utilizzo del Sito e per rendere i contenuti più interessanti e attinenti ai desideri dell’utenza. Questa tipologia di cookie raccoglie dati in **forma anonima** sull’attività dell’utenza e su come è arrivata sul Sito. I cookie analitici sono inviati dal Sito Stesso o da domini di terze parti.
 
 ### Cookie di analisi di servizi di terze parti
 
@@ -37,11 +37,11 @@ Questa tipologia di cookie **integra funzionalità sviluppate da terzi** all’i
 ### Cookie di profilazione
 
 Sono quei cookie necessari a creare profili utenti al fine di inviare messaggi pubblicitari in linea con le preferenze manifestate dall’utente all’interno delle pagine del Sito.  
- www.mio.com **non utilizza cookie di profilazione**.
+  [[URL SITO]] **non utilizza cookie di profilazione**.
 
 * * *
 
-www.mio.com, secondo la normativa vigente, non è tenuto a chiedere consenso per i **cookie tecnici** e di **analytics**, in quanto necessari a fornire i servizi richiesti.
+ [[URL SITO]], secondo la normativa vigente, non è tenuto a chiedere consenso per i **cookie tecnici** e di **analytics**, in quanto necessari a fornire i servizi richiesti.
 
 Per tutte le altre tipologie di cookie il consenso può essere espresso dall’Utente con una o più di una delle seguenti modalità:
 
@@ -52,11 +52,11 @@ Entrambe queste soluzioni potrebbero impedire all’utente di utilizzare o visua
 
 **Siti Web e servizi di terze parti**
 
-Il Sito potrebbe contenere collegamenti ad altri siti Web che dispongono di una propria informativa sulla privacy che può essere diverse da quella adottata da www.mio.com e che che quindi **non risponde** di questi siti.
+Il Sito potrebbe contenere collegamenti ad altri siti Web che dispongono di una propria informativa sulla privacy che può essere diverse da quella adottata da  [[URL SITO]] e che che quindi **non risponde** di questi siti.
 
 * * *
 
-## Cookie utilizzati da www.mio.com
+## Cookie utilizzati da  [[URL SITO]]
 
 A seguire la lista di cookie tecnici e di analytics utilizzati da questo Sito:
 
@@ -154,7 +154,7 @@ Per maggiori informazioni visita la [pagina dedicata](http://help.opera.com/Wind
 
 Questa pagina è visibile, mediante link in calce in tutte le pagine del Sito ai sensi dell’art. 122 secondo comma del D.lgs. 196/2003 e a seguito delle modalità semplificate per l’informativa e l’acquisizione del consenso per l’uso dei cookie pubblicata sulla Gazzetta Ufficiale n.126 del 3 giugno 2014 e relativo registro dei provvedimenti n.229 dell’8 maggio 2014.
 
-Inoltre puoi leggere la nostra informativa sulla privacy da qui [privacy](http://mio.com/privacy)
+Inoltre puoi leggere la nostra informativa sulla privacy da qui [privacy](http://www.mio.com/privacy)
 
 <span style="font-size: 12pt;">  
 <span style="font-size: 12pt;">Per eliminare i cookie dal browser Internet del proprio smartphone/tablet, è necessario fare riferimento al manuale d'uso del dispositivo.</span>
