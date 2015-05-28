@@ -1,17 +1,17 @@
 ## Uso dei cookie
 
- [[URL SITO]] o il “**Sito**” utilizza i Cookie per rendere i propri servizi semplici e efficienti per l’utenza che visiona le pagine di  [[URL SITO]].  
+**[[URL SITO]]** o il “**Sito**” utilizza i Cookie per rendere i propri servizi semplici e efficienti per l’utenza che visiona le pagine di **[[URL SITO]]**.  
  Gli utenti che visionano il Sito, vedranno inserite delle **quantità minime di informazioni** nei dispositivi in uso, che siano computer e periferiche mobili, in piccoli file di testo denominati “cookie” salvati nelle directory utilizzate dal browser web dell’Utente.  
  Vi sono **vari tipi di cookie**, alcuni per rendere più efficace l’uso del Sito, altri per abilitare determinate funzionalità.  
  Analizzandoli in maniera particolareggiata i nostri cookie permettono di:
 
 *   memorizzare le preferenze inserite
 *   evitare di reinserire le stesse informazioni più volte durante la visita quali ad esempio nome utente e password
-*   analizzare l’utilizzo dei servizi e dei contenuti forniti da  [[URL SITO]] per ottimizzarne l’esperienza di navigazione e i servizi offerti
+*   analizzare l’utilizzo dei servizi e dei contenuti forniti da **[[URL SITO]]** per ottimizzarne l’esperienza di navigazione e i servizi offerti
 
-## Tipologie di Cookie utilizzati da  [[URL SITO]]
+## Tipologie di Cookie utilizzati da **[[URL SITO]]**
 
-A seguire i vari tipi di cookie utilizzati da  [[URL SITO]] in funzione delle finalità d’uso
+A seguire i vari tipi di cookie utilizzati da **[[URL SITO]]** in funzione delle finalità d’uso
 
 ### Cookie Tecnici
 
@@ -24,7 +24,7 @@ Questi cookie, inviati sempre dal nostro dominio, **sono necessari a visualizzar
 
 ### Cookie analitici
 
-I cookie in questa categoria vengono utilizzati per **collezionare informazioni sull’uso del sito**.  [[URL SITO]] userà queste informazioni in merito ad **analisi statistiche anonime** al fine di migliorare l’utilizzo del Sito e per rendere i contenuti più interessanti e attinenti ai desideri dell’utenza. Questa tipologia di cookie raccoglie dati in **forma anonima** sull’attività dell’utenza e su come è arrivata sul Sito. I cookie analitici sono inviati dal Sito Stesso o da domini di terze parti.
+I cookie in questa categoria vengono utilizzati per **collezionare informazioni sull’uso del sito**. **[[URL SITO]]** userà queste informazioni in merito ad **analisi statistiche anonime** al fine di migliorare l’utilizzo del Sito e per rendere i contenuti più interessanti e attinenti ai desideri dell’utenza. Questa tipologia di cookie raccoglie dati in **forma anonima** sull’attività dell’utenza e su come è arrivata sul Sito. I cookie analitici sono inviati dal Sito Stesso o da domini di terze parti.
 
 ### Cookie di analisi di servizi di terze parti
 
@@ -37,11 +37,11 @@ Questa tipologia di cookie **integra funzionalità sviluppate da terzi** all’i
 ### Cookie di profilazione
 
 Sono quei cookie necessari a creare profili utenti al fine di inviare messaggi pubblicitari in linea con le preferenze manifestate dall’utente all’interno delle pagine del Sito.  
-  [[URL SITO]] **non utilizza cookie di profilazione**.
+ **[[URL SITO]]** **non utilizza cookie di profilazione**.
 
 * * *
 
- [[URL SITO]], secondo la normativa vigente, non è tenuto a chiedere consenso per i **cookie tecnici** e di **analytics**, in quanto necessari a fornire i servizi richiesti.
+**[[URL SITO]]**, secondo la normativa vigente, non è tenuto a chiedere consenso per i **cookie tecnici** e di **analytics**, in quanto necessari a fornire i servizi richiesti.
 
 Per tutte le altre tipologie di cookie il consenso può essere espresso dall’Utente con una o più di una delle seguenti modalità:
 
@@ -52,16 +52,16 @@ Entrambe queste soluzioni potrebbero impedire all’utente di utilizzare o visua
 
 **Siti Web e servizi di terze parti**
 
-Il Sito potrebbe contenere collegamenti ad altri siti Web che dispongono di una propria informativa sulla privacy che può essere diverse da quella adottata da  [[URL SITO]] e che che quindi **non risponde** di questi siti.
+Il Sito potrebbe contenere collegamenti ad altri siti Web che dispongono di una propria informativa sulla privacy che può essere diverse da quella adottata da www.mio.com e che che quindi **non risponde** di questi siti.
 
 * * *
 
-## Cookie utilizzati da  [[URL SITO]]
+## Cookie utilizzati da **[[URL SITO]]**
 
 A seguire la lista di cookie tecnici e di analytics utilizzati da questo Sito:
 
-*   metti qui i tuoi cookie utilizzati
-*   elenca anche i cookie di terze parti quii
+*   cookiebello
+*   cookiefresco
 
 * * *
 
@@ -70,7 +70,7 @@ Come disabilitare i cookie mediante configurazione del browser
 **Chrome**
 
 1.  Eseguire il Browser Chrome
-2.  Fare click sul menù ![chrome impostazioni](http://www.mio.com/wp-content/uploads/2014/06/chrome-impostazioni.png)presente nella barra degli strumenti del browser a fianco della finestra di inserimento url per la navigazione
+2.  Fare click sul menù presente nella barra degli strumenti del browser a fianco della finestra di inserimento url per la navigazione
 3.  Selezionare **Impostazioni**
 4.  Fare clic su **Mostra Impostazioni Avanzate**
 5.  Nella sezione “Privacy” fare clic su bottone “**Impostazioni contenuti**“
@@ -87,7 +87,7 @@ Per maggiori informazioni visita la [pagina dedicata](https://support.google.com
 **Mozilla Firefox**
 
 1.  Eseguire il Browser Mozilla Firefox
-2.  Fare click sul menù [![firefox impostazioni](http://www.mio.com/wp-content/uploads/2014/06/firefox-impostazioni.png)](http://www.mio.com/wp-content/uploads/2014/06/firefox-impostazioni.png)presente nella barra degli strumenti del browser a fianco della finestra di inserimento url per la navigazione
+2.  Fare click sul menù presente nella barra degli strumenti del browser a fianco della finestra di inserimento url per la navigazione
 3.  Selezionare **Opzioni**
 4.  Seleziona il pannello **Privacy**
 5.  Fare clic su **Mostra Impostazioni Avanzate**
@@ -140,7 +140,7 @@ Per maggiori informazioni visita la [pagina dedicata](http://support.apple.com/k
     *   Accetta i cookie solo dal sito che si visita: i cookie di terze parti e che vengono inviati da un dominio diverso da quello che si sta visitando verranno rifiutati
     *   Non accettare mai i cookie: tutti i cookie non verranno mai salvati
 
-Per maggiori informazioni visita la [pagina dedicata](http://help.opera.com/Windows/10.00/it/cookies.html).
+Per maggiori informazioni visita la [pagina dedicata](http://windows.microsoft.com/it-it/windows-vista/block-or-allow-cookies).
 
 * * *
 
@@ -154,11 +154,9 @@ Per maggiori informazioni visita la [pagina dedicata](http://help.opera.com/Wind
 
 Questa pagina è visibile, mediante link in calce in tutte le pagine del Sito ai sensi dell’art. 122 secondo comma del D.lgs. 196/2003 e a seguito delle modalità semplificate per l’informativa e l’acquisizione del consenso per l’uso dei cookie pubblicata sulla Gazzetta Ufficiale n.126 del 3 giugno 2014 e relativo registro dei provvedimenti n.229 dell’8 maggio 2014.
 
-Inoltre puoi leggere la nostra informativa sulla privacy da qui [privacy](http://www.mio.com/privacy)
+Inoltre puoi leggere la nostra informativa sulla privacy da qui [privacy](http://example.org/privacy)
 
-<span style="font-size: 12pt;">  
-<span style="font-size: 12pt;">Per eliminare i cookie dal browser Internet del proprio smartphone/tablet, è necessario fare riferimento al manuale d'uso del dispositivo.</span>
+Questi cookie, inviati sempre dal nostro dominio, **sono necessari a visualizzare correttamente il sito** e in relazione ai servizi tecnici offerti, verranno quindi **sempre utilizzati e inviati**, a meno che l’utenza non modifichi le impostazioni nel proprio browser (inficiando così la visualizzazione delle pagine del sito).
 
-_<span style="font-size: 12pt;">Questa pagina è visibile, mediante link presente in tutte le pagine del Sito ai sensi dell'art. 122 secondo comma del D.lgs. 196/2003 e a seguito delle modalità semplificate per l'informativa e l'acquisizione del consenso per l'uso dei cookie pubblicata sulla Gazzetta Ufficiale n.126 del 3 giugno 2014 e relativo registro dei provvedimenti n.229 dell'8 maggio 2014.</span>_
-
-</span>
+ 
+Per eliminare i cookie dal browser Internet del proprio smartphone/tablet, è necessario fare riferimento al manuale d'uso del dispositivo.
