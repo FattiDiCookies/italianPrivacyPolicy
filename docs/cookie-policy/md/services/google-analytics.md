@@ -8,7 +8,7 @@ Il sito **[[NOME SITO]]** non profila in prima parte e non ha accordi con Google
 Questo sito utilizza il sistema Google Analytics in modalità anonima.
 Attraverso questa modalità di utilizzo Google registrerà l’indirizzo IP dell’utente in forma non estesa, garantendo quindi l’anonimato dell’utente. Questa modalità è attiva solo all’interno dei paesi facenti parte della Comunità Europea.
 
-##### Link di riferimento
+##### Google Analytics - Link di riferimento 
 * [http://www.google.com/intl/it_ALL/analytics/learn/privacy.html](http://www.google.com/intl/it_ALL/analytics/learn/privacy.html)
 * [https://support.google.com/analytics/answer/6004245?hl=it](https://support.google.com/analytics/answer/6004245?hl=it)
 * [https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage](https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage)

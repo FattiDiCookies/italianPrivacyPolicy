@@ -4,6 +4,6 @@ I servizio *YouTube* installa alcuni cookie tecnici utilizzati solo per il funzi
 **[[NOME SITO]]** non usa i cookie rilasciati da *YouTube* per profilare in prima persona, né ha accordi con *YouTube* per la profilazione in prima persona.<br>
 Per ulteriori informazioni su questi cookie o per la loro rimozione, vedi i link di riferimento 
 
-##### Link di riferimento
+##### YouTube - Link di riferimento
 * [https://www.google.it/intl/it/policies/technologies/cookies/]( https://www.google.it/intl/it/policies/technologies/cookies/)
 * [https://www.google.it/intl/it/policies/technologies/managing/](https://www.google.it/intl/it/policies/technologies/managing/)
