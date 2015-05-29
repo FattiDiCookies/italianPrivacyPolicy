@@ -12,3 +12,4 @@ Attraverso questa modalità di utilizzo Google registrerà l’indirizzo IP dell
 * [http://www.google.com/intl/it_ALL/analytics/learn/privacy.html](http://www.google.com/intl/it_ALL/analytics/learn/privacy.html)
 * [https://support.google.com/analytics/answer/6004245?hl=it](https://support.google.com/analytics/answer/6004245?hl=it)
 * [https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage](https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage)
+* [https://tools.google.com/dlpage/gaoptout?hl=en=GB](https://tools.google.com/dlpage/gaoptout?hl=en=GB)
