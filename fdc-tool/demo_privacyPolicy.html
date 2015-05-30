@@ -4,13 +4,9 @@
 <div id="privacyPolicy" class="privacy-policy"></div>
 
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="js/italianPrivacyPolicy.js"></script>
 <script src="js/jquery.fdCookieLaw.js"></script>
 <script> 
-    //$(document).on('ready',setPrivacy('#privacyPolicy','config.json')); 
     $(document).on('ready',function() {
-        //var tool = new fdcCookieLawTool();
-        //policy = tool.getPrivacy();
-        $('#privacyPolicy').fdCookieLaw();
+        $('#privacyPolicy').fdCookieLaw({page:"privacy"});
     }); 
 </script>
