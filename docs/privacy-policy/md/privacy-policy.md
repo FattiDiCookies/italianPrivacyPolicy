@@ -8,7 +8,7 @@ Il presente testo illustra la nostra politica sul trattamento dei dati personali
 
 ## 1) Tipologia dei dati raccolti
 
-I dati personali inviati attraverso i moduli di contatto e/o gli altri servizi presenti nel sito **[[NOME SITO]]** sono i seguenti: **[[esempio di dati raccolti: nome e cognome; numero di telefono (quando fornito); indirizzo di posta elettronica]]**.
+I dati personali inviati attraverso i moduli di contatto e/o gli altri servizi presenti nel sito **[[NOME SITO]]** sono i seguenti: **[[DATI PERSONALI]]**.
 
 ### 1.1) Obbligatorietà del consenso
 
@@ -34,7 +34,7 @@ I dati raccolti saranno conservati in forma digitale negli archivi della societ�
 ## 3) Responsabile del trattamento dei dati personali
 
 I dati personali saranno conservati e trattati dalla società:  
-**[[SOCIETA' RESPONSABILE]]**  
+**[[SOCIETA-RESPONSABILE]]** [[INDIRIZZO]] [[PIVA]] 
 nella persona di **[[NOME E COGNOME DEL RESPONSABILE]]** e suoi eventuali delegati.  
 **I dati personali inviati non saranno ceduti a soggetti terzi non facenti capo ai soggetti appena indicati.**
 
@@ -42,20 +42,20 @@ nella persona di **[[NOME E COGNOME DEL RESPONSABILE]]** e suoi eventuali delega
 
 Ricordiamo che i diritti di seguito riportati sono previsti dall'**art.7 del d.leg.n.196/2003**
 
-**4.1) L’interessato ha il diritto di ottenere:**
+### 4.1) L’interessato ha il diritto di ottenere:**
 
 1.  l'aggiornamento, la rettificazione ovvero, quando vi ha interesse, l'integrazione dei dati;
 2.  la cancellazione, la trasformazione in forma anonima o il blocco dei dati trattati in violazione di legge, compresi quelli di cui non è necessaria la conservazione in relazione agli scopi per i quali i dati sono stati raccolti o successivamente trattati;
 3.  l'attestazione che le operazioni di cui ai punti **1** e **2** sono state portate a conoscenza, anche per quanto riguarda il loro contenuto, di coloro ai quali i dati sono stati comunicati o diffusi, eccettuato il caso in cui tale adempimento si rivela impossibile o comporta un impiego di mezzi manifestamente sproporzionato rispetto al diritto tutelato.
 
-**4.2) L'interessato ha diritto di opporsi, in tutto o in parte:**
+### 4.2) L'interessato ha diritto di opporsi, in tutto o in parte:**
 
 *   per motivi legittimi al trattamento dei dati personali che lo riguardano, ancorché pertinenti allo scopo della raccolta;
 *   al trattamento di dati personali che lo riguardano a fini di invio di materiale pubblicitario o di vendita diretta o per il compimento di ricerche di mercato o di comunicazione commerciale.
 
 ## 5) Esercizio dei diritti
 
-L'esercizio dei diritti (di cui all'art.7 del d.leg.n.196/03) descritto nei paragrafi **4.1** e **4.2** potrà effettuarsi attraverso specifica comunicazione al responsabile del trattamento di  **[[NOME E COGNOME DEL RESPONSABILE]]** c/o **[[SOCIETA' RESPONSABILE]]**  
+L'esercizio dei diritti (di cui all'art.7 del d.leg.n.196/03) descritto nei paragrafi **4.1** e **4.2** potrà effettuarsi attraverso specifica comunicazione al responsabile del trattamento di  **[[NOME E COGNOME DEL RESPONSABILE]]** c/o **[[SOCIETA-RESPONSABILE]]** [[INDIRIZZO]] <br>
 oppure inviando una eMail a **[[EMAIL DI CONTATTO]]**
 
 ## 6) Conclusione
