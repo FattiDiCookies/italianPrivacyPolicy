@@ -69,6 +69,8 @@
                                     plugin.getCookiePolicy(data);
                                     break;
                             }
+                            
+                            plugin.getCookieBanner(data,plugin);
                         },
                         error: function() {
                             if(plugin.settings.debug === true) console.log(pluginName + ": ajax error loading config file");
@@ -131,7 +133,7 @@
                             markup = markup.replace(/\[\[EMAIL DI CONTATTO\]\]/g, config.globals.site.email);
                             markup = markup.replace(/\[\[DATI PERSONALI\]\]/g, personalDataMarkup);
                             markup = markup.replace(/\[\[SCOPI RACCOLTA DATI\]\]/g, purposesMarkup);
-
+                            
                             $(plugin.element).html(markup);
                         },
                         error: function() {
@@ -160,40 +162,114 @@
                             markup = markup.replace(/\[\[URL SITO\]\]/g, config.globals.site.url);
                             markup = markup.replace(/\[\[ELENCO SERVIZI\]\]/g, '<div id="cookiePolicyServices" class=""></div>');
                             
+                            
                             $(plugin.element).html(markup);
                             
                             $.each(config.cookiePolicy.services, function(key, value) {
                                 if (value === true) {
-                                    /*$.ajax({
-                                        url:plugin.cookieSERVICES + key + ".html",
+                                    $.ajax({
+                                        url:plugin.cookieSERVICES + key + ".html" ,
                                         dataType: 'html',
                                         async: false,
                                         success: function(data) {
-                                            servicesMarkup += data;
+                                            data = data.replace(/\[\[NOME SITO\]\]/g, config.globals.site.name);
+                                            data = data.replace(/\[\[URL SITO\]\]/g, config.globals.site.url);
+                                            console.log(data);
+                                            $('#cookiePolicyServices').append(data);
                                         },
                                         error: function() {
                                             console.log('error');
                                         }
                                         
-                                    });*/
-                                    $.get(plugin.cookieSERVICES + key + ".html" , function( data ) {
+                                    });
+                                    
+                                    /*$.get(plugin.cookieSERVICES + key + ".html" , function( data ) {
                                         data = data.replace(/\[\[NOME SITO\]\]/g, config.globals.site.name);
                                         data = data.replace(/\[\[URL SITO\]\]/g, config.globals.site.url);
+                                        console.log(data);
                                         $('#cookiePolicyServices').append(data);
-                                    });
+                                    });*/
                                 }
                             });
-                            
-                            console.log(servicesMarkup);
-                            
-                            //$(plugin.element).html(markup);
+            
                         },
                         error: function () {
                             if(plugin.settings.debug === true) console.log(pluginName + ": ajax error loading cookie policy file");
                             $(plugin.element).html('<h1>Error!</h1>');
                         } 
                      });//end ajax
+                },
+            
+                /* ================================================= */
+                /* COOKIE BANNER GENERATOR */
+                /* ================================================= */
+                getCookieBanner: function (config,plugin) {
+                    var bannerMarkup = '';
+                        bannerMarkup += '<div id="fdCookieLawBanner" class="fdc-cookielaw__banner">';
+                        bannerMarkup += '   <div class="fdc-cookielaw__banner-text">';
+                        bannerMarkup += '       Questo sito non fa uso di cookie per la profilazione in prima persona.<br>Questo sito fa però uso di cookie tecnici. Questo sito utilizza inoltre embed di codice e servizi esterni. Nell\'informativa estesa sono disponibili i link alle terze parti ove negare i cookies dei terzi che possono profilare se attivati dall\'utente sul sito del terzo.<br>Procedendo nella navigazione o cliccando su "Accetto" si acconsente all\'uso dei cookie.';
+                        bannerMarkup += '   </div>';
+                        bannerMarkup += '   <div class="fdc-cookielaw__banner-buttons">';
+                        bannerMarkup += '       <a href="'+ config.cookiePolicy.url +'" class="button privacy">Cookie Policy</a>';
+                        bannerMarkup += '       <a href="#" id="cookieAccept" class="button accept close" href="'+ config.cookiePolicy.url +'" class="button privacy">Accetto</a>';
+                        bannerMarkup += '   </div>';
+                        bannerMarkup += '</div>';
+                    
+                    $('body').append(bannerMarkup);
+                    $('body').promise().done(function() {
+                        setTimeout(function() {
+                            $('#fdCookieLawBanner').addClass('showBanner');
+                        }, 100);
+                    });
+                    
+                    $('.close').on('click', function(e) {
+                        e.preventDefault();
+                        $('#fdCookieLawBanner').removeClass('showBanner');
+                    });
+                    
+                    $(window).on('scroll', function() {
+                        $('#fdCookieLawBanner').removeClass('showBanner');
+                    });
+                    
+                    plugin.writeCookie("cookieTest","ready",1);
+                    plugin.readCookie("cookieTest");
+                },
+                
+                /* ============================================================ */
+                /* Cookie Handler */
+                /* ============================================================ */
+                
+                cookieHunter: function (cname,cvalue,plugin) {
+                    cookieVal = plugin.readCookie(cname);
+                    if (cookieVal != undefined && cookieVal != cvalue) {
+                        plugin.getCookieBanner();
+                    }
+                },
+                
+                writeCookie: function(cname, cvalue, exdays) {
+                    
+                    if(this.settings.debug === true) console.log(pluginName + ': writeCookie(' + cname + ' ' + cvalue + ' ' + exdays +')');
+                    
+                    var d = new Date();
+                    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+                    var expires = "expires="+d.toUTCString();
+                    document.cookie = cname + "=" + cvalue + "; " + expires;
+                },
+            
+                readCookie: function(cname) {
+                    
+                    if(this.settings.debug === true) console.log(pluginName + ': readCookie(' + cname + ')');
+                    
+                    var name = cname + "=";
+                    var ca = document.cookie.split(';');
+                    for(var i=0; i<ca.length; i++) {
+                        var c = ca[i];
+                        while (c.charAt(0)==' ') c = c.substring(1);
+                        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+                    }
+                    return "";
                 }
+
             
 		});
 

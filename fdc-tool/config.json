@@ -22,17 +22,24 @@
     },
     
     "cookiePolicy": {
+        "url": "demo_cookiePolicy.html",
+        "siteSettings": {
+            "techCookies": true,
+            "profCookies": true,
+            "embedCode": true
+        },
         "services": {
             "google-analytics": true,
             "google-maps": true,
             "sharethis": true,
             "vimeo": true,
-            "youtube": true
+            "youtube": true,
+            "social-networks": false
         }
     },
     
     "privacyPolicy": {
-        
+        "url": "demo_privacyPolicy.html",
         "personalData": [
             "Nome e Cognome",
             "data di nascita",
