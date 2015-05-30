@@ -70,7 +70,10 @@
                                     break;
                             }
                             
-                            plugin.getCookieBanner(data,plugin);
+                            //cookieHunter: function (cname,cvalue,plugin)
+                            
+                            plugin.cookieHunter(data.cookieBanner.cookieName,data.cookieBanner.cookieValue,plugin,data)
+                            //plugin.getCookieBanner(data,plugin);
                         },
                         error: function() {
                             if(plugin.settings.debug === true) console.log(pluginName + ": ajax error loading config file");
@@ -170,11 +173,9 @@
                                     $.ajax({
                                         url:plugin.cookieSERVICES + key + ".html" ,
                                         dataType: 'html',
-                                        async: false,
                                         success: function(data) {
                                             data = data.replace(/\[\[NOME SITO\]\]/g, config.globals.site.name);
                                             data = data.replace(/\[\[URL SITO\]\]/g, config.globals.site.url);
-                                            console.log(data);
                                             $('#cookiePolicyServices').append(data);
                                         },
                                         error: function() {
@@ -203,11 +204,11 @@
                 /* ================================================= */
                 /* COOKIE BANNER GENERATOR */
                 /* ================================================= */
-                getCookieBanner: function (config,plugin) {
+                getCookieBanner: function (config,plugin,bannerData) {
                     var bannerMarkup = '';
                         bannerMarkup += '<div id="fdCookieLawBanner" class="fdc-cookielaw__banner">';
                         bannerMarkup += '   <div class="fdc-cookielaw__banner-text">';
-                        bannerMarkup += '       Questo sito non fa uso di cookie per la profilazione in prima persona.<br>Questo sito fa però uso di cookie tecnici. Questo sito utilizza inoltre embed di codice e servizi esterni. Nell\'informativa estesa sono disponibili i link alle terze parti ove negare i cookies dei terzi che possono profilare se attivati dall\'utente sul sito del terzo.<br>Procedendo nella navigazione o cliccando su "Accetto" si acconsente all\'uso dei cookie.';
+                        bannerMarkup +=         config.cookieBanner.text;
                         bannerMarkup += '   </div>';
                         bannerMarkup += '   <div class="fdc-cookielaw__banner-buttons">';
                         bannerMarkup += '       <a href="'+ config.cookiePolicy.url +'" class="button privacy">Cookie Policy</a>';
@@ -225,24 +226,28 @@
                     $('.close').on('click', function(e) {
                         e.preventDefault();
                         $('#fdCookieLawBanner').removeClass('showBanner');
+                        plugin.writeCookie(bannerData.cname,bannerData.cvalue,bannerData.exdays);
                     });
                     
-                    $(window).on('scroll', function() {
+                    $(window).one('scroll', function() {
                         $('#fdCookieLawBanner').removeClass('showBanner');
+                        plugin.writeCookie(bannerData.cname,bannerData.cvalue,bannerData.exdays);
                     });
-                    
-                    plugin.writeCookie("cookieTest","ready",1);
-                    plugin.readCookie("cookieTest");
                 },
                 
                 /* ============================================================ */
                 /* Cookie Handler */
                 /* ============================================================ */
                 
-                cookieHunter: function (cname,cvalue,plugin) {
-                    cookieVal = plugin.readCookie(cname);
+                cookieHunter: function (cname,cvalue,plugin,config) {
+                    var cookieVal = plugin.readCookie(cname);
+                    var bannerData = {
+                        cname: cname,
+                        cvalue: cvalue,
+                        exdays: config.cookieBanner.cookieExpire
+                    }
                     if (cookieVal != undefined && cookieVal != cvalue) {
-                        plugin.getCookieBanner();
+                        plugin.getCookieBanner(config,plugin,bannerData);
                     }
                 },
                 
