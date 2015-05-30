@@ -60,8 +60,7 @@ Il Sito potrebbe contenere collegamenti ad altri siti Web che dispongono di una 
 
 A seguire la lista di cookie tecnici e di analytics utilizzati da questo Sito:
 
-*   cookiebello
-*   cookiefresco
+**[[ELENCO SERVIZI]]**
 
 * * *
 
