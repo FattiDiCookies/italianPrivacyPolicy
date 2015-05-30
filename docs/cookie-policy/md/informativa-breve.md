@@ -1,6 +1,8 @@
 ## Esempi di Informative Brevi
 *Scegliere la parte di testo più adatta al proprio sito*.
 
+***
+
 ###Sito senza cookies e senza embed
 Non ci sono cookies, nessuna informativa e' dovuta.
 
