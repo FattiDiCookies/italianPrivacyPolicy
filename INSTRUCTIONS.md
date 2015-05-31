@@ -26,3 +26,9 @@ Per sapere come installarli e configurarli fai riferimento ai siti dei progetti 
 > grunt --force 
 
 6. il file corrispondente nella cartella docs/cookie-policy/html/services/ è cambiato in modo da rispecchiare le tue modifiche 
+
+### Attenzione
+Prima di iniziare a modificare leggi il [wiki del progetto] (https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki)
+Per il momento tutti i commit avvengono sul master, questo almeno fino a che il progetto non sarà abbastanza stabile, per permettere a tutti di contribuire in maniera efficiente, consulta spesso le [issue] (https://github.com/FattiDiCookies/italianPrivacyPolicy/issues) e tieni il tuo repository locale il più possibile sincronizzato con quello remoto.
+
+Grazie e buon lavoro!
