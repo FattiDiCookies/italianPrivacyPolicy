@@ -1,5 +1,9 @@
 ## Uso dei cookie
 
+Con la presente pagina, redatta ai sensi degli **artt. 13 e 122 del D.Lgs. 196/2003 (“codice privacy”)**, e a seguito delle modalità semplificate per l'informativa e l'acquisizione del consenso per l'utilizzo dei cookie, pubblicate sulla *Gazzetta Ufficiale n.126 del 3 giugno 2014* e prevista dal provvedimento generale del *Garante Privacy dell'8 Maggio 2014*, **[[NOME E COGNOME DEL RESPONSABILE]]**, titolare del trattamento dei dati personali, fornisce agli utenti del sito **[[NOME SITO]]**  un'informativa dettagliata su cosa sono i Cookie e sul loro utilizzo all'interno di questo sito.
+
+***
+
 **[[URL SITO]]** o il “**Sito**” utilizza i Cookie per rendere i propri servizi semplici e efficienti per l’utenza che visiona le pagine di **[[URL SITO]]**.  
  Gli utenti che visionano il Sito, vedranno inserite delle **quantità minime di informazioni** nei dispositivi in uso, che siano computer e periferiche mobili, in piccoli file di testo denominati “cookie” salvati nelle directory utilizzate dal browser web dell’Utente.  
  Vi sono **vari tipi di cookie**, alcuni per rendere più efficace l’uso del Sito, altri per abilitare determinate funzionalità.  
