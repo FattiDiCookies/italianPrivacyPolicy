@@ -18,7 +18,9 @@
 				defaults = {
 				    config: "config.json",
                     docs: "docs/",
-                    page: "cookie",
+                    page: "",
+                    banner: "",
+                    bannerPosition: "top",
                     debug: true
 		};
 
@@ -34,6 +36,7 @@
 				this._name = pluginName;
                 this.privacyDOC = this.settings.docs + "privacy-policy/html/privacy-policy.html";
                 this.cookieDOC = this.settings.docs + "cookie-policy/html/informativa-estesa.html";
+                this.cookieBANNER = this.settings.docs + "cookie-policy/html/banner/";
                 this.cookieSERVICES = this.settings.docs + "cookie-policy/html/services/";
 				this.init(); 
                     
@@ -48,7 +51,8 @@
 						// and this.settings
 						// you can add more functions like the one below and
 						// call them like so: this.yourOtherFunction(this.element, this.settings).
-						
+					
+                    // **** DEBUG **** 
                     if(this.settings.debug === true) console.log(pluginName + ": start... loading config");
                     
                     var plugin = this;
@@ -58,6 +62,7 @@
                         dataType: 'json',
                         success: function (data) {
                             
+                            // Cookie or Privacy policy
                             switch(plugin.settings.page) {
                                 case "privacy" :
                                     plugin.getPrivacyPolicy(data);
@@ -66,30 +71,54 @@
                                     plugin.getCookiePolicy(data);
                                     break;
                                 default:
-                                    plugin.getCookiePolicy(data);
+                                    //plugin.getCookiePolicy(data);
                                     break;
                             }
                             
-                            //cookieHunter: function (cname,cvalue,plugin)
+                            // Cookie Banner 
                             
-                            plugin.cookieHunter(data.cookieBanner.cookieName,data.cookieBanner.cookieValue,plugin,data)
-                            //plugin.getCookieBanner(data,plugin);
+                            var bannerData = {
+                                cname: data.cookieBanner.cookieName,
+                                cvalue: data.cookieBanner.cookieValue,
+                                exdays: data.cookieBanner.cookieExpire,
+                                acceptOnScroll: data.cookieBanner.acceptOnScroll
+                            }
+                            
+                            
+                            if(plugin.settings.banner === true) {
+                                bannerData.position = plugin.settings.bannerPosition;
+                                //plugin.cookieHunter(plugin,data,bannerData)
+                                plugin.getBannerText(plugin,data,bannerData);
+                            }
+                            
+                            if(plugin.settings.banner === "" && data.cookieBanner.active === true) {
+                                bannerData.position = data.cookieBanner.position;
+                                //plugin.cookieHunter(plugin,data,bannerData)
+                                plugin.getBannerText(plugin,data,bannerData);
+                            }
+
                         },
                         error: function() {
+                            
+                            // **** DEBUG **** 
                             if(plugin.settings.debug === true) console.log(pluginName + ": ajax error loading config file");
+                            
                             $(plugin.element).html('<h1>Error!</h1>');
+                            
                         }
                     });// end ajax
                     
                     
 				},
             
-                /* ================================================= */
+                /* ========================================================= */
                 /* PRIVACY POLICY GENERATOR */
-                /* ================================================= */
+                /* This function generates a dynamical Privacy Policy */
+                /* ========================================================= */
 				getPrivacyPolicy: function (config) {
                     
-                    if(this.settings.debug === true) console.log(pluginName + ": getPrivacyPolicy()");
+                    // **** DEBUG **** 
+                    if(this.settings.debug === true) console.log(pluginName + ": getPrivacyPolicy() --> load page");
                     
                     var plugin = this;
                     
@@ -140,15 +169,19 @@
                             $(plugin.element).html(markup);
                         },
                         error: function() {
-                            if(plugin.settings.debug === true) console.log(pluginName + ": ajax error loading privacy policy file");
+                            
+                            // **** DEBUG **** 
+                            if(plugin.settings.debug === true) console.log(pluginName + ": getPrivacyPolicy() --> ajax error loading privacy policy file");
+                            
                             $(plugin.element).html('<h1>Error!</h1>');
                         }
                     });
 				},
             
-                /* ================================================= */
+                /* ==================================================== */
                 /* COOKIE POLICY GENERATOR */
-                /* ================================================= */
+                /* This function generates a dynamical Cookie Policy    */
+                /* ==================================================== */
                 getCookiePolicy: function (config) {
                     
                     if(this.settings.debug === true) console.log(pluginName + ": getCookiePolicy()");
@@ -183,13 +216,6 @@
                                         }
                                         
                                     });
-                                    
-                                    /*$.get(plugin.cookieSERVICES + key + ".html" , function( data ) {
-                                        data = data.replace(/\[\[NOME SITO\]\]/g, config.globals.site.name);
-                                        data = data.replace(/\[\[URL SITO\]\]/g, config.globals.site.url);
-                                        console.log(data);
-                                        $('#cookiePolicyServices').append(data);
-                                    });*/
                                 }
                             });
             
@@ -201,14 +227,15 @@
                      });//end ajax
                 },
             
-                /* ================================================= */
+                /* ====================================================== */
                 /* COOKIE BANNER GENERATOR */
-                /* ================================================= */
+                /* This function generates a cookie info banner */
+                /* ====================================================== */
                 getCookieBanner: function (config,plugin,bannerData) {
                     var bannerMarkup = '';
-                        bannerMarkup += '<div id="fdCookieLawBanner" class="fdc-cookielaw__banner">';
+                        bannerMarkup += '<div id="fdCookieLawBanner" class="fdc-cookielaw__banner '+ bannerData.position +'Banner">';
                         bannerMarkup += '   <div class="fdc-cookielaw__banner-text">';
-                        bannerMarkup +=         config.cookieBanner.text;
+                        bannerMarkup +=         bannerData.text;
                         bannerMarkup += '   </div>';
                         bannerMarkup += '   <div class="fdc-cookielaw__banner-buttons">';
                         bannerMarkup += '       <a href="'+ config.cookiePolicy.url +'" class="button privacy">Cookie Policy</a>';
@@ -229,28 +256,105 @@
                         plugin.writeCookie(bannerData.cname,bannerData.cvalue,bannerData.exdays);
                     });
                     
-                    $(window).one('scroll', function() {
-                        $('#fdCookieLawBanner').removeClass('showBanner');
-                        plugin.writeCookie(bannerData.cname,bannerData.cvalue,bannerData.exdays);
-                    });
+                    if (bannerData.acceptOnScroll === true) {
+                        $(window).one('scroll', function() {
+                            $('#fdCookieLawBanner').removeClass('showBanner');
+                            plugin.writeCookie(bannerData.cname,bannerData.cvalue,bannerData.exdays);
+                        });
+                    }
                 },
+            
+            
+            
+                /* ========================================================= */
+                /* BANNER TEXT */
+                /* Get the right banner text */
+                /* ========================================================= */
+                getBannerText: function (plugin,config,bannerData) {
+                    
+                    if (config.cookieBanner.text.customText === false || config.cookieBanner.text.customText == "") {
+                        
+                        // **** DEBUG **** 
+                        if(plugin.settings.debug === true) console.log(pluginName + ': getBannerText() -> load text');
+                        
+                        // Technical
+                        if (config.cookieBanner.text.techCookies === true && config.cookieBanner.text.profCookies === false && config.cookieBanner.text.embedCode === false)  {
+                            var bannerTextFile = "banner_tech.html";
+                        }
+                        
+                        // Technical + Profiling + Embed
+                        if (config.cookieBanner.text.techCookies === true && config.cookieBanner.text.profCookies === true && config.cookieBanner.text.embedCode === true)  {
+                            var bannerTextFile = "banner_tech-embed-prof.html";
+                        }
+                        
+                        // Technical + Embed
+                        if (config.cookieBanner.text.techCookies === true && config.cookieBanner.text.profCookies === false && config.cookieBanner.text.embedCode === true)  {
+                            var bannerTextFile = "banner_tech-embed.html";
+                        }
+                        
+                        // Technical + Profiling
+                        if (config.cookieBanner.text.techCookies === true && config.cookieBanner.text.profCookies === true && config.cookieBanner.text.embedCode === false)  {
+                            var bannerTextFile = "banner_tech-prof.html";
+                        }
+                        
+                        // Profiling + Embed
+                        if (config.cookieBanner.text.techCookies === false && config.cookieBanner.text.profCookies === true && config.cookieBanner.text.embedCode === true)  {
+                            var bannerTextFile = "banner_embed-prof.html";
+                        }
+                        
+                        $.ajax({
+                            
+                            url: plugin.cookieBANNER + bannerTextFile,
+                            dataType: 'html',
+                            success: function (data) {
+                                bannerData.text = data;
+                                plugin.cookieHunter(plugin,config,bannerData);
+                            },
+                            error: function() {
+                                // **** DEBUG **** 
+                                if(plugin.settings.debug === true) console.log(pluginName + ': getBannerText() -> ajax error on banner text loading!');
+                            }
+                            
+                        });//end ajax
+                        
+                    } else {
+                        
+                        // **** DEBUG **** 
+                        if(plugin.settings.debug === true) console.log(pluginName + ': getBannerText() -> load custom text');
+                       
+                        bannerData.text = config.cookieBanner.text.customText;
+                        plugin.cookieHunter(plugin,config,bannerData);
+                    }
+                    
+                    
+                },
+            
+
                 
-                /* ============================================================ */
-                /* Cookie Handler */
-                /* ============================================================ */
+                /* ############################################################ */
+                /* Cookie Handlers */
+                /* ############################################################ */
                 
-                cookieHunter: function (cname,cvalue,plugin,config) {
-                    var cookieVal = plugin.readCookie(cname);
-                    var bannerData = {
+            
+                /* ============================================================ */
+                /* COOKIE HUNTER */
+                /* ============================================================ */
+                cookieHunter: function (plugin,config,bannerData) {
+                    var cookieVal = plugin.readCookie(bannerData.cname);
+                    /*var bannerData = {
+                        position: bannerPosition,
                         cname: cname,
                         cvalue: cvalue,
                         exdays: config.cookieBanner.cookieExpire
-                    }
-                    if (cookieVal != undefined && cookieVal != cvalue) {
+                    }*/
+                    if (cookieVal != undefined && cookieVal != bannerData.cvalue) {
                         plugin.getCookieBanner(config,plugin,bannerData);
                     }
                 },
                 
+                /* ============================================================ */
+                /* set cookie */
+                /* ============================================================ */
                 writeCookie: function(cname, cvalue, exdays) {
                     
                     if(this.settings.debug === true) console.log(pluginName + ': writeCookie(' + cname + ' ' + cvalue + ' ' + exdays +')');
@@ -260,7 +364,10 @@
                     var expires = "expires="+d.toUTCString();
                     document.cookie = cname + "=" + cvalue + "; " + expires;
                 },
-            
+                
+                /* ============================================================ */
+                /* read cookie value */
+                /* ============================================================ */
                 readCookie: function(cname) {
                     
                     if(this.settings.debug === true) console.log(pluginName + ': readCookie(' + cname + ')');

@@ -43,8 +43,7 @@
     font-family: @wrapperFontFamily;
     background: @bannerBackground;
     color: @bannerFontColor;
-    -webkit-transition: top 0.5s ease;
-            transition: top 0.5s ease;
+    
     
     .fdc-cookielaw__banner-buttons {
         margin: 20px 0 0 0;
@@ -69,7 +68,25 @@
     }
 }
 
-.fdc-cookielaw__banner.showBanner {
-    top:0;
+.fdc-cookielaw__banner.topBanner {
+    top: -101%;
+    bottom: auto;
+    -webkit-transition: top 0.5s ease;
+            transition: top 0.5s ease;
+}
+
+.fdc-cookielaw__banner.bottomBanner {
+    top: auto;
+    bottom: -101%;
+    -webkit-transition: bottom 0.5s ease;
+            transition: bottom 0.5s ease;
+}
+
+.fdc-cookielaw__banner.topBanner.showBanner {
+    top: 0;
+}
+
+.fdc-cookielaw__banner.bottomBanner.showBanner {
+    bottom: 0;
 }
 
