@@ -141,6 +141,44 @@ Per maggiori informazioni visita la [pagina dedicata](http://support.apple.com/k
 
 Per maggiori informazioni visita la [pagina dedicata](http://windows.microsoft.com/it-it/windows-vista/block-or-allow-cookies).
 
+
+**Impostazioni dei cookie nel browser stock (predefinito) per Android**
+
+**versione precedente a Lollipop** 
+
+1.  aprire il browser 
+2. 	premere il tasto menù 
+3.  premere Impostazioni 
+4.  premere Privacy e sicurezza<br> qui è possibile togliere la spunta dalla voce “Accetta cookie” per rifiutare tutti i cookie
+   
+**Lollipop**
+
+1.  aprire il browser 
+2.  premere il tasto menù 
+3.  premere Impostazioni 
+4.  premere Privacy<br> qui è possibile togliere la spunta dalla voce “Accetta cookie” per rifiutare tutti i cookie
+	
+
+**Chrome**
+ 
+ 1. aprire il browser 
+ 2. premere il tasto menù 
+ 3. premere Impostazioni 
+ 4. premere Impostazioni sito 
+ 5. premere Cookie<br> qui è possibile disattivare la voce "Cookie" per rifiutare tutti i cookie<br>oppure<br>togliere la spunta da "Consenti cookie di terze parti" per rifiutare solo i cookie di terze parti
+
+Per maggiori informazioni visita la [pagina dedicata](https://support.google.com/chrome/answer/2392971?hl=it)
+
+**Firefox**
+
+1. aprire il browser 
+2. premere il tasto menù 
+3. premere Impostazioni 
+4. premere Privacy 
+5. premere Cookie<br> qui è possibile scegliere "Disattivati" per rifiutare tutti i cookie. Scegliere "Attivi, esclusi di terze parti" per rifiutare solo i cookie di terze parti
+
+Per maggiori informazioni visita la [pagina dedicata](https://support.mozilla.org/it/kb/attivare-disattivare-cookie-firefox-android)
+
 * * *
 
 ## Come disabilitare i cookie di servizi di terzi
