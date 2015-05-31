@@ -1,12 +1,15 @@
-# italianPrivacyPolicy istruzioni per gli sviluppatori
+# italianPrivacyPolicy 
+## istruzioni per gli sviluppatori
 
-## Prerequisiti
+### Prerequisiti
 sul tuo sistema devono essere presenti 
 * [nodejs] (https://nodejs.org/)
 * [grunt] (http://gruntjs.com/)
 * git
 
 Per sapere come installarli e configurarli fai riferimento ai siti dei progetti o alle istruzioni del tuo sistema operativo.
+
+### Setup
 
 1. Clona il repository git
 > git clone git@github.com:FattiDiCookies/italianPrivacyPolicy.git
