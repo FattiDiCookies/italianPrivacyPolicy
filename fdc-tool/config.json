@@ -21,18 +21,32 @@
         
     },
     
+    "cookieBanner": {
+        "text":"Questo sito non fa uso di cookie per la profilazione in prima persona.<br>Questo sito fa però uso di cookie tecnici. Questo sito utilizza inoltre embed di codice e servizi esterni. Nell'informativa estesa sono disponibili i link alle terze parti ove negare i cookies dei terzi che possono profilare se attivati dall'utente sul sito del terzo.<br>Procedendo nella navigazione o cliccando su \"Accetto\" si acconsente all'uso dei cookie.",
+        "cookieName": "fdCookieLaw",
+        "cookieValue": "accepted",
+        "cookieExpire": 365
+    },
+    
     "cookiePolicy": {
+        "url": "demo_cookiePolicy.html",
+        "siteSettings": {
+            "techCookies": true,
+            "profCookies": true,
+            "embedCode": true
+        },
         "services": {
             "google-analytics": true,
             "google-maps": true,
             "sharethis": true,
             "vimeo": true,
-            "youtube": true
+            "youtube": true,
+            "social-networks": false
         }
     },
     
     "privacyPolicy": {
-        
+        "url": "demo_privacyPolicy.html",
         "personalData": [
             "Nome e Cognome",
             "data di nascita",

@@ -4,7 +4,7 @@
   margin: 40px 10%;
   font-family: 'Lato', sans-serif;
   font-size: 1em;
-  color: #555;
+  color: #555555;
 }
 .privacy-policy a {
   color: #555;
@@ -17,4 +17,38 @@
 .privacy-policy h3,
 .privacy-policy h4 {
   margin: 0 0 1em 0;
+}
+.fdc-cookielaw__banner {
+  position: fixed;
+  top: -101%;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  font-family: 'Lato', sans-serif;
+  background: #050505;
+  color: #ffffff;
+  -webkit-transition: top 0.5s ease;
+  transition: top 0.5s ease;
+}
+.fdc-cookielaw__banner .fdc-cookielaw__banner-buttons {
+  margin: 20px 0 0 0;
+  padding: 20px 0 0 0;
+  border-top: 1px solid #333;
+}
+.fdc-cookielaw__banner .fdc-cookielaw__banner-buttons .button {
+  display: inline-block;
+  color: #fff;
+  background: #2976d0;
+  padding: 5px 10px;
+  margin: 0 10px 5px 0;
+  text-decoration: none;
+  border-radius: 6px;
+  -webkit-transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.fdc-cookielaw__banner .fdc-cookielaw__banner-buttons .button:hover {
+  background: #4189dd;
+}
+.fdc-cookielaw__banner.showBanner {
+  top: 0;
 }
