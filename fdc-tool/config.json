@@ -41,10 +41,13 @@
         "services": {
             "google-analytics": true,
             "google-maps": true,
+            "google-adsense": true,
             "sharethis": true,
+            "addthis": true,
             "vimeo": true,
             "youtube": true,
-            "social-networks": false
+            "social-networks": true,
+            "disqus": true
         }
     },
     

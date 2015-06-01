@@ -196,6 +196,7 @@
                             
                             markup = markup.replace(/\[\[NOME SITO\]\]/g, config.globals.site.name);
                             markup = markup.replace(/\[\[URL SITO\]\]/g, config.globals.site.url);
+                            markup = markup.replace(/\[\[NOME E COGNOME DEL RESPONSABILE\]\]/g, config.globals.administrator.name);
                             markup = markup.replace(/\[\[ELENCO SERVIZI\]\]/g, '<div id="cookiePolicyServices" class=""></div>');
                             
                             
