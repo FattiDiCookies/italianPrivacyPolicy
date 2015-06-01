@@ -27,8 +27,32 @@ Per sapere come installarli e configurarli fai riferimento ai siti dei progetti 
 
 6. il file corrispondente nella cartella docs/cookie-policy/html/services/ è cambiato in modo da rispecchiare le tue modifiche 
 
+### test in locale
+se cerchi di testare il funzionamento del codice in locale facendo cose del genere 
+> firefox  italianPrivacyPolicy/fdc-tool/demo.html
+
+potresti avere [problemi a far funzionare il plugin jquery]
+(https://github.com/FattiDiCookies/italianPrivacyPolicy/issues/41)
+questo dipende dalle impostazioni di sicurezza del browser per rimediare hai due possibilità:
+
+1. caricare il tutto su un server web
+
+2. lanciare un server locale per lo sviluppo (istruzioni per linux)
+dentro la cartella  
+> italianPrivacyPolicy/fdc-tool
+
+esegui uno di questi due comandi:
+> python -m SimpleHTTPServer
+
+oppure
+
+>php -S localhost:8000
+
+apri questa url http://127.0.0.1/demo.html e vedrai la pagina funzionare correttamente
+
 ### Attenzione
 Prima di iniziare a modificare leggi il [wiki del progetto] (https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki)
 Per il momento tutti i commit avvengono sul master, questo almeno fino a che il progetto non sarà abbastanza stabile, per permettere a tutti di contribuire in maniera efficiente, consulta spesso le [issue] (https://github.com/FattiDiCookies/italianPrivacyPolicy/issues) e tieni il tuo repository locale il più possibile sincronizzato con quello remoto.
+
 
 Grazie e buon lavoro!
