@@ -20,8 +20,7 @@
                     docs: "docs/",
                     page: "",
                     banner: "",
-                    bannerPosition: "",
-                    acceptOnScroll: "",
+                    bannerPosition: "top",
                     debug: true
 		};
 
@@ -58,15 +57,6 @@
                     
                     var plugin = this;
                     
-                    this.getConfig(plugin);
-                    
-				},
-                
-                /* ========================================================= */
-                /* LOAD CONFIG */
-                /* ========================================================= */
-            
-                getConfig: function(plugin) {
                     $.ajax({
                         url: plugin.settings.config,
                         dataType: 'json',
@@ -90,13 +80,8 @@
                             var bannerData = {
                                 cname: data.cookieBanner.cookieName,
                                 cvalue: data.cookieBanner.cookieValue,
-                                exdays: data.cookieBanner.cookieExpire
-                            }
-                            
-                            if(plugin.settings.acceptOnScroll === "") {
-                                bannerData.acceptOnScroll = data.cookieBanner.acceptOnScroll;
-                            }else{
-                                bannerData.acceptOnScroll = plugin.settings.acceptOnScroll;
+                                exdays: data.cookieBanner.cookieExpire,
+                                acceptOnScroll: data.cookieBanner.acceptOnScroll
                             }
                             
                             
@@ -106,7 +91,7 @@
                                 plugin.getBannerText(plugin,data,bannerData);
                             }
                             
-                            if(plugin.settings.banner === "" && plugin.settings.banner !== false && data.cookieBanner.active === true) {
+                            if(plugin.settings.banner === "" && data.cookieBanner.active === true) {
                                 bannerData.position = data.cookieBanner.position;
                                 //plugin.cookieHunter(plugin,data,bannerData)
                                 plugin.getBannerText(plugin,data,bannerData);
@@ -122,7 +107,9 @@
                             
                         }
                     });// end ajax
-                },
+                    
+                    
+				},
             
                 /* ========================================================= */
                 /* PRIVACY POLICY GENERATOR */
