@@ -6,8 +6,8 @@ Questo sito non usa questi cookie per profilare in prima persona, né ha accordi
 Maggiori informazioni possono essere reperite nei rispettivi link di riferimento.
 
 ##### Link di riferimento
-* [Twitter privacy policy] (https://twitter.com/privacy?lang=it)
-* [Vine privacy policy] (https://vine.co/privacy)
-* [Pinterest privacy policy] (https://about.pinterest.com/it/privacy-policy)
-* [Instagram cookies policy] (https://instagram.com/legal/cookies/) 
-* [Instagram privacy policy] (https://instagram.com/about/legal/privacy/)
+* [Twitter privacy policy](https://twitter.com/privacy?lang=it)
+* [Vine privacy policy](https://vine.co/privacy)
+* [Pinterest privacy policy](https://about.pinterest.com/it/privacy-policy)
+* [Instagram cookies policy](https://instagram.com/legal/cookies/) 
+* [Instagram privacy policy](https://instagram.com/about/legal/privacy/)
