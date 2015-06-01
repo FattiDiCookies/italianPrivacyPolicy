@@ -197,12 +197,46 @@
                             markup = markup.replace(/\[\[NOME SITO\]\]/g, config.globals.site.name);
                             markup = markup.replace(/\[\[URL SITO\]\]/g, config.globals.site.url);
                             markup = markup.replace(/\[\[NOME E COGNOME DEL RESPONSABILE\]\]/g, config.globals.administrator.name);
-                            markup = markup.replace(/\[\[ELENCO SERVIZI\]\]/g, '<div id="cookiePolicyServices" class=""></div>');
+                            markup = markup.replace(/\[\[ELENCO SERVIZI\]\]/g, '<div id="cookiePolicyServices" class="fdctool__services"></div>');
                             
                             
                             $(plugin.element).html(markup);
                             
-                            $.each(config.cookiePolicy.services, function(key, value) {
+                            
+                            $.each(config.cookiePolicy.services, function(index) {
+                                
+                                var catLabel = config.cookiePolicy.services[index].catLabel;
+                                var catName = config.cookiePolicy.services[index].catName;
+                                var catID = "servicesTool-" + catName;
+                                
+                                $('#cookiePolicyServices').append('<div id="' + catID + '" class="fdctool__services_cat"></div>');
+                                
+                                $('#' + catID).append('<h2 class="fdctool__services_cat-title">' + catLabel + '</h2>');                                
+                                
+                                $.each(config.cookiePolicy.services[index].services, function(key, value) {
+                                                                        
+                                    if (value === true) {
+                                        $.ajax({
+                                            url:plugin.cookieSERVICES + key + ".html" ,
+                                            dataType: 'html',
+                                            success: function(data) {
+                                                data = data.replace(/\[\[NOME SITO\]\]/g, config.globals.site.name);
+                                                data = data.replace(/\[\[URL SITO\]\]/g, config.globals.site.url);
+                                                $('#' + catID).append(data);
+                                            },
+                                            error: function() {
+                                                console.log('error');
+                                            }
+
+                                        });
+                                    }
+                                   
+                                });
+                            });
+                            
+                            
+                            
+                            /*$.each(config.cookiePolicy.services, function(key, value) {
                                 if (value === true) {
                                     $.ajax({
                                         url:plugin.cookieSERVICES + key + ".html" ,
@@ -218,7 +252,7 @@
                                         
                                     });
                                 }
-                            });
+                            });*/
             
                         },
                         error: function () {

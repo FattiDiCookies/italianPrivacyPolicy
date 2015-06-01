@@ -38,17 +38,48 @@
     
     "cookiePolicy": {
         "url": "demo_cookiePolicy.html",
-        "services": {
-            "google-analytics": true,
-            "google-maps": true,
-            "google-adsense": true,
-            "sharethis": true,
-            "addthis": true,
-            "vimeo": true,
-            "youtube": true,
-            "social-networks": true,
-            "disqus": true
-        }
+        "services": [
+            {
+                "catName":"stats",
+                "catLabel": "Servizi per statistiche",
+                "services": {
+                    "google-analytics": true
+                }
+            },
+            {
+                "catName":"sharing",
+                "catLabel": "Condivisione su Social Networks",
+                "services": {
+                    "addthis": true,
+                    "sharethis": true
+                }
+            },
+            {
+                "catName":"embed",
+                "catLabel": "Codice Incorporato",
+                "services": {
+                    "google-maps": true,
+                    "vimeo": true,
+                    "youtube": true,
+                    "social-networks": true
+                }
+            },
+            {
+                "catName":"comments",
+                "catLabel": "Sistemi per la gestione dei commenti",
+                "services": {
+                    "disqus": true
+                }
+            },
+            {
+                "catName":"adv",
+                "catLabel": "Sistemi di ADV",
+                "services": {
+                    "google-adsense": true
+                }
+            }
+    
+        ]
     },
     
     "privacyPolicy": {
