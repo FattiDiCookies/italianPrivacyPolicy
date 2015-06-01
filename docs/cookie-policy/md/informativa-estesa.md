@@ -1,6 +1,6 @@
 ## Uso dei cookie
 
-Con la presente pagina, redatta ai sensi degli **artt. 13 e 122 del D.Lgs. 196/2003 (“codice privacy”)**, e a seguito delle modalità semplificate per l'informativa e l'acquisizione del consenso per l'utilizzo dei cookie, pubblicate sulla *Gazzetta Ufficiale n.126 del 3 giugno 2014* e prevista dal provvedimento generale del *Garante Privacy dell'8 Maggio 2014* [doc. web n. 3118884](http://www.garanteprivacy.it/web/guest/home/docweb/-/docweb-display/docweb/3118884), **[[NOME E COGNOME DEL RESPONSABILE]]**, titolare del trattamento dei dati personali, fornisce agli utenti del sito **[[NOME SITO]]**  un'informativa dettagliata su cosa sono i Cookie e sul loro utilizzo all'interno di questo sito.
+Con la presente pagina, redatta ai sensi degli **artt. 13 e 122 del D.Lgs. 196/2003 (“codice privacy”)**, e a seguito delle modalità semplificate per l'informativa e l'acquisizione del consenso per l'utilizzo dei cookie, pubblicate sulla *Gazzetta Ufficiale n.126 del 3 giugno 2014* e prevista dal provvedimento generale del *Garante Privacy dell'8 Maggio 2014* [[doc. web n. 3118884](http://www.garanteprivacy.it/web/guest/home/docweb/-/docweb-display/docweb/3118884)], **[[NOME E COGNOME DEL RESPONSABILE]]**, titolare del trattamento dei dati personali, fornisce agli utenti del sito **[[NOME SITO]]**  un'informativa dettagliata su cosa sono i Cookie e sul loro utilizzo all'interno di questo sito.
 
 ***
 
