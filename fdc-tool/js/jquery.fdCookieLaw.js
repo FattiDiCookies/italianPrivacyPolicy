@@ -302,6 +302,16 @@
                             var bannerTextFile = "banner_embed-prof.html";
                         }
                         
+                        // Profiling
+                        if (config.cookieBanner.text.techCookies === false && config.cookieBanner.text.profCookies === true && config.cookieBanner.text.embedCode === false)  {
+                            var bannerTextFile = "banner_prof.html";
+                        }
+                        
+                        // Embed
+                        if (config.cookieBanner.text.techCookies === false && config.cookieBanner.text.profCookies === false && config.cookieBanner.text.embedCode === false)  {
+                            var bannerTextFile = "banner_embed.html";
+                        }
+                        
                         $.ajax({
                             
                             url: plugin.cookieBANNER + bannerTextFile,
