@@ -19,11 +19,11 @@ Per i cookie tecnici come sopra, per i cookie di profilazione è richiesto **con
 
 ###4. Sito senza cookie tecnici ma con cookie di profilazione 
 *(proprietari e/o terze parti)*
+
 Stessa situazione realizzativa del caso 3
 > Questo sito fa uso di cookie profilanti (esclusivamente di terze parti) {[sia proprietari che di terze parti]} per mostrare contenuti pubblicitari in linea con le tue preferenze. Se vuoi saperne di più ti invitiamo a leggere l'[informativa estesa](http://www.example.org/), dove potrai negare il consenso all'installazione di qualsiasi cookie. Cliccando su Accetto o proseguendo la navigazione (scroll o clic) acconsenti all'uso dei cookie.
 
-________________________________________________________________________________
-
+***
 
 ###Sito senza cookies e senza embed
 Non ci sono cookies, nessuna informativa e' dovuta.
