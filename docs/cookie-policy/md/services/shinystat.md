@@ -1,6 +1,5 @@
 ### ShinyStat 
 **[descrizione]** *ShinyStat* è un sistema di rilevazione e statistiche rilasciato da [http://www.shinystat.com](http://www.shinystat.com/) che permette di monitorare gli accessi ai siti web.
-
 **[dati di utilizzo]** Il servizio *ShinyStat* acquisisce alcuni dati degli utenti (dati di navigazione) che non sono raccolte per essere associate a interessati identificati ma al solo fine di ricavare informazioni statistiche anonime sull'uso del sito e per controllarne il corretto funzionamento. 
 
 **[cookie utilizzati]** Il servizio *ShinyStat* utilizza cookie di tipo analytics assimilati ai cookie tecnici in quanto vengono utilizzati in forma anonima e aggregata e non collezionano alcun dato personale in grado di identificare personalmente gli utenti.
