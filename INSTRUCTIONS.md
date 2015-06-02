@@ -48,7 +48,7 @@ oppure
 
 >php -S localhost:8000
 
-apri questa url http://127.0.0.1/demo.html e vedrai la pagina funzionare correttamente
+apri questa url http://127.0.0.1:8000/demo.html e vedrai la pagina funzionare correttamente
 
 ### Attenzione
 Prima di iniziare a modificare leggi il [wiki del progetto] (https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki)
