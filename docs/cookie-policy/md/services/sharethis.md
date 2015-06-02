@@ -5,4 +5,4 @@ Il servizio *ShareThis* attraverso l'uso dei propri cookie colleziona dati sulla
 Questo sito non utilizza il servizio *ShareThis* per la profilazione dell'utente in prima parte e non ha accordi con *ShareThis* per profilare in prima parte.
 
 ##### Link di riferimento
-* [http://www.sharethis.com/legal/privacy](http://www.sharethis.com/legal/privacy)
+* [Privacy](http://www.sharethis.com/legal/privacy)
