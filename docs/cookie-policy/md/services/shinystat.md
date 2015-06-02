@@ -8,6 +8,7 @@
 **[disclaimer]** [[NOME SITO]] non utilizza il servizio *ShinyStat* per la profilazione dell'utente in prima parte e non ha accordi con *ShinyStat* per profilare in prima parte.
 
 ##### Link di riferimento
+* [Privacy Policy](http://www.shinystat.com/it/informativa_privacy_generale.html)
 * [Cookie Policy](http://www.shinystat.com/it/informativa_cookie_sito.html)
 * [Opt-Out](http://www.addthis.com/privacy/opt-out)
 * [Anonimizzazione IP ShinyStat](http://www.shinystat.com/it/anonimizzazione.html)
