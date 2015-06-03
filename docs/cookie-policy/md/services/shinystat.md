@@ -10,5 +10,5 @@
 ##### Link di riferimento
 * [Privacy Policy](http://www.shinystat.com/it/informativa_privacy_generale.html)
 * [Cookie Policy](http://www.shinystat.com/it/informativa_cookie_sito.html)
-* [Opt-Out](http://www.addthis.com/privacy/opt-out)
+* [Opt-Out](http://www.shinystat.com/it/opt-out_free.html)
 * [Anonimizzazione IP ShinyStat](http://www.shinystat.com/it/anonimizzazione.html)
