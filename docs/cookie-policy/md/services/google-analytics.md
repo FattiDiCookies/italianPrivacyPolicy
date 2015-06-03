@@ -1,15 +1,7 @@
-### Google Analytics (testo generico)
-Il servizio di statistiche **Google Analytics** utilizzato da questo sito è un sistema in grado di tracciare il comportamento degli utenti durante la navigazione. 
-I cookie rilasciati da questo servizio vengono utilizzati per collezionare informazioni sull’uso del sito nonché generare statistiche dettagliate fruibili dagli amministratori di questo sito in forma completamente anonima.
-Goolge, proprietaria del servizio, utilizzerà tali dati al fine di condividerli con altri servizi da essa forniti e per generare annunci pubblicitari (proposti attraverso i canali AdSense), che siano di gradimento all’utente.
-Questo sito non profila in prima parte e non ha accordi con Google per profilare in prima parte.
+#### Google Analytics (generico+anonimizzato)
+*Google Analytics* è uno strumento analitico, [www.google.it/intl/it/analytics/](www.google.it/intl/it/analytics/), che aiuta i proprietari di siti web a misurare le statistiche del sito web. In particolare *Google Analytics* fornisce indicazioni su come gli utenti interagiscono con i contenuti del sito, con che frequenza gli utenti visitano ciascuna pagina del sito, per quanto tempo si trattengono e con quale frequenza generano una conversione. *Google Analytics* utilizza principalmente cookie proprietari per generare i rapporti sulle interazioni dei visitatori con i siti web. Questi cookie vengono utilizzati per memorizzare informazioni che non consentono l'identificazione personale degli utenti. Inoltre, utilizzando il metodo di [mascheratura dell'indirizzo IP](https://support.google.com/analytics/answer/2905384?hl=it), le informazioni memorizzate nel cookie vengono ridotte a un numero identificativo casuale. Gli utenti dei siti web che non vogliono che i dati relativi alla loro visita vengano monitorati possono installare il [componente aggiuntivo del browser per la disattivazione di Google Analytics] (https://tools.google.com/dlpage/gaoptout). 
+[[NOME SITO]] non utilizza il servizio *Google Analytics* per la profilazione dell'utente in prima parte e non ha accordi con *Google Analytics* per profilare in prima parte.
 
-#### Google Analytics Anonimo
-Questo sito utilizza il sistema Google Analytics in modalità anonima.
-Attraverso questa modalità di utilizzo Google registrerà l’indirizzo IP dell’utente in forma non estesa, garantendo quindi l’anonimato dell’utente. Questa modalità è attiva solo all’interno dei paesi facenti parte della Comunità Europea.
-
-##### Link di riferimento
-* [http://www.google.com/intl/it_ALL/analytics/learn/privacy.html](http://www.google.com/intl/it_ALL/analytics/learn/privacy.html)
-* [https://support.google.com/analytics/answer/6004245?hl=it](https://support.google.com/analytics/answer/6004245?hl=it)
-* [https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage](https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage)
-* [https://tools.google.com/dlpage/gaoptout?hl=en=GB](https://tools.google.com/dlpage/gaoptout?hl=en=GB)
+#### Link di riferimento
+* [Protezione dei dati di Google Analytics](http://www.google.com/intl/it_ALL/analytics/learn/privacy.html)
+* [Google Analytics Cookie Usage on Websites](https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage)
