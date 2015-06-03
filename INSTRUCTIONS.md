@@ -33,7 +33,7 @@ se cerchi di testare il funzionamento del codice in locale facendo cose del gene
 
 potresti avere [problemi a far funzionare il plugin jquery]
 (https://github.com/FattiDiCookies/italianPrivacyPolicy/issues/41)
-questo dipende dalle impostazioni di sicurezza del browser per rimediare hai due possibilità:
+questo dipende dalle impostazioni di sicurezza del browser; per rimediare hai tre possibilità:
 
 1. caricare il tutto su un server web
 
@@ -49,6 +49,10 @@ oppure
 >php -S localhost:8000
 
 apri questa url http://127.0.0.1:8000/demo.html e vedrai la pagina funzionare correttamente
+
+oppure 
+
+aprire il file demo.html con l'editor brackets e utilizzare la funzione [live preview] (https://github.com/adobe/brackets/wiki/How-to-Use-Brackets#live-preview)
 
 ### Attenzione
 Prima di iniziare a modificare leggi il [wiki del progetto] (https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki)
