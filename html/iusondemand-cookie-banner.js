@@ -8,6 +8,8 @@ var cookieDuration = 365;                    // Number of days before the cookie
 var cookieName = 'complianceCookie';        // Name of our cookie
 var cookieValue = 'on';                     // Value of cookie
 var cookietxt;
+var scroll_is_action = false;			// a scroll is action ?
+var nomatterclick_is_action = false;		// a click on body is action ?
 
 function createDiv(cookietxt){
     var bodytag = document.getElementsByTagName('body')[0];
@@ -21,7 +23,17 @@ function createDiv(cookietxt){
     bodytag.insertBefore(div,bodytag.firstChild); // Adds the Cookie Law Banner just after the opening <body> tag
      
     document.getElementsByTagName('body')[0].className+=' cookiebanner'; //Adds a class tothe <body> tag when the banner is visible
-    document.body.addEventListener("click", function(){removeMe()}, false);
+    if ( nomatterclick_is_action==true) {document.body.addEventListener("click", function(){removeMe()}, false);}
+    if ( scroll_is_action==true) {window.addEventListener("scroll",  function(){removeMe()});}
+    // an action is for sure a click on a link or on a input form
+    var Anchors = document.getElementsByTagName("a");
+	for (var i = 0; i < Anchors.length ; i++) {
+		Anchors[i].addEventListener("click", function () {removeMe();	}, 	false);
+	}
+    var Anchors = document.getElementsByTagName("input");
+	for (var i = 0; i < Anchors.length ; i++) {
+		Anchors[i].addEventListener("click", function () {removeMe();	}, 	false);
+	}
 
 }
  
