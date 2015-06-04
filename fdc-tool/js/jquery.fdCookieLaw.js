@@ -215,57 +215,7 @@
                             
                             $(plugin.element).html(markup);
                             
-                            
-                            $.each(config.cookiePolicy.services, function(index) {
-                                
-                                var catLabel = config.cookiePolicy.services[index].catLabel;
-                                var catName = config.cookiePolicy.services[index].catName;
-                                var catID = "servicesTool-" + catName;
-                                
-                                $('#cookiePolicyServices').append('<div id="' + catID + '" class="fdctool__services_cat"></div>');
-                                
-                                $('#' + catID).append('<h2 class="fdctool__services_cat-title">' + catLabel + '</h2>');                                
-                                
-                                $.each(config.cookiePolicy.services[index].services, function(key, value) {
-                                                                        
-                                    if (value === true) {
-                                        $.ajax({
-                                            url:plugin.cookieSERVICES + key + ".html" ,
-                                            dataType: 'html',
-                                            success: function(data) {
-                                                data = data.replace(/\[\[NOME SITO\]\]/g, config.globals.site.name);
-                                                data = data.replace(/\[\[URL SITO\]\]/g, config.globals.site.url);
-                                                $('#' + catID).append(data);
-                                            },
-                                            error: function() {
-                                                console.log('error');
-                                            }
-
-                                        });
-                                    }
-                                   
-                                });
-                            });
-                            
-                            
-                            
-                            /*$.each(config.cookiePolicy.services, function(key, value) {
-                                if (value === true) {
-                                    $.ajax({
-                                        url:plugin.cookieSERVICES + key + ".html" ,
-                                        dataType: 'html',
-                                        success: function(data) {
-                                            data = data.replace(/\[\[NOME SITO\]\]/g, config.globals.site.name);
-                                            data = data.replace(/\[\[URL SITO\]\]/g, config.globals.site.url);
-                                            $('#cookiePolicyServices').append(data);
-                                        },
-                                        error: function() {
-                                            console.log('error');
-                                        }
-                                        
-                                    });
-                                }
-                            });*/
+                            plugin.getServices(config,plugin);
             
                         },
                         error: function () {
@@ -273,6 +223,44 @@
                             $(plugin.element).html('<h1>Error!</h1>');
                         } 
                      });//end ajax
+                },
+                
+                /* ==================================================== */
+                /* Services Text */
+                /* ==================================================== */
+            
+                getServices: function (config,plugin) {
+                    $.each(config.cookiePolicy.services, function(index) {
+                                
+                        var catLabel = config.cookiePolicy.services[index].catLabel;
+                        var catName = config.cookiePolicy.services[index].catName;
+                        var catID = "servicesTool-" + catName;
+
+                        $('#cookiePolicyServices').append('<div id="' + catID + '" class="fdctool__services_cat"></div>');
+
+                        $('#' + catID).append('<h2 class="fdctool__services_cat-title">' + catLabel + '</h2>');                                
+
+                        $.each(config.cookiePolicy.services[index].services, function(key, value) {
+
+                            if (value === true) {
+                                $.ajax({
+                                    url:plugin.cookieSERVICES + key + ".html" ,
+                                    dataType: 'html',
+                                    success: function(data) {
+                                        data = data.replace(/\[\[NOME SITO\]\]/g, config.globals.site.name);
+                                        data = data.replace(/\[\[URL SITO\]\]/g, config.globals.site.url);
+                                        $('#' + catID).append(data);
+                                    },
+                                    error: function() {
+                                        console.log('error');
+                                    }
+
+                                });
+                            }
+
+                        });
+                    });
+
                 },
             
                 /* ====================================================== */

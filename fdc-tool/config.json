@@ -42,6 +42,7 @@
             {
                 "catName":"stats",
                 "catLabel": "Servizi per statistiche",
+                "active": true,
                 "services": {
                     "google-analytics": true
                 }
@@ -49,6 +50,7 @@
             {
                 "catName":"sharing",
                 "catLabel": "Condivisione su Social Networks",
+                "active": true,
                 "services": {
                     "addthis": true,
                     "sharethis": true
@@ -57,6 +59,7 @@
             {
                 "catName":"embed",
                 "catLabel": "Codice Incorporato",
+                "active": true,
                 "services": {
                     "google-maps": true,
                     "vimeo": true,
@@ -67,6 +70,7 @@
             {
                 "catName":"comments",
                 "catLabel": "Sistemi per la gestione dei commenti",
+                "active": true,
                 "services": {
                     "disqus": true
                 }
@@ -74,6 +78,7 @@
             {
                 "catName":"adv",
                 "catLabel": "Sistemi di ADV",
+                "active": true,
                 "services": {
                     "google-adsense": true
                 }
@@ -85,7 +90,7 @@
     "privacyPolicy": {
         "url": "demo_privacyPolicy.html",
         "personalData": [
-            "Nome e Cognome",
+            "nome e cognome",
             "data di nascita",
             "sesso",
             "indirizzo di residenza",

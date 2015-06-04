@@ -67,6 +67,20 @@ module.exports = function(grunt) {
                     ]
                 }
             }
+        },
+        
+        htmljson: {
+            default_options: {
+                    src: ['docs/cookie-policy/**/*.html'],
+                    dest: 'docs/cookie-policy/json/cookie-policy-docs.json'
+                },
+                custom_options: {
+                    src: ['docs/privacy-policy/html/*.html'],
+                    dest: 'docs/privacy-policy/json/privacy-policy-docs.json',
+                    options: {
+                        separator: 2,
+                    },
+                },
         }
 
 
@@ -77,13 +91,15 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-md2html');
     grunt.loadNpmTasks('grunt-dom-munger');
     grunt.loadNpmTasks('grunt-string-replace');
+    grunt.loadNpmTasks('grunt-htmljson');
 
     // Default task(s).
     grunt.registerTask('default', [
         'clean',
         'md2html',
         'dom_munger',
-        'string-replace'
+        'string-replace',
+        'htmljson'
     ]);
 
 };
