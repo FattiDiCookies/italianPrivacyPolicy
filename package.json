@@ -34,6 +34,8 @@
     "grunt-md2html": "~0.2.1",
     "grunt-dom-munger": "~3.4.0",
     "grunt-string-replace": "~1.2.0",
-    "grunt-htmljson": "~0.1.1"
+    "grunt-htmljson": "~0.1.1",
+    "grunt-html-json-wrapper": "~0.1.3",
+    "grunt-merge-data": "~0.4.4"
   }
 }

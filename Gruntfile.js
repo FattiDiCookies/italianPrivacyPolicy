@@ -81,8 +81,24 @@ module.exports = function(grunt) {
                         separator: 2,
                     },
                 },
+        },
+        
+        /*html_json_wrapper: {
+            options: {},
+            files: {
+                'dest/default_options': ['src/testing', 'src/123'],
+            },
+        },*/
+        
+        merge_data: {
+            options: {
+            // Task-specific options go here. 
+            },
+            your_target: {
+                src: [ "docs/cookie-policy/json/cookie-policy-docs.json","docs/privacy-policy/json/privacy-policy-docs.json"],
+                dest: 'docs/docs.complete.json'
+            }
         }
-
 
     });
 
@@ -92,6 +108,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-dom-munger');
     grunt.loadNpmTasks('grunt-string-replace');
     grunt.loadNpmTasks('grunt-htmljson');
+    grunt.loadNpmTasks('grunt-html-json-wrapper');
+    grunt.loadNpmTasks('grunt-merge-data');
 
     // Default task(s).
     grunt.registerTask('default', [
@@ -99,7 +117,8 @@ module.exports = function(grunt) {
         'md2html',
         'dom_munger',
         'string-replace',
-        'htmljson'
+        'htmljson',
+        'merge_data'
     ]);
 
 };
