@@ -44,7 +44,8 @@
                 "catLabel": "Servizi per statistiche",
                 "active": true,
                 "services": {
-                    "google-analytics": true
+                    "google-analytics": true,
+                    "shinystat": true
                 }
             },
             {
@@ -62,9 +63,13 @@
                 "active": true,
                 "services": {
                     "google-maps": true,
-                    "vimeo": true,
                     "youtube": true,
-                    "social-networks": true
+                    "vimeo": true,
+                    "social-networks": true,
+                    "facebook-connect": true,
+                    "facebook-social-plugins": true,
+                    "twitter": true,
+                    "google+": true
                 }
             },
             {
@@ -72,7 +77,8 @@
                 "catLabel": "Sistemi per la gestione dei commenti",
                 "active": true,
                 "services": {
-                    "disqus": true
+                    "disqus": true,
+                    "facebook-comments": true
                 }
             },
             {
@@ -80,7 +86,8 @@
                 "catLabel": "Sistemi di ADV",
                 "active": true,
                 "services": {
-                    "google-adsense": true
+                    "google-adsense": true,
+                    "adform": true
                 }
             }
     
