@@ -72,11 +72,11 @@ module.exports = function(grunt) {
         htmljson: {
             default_options: {
                     src: ['docs/cookie-policy/**/*.html'],
-                    dest: 'docs/cookie-policy/json/cookie-policy-docs.json'
+                    dest: 'docs/cookie-policy/json/cookie_policy_docs.json'
                 },
                 custom_options: {
                     src: ['docs/privacy-policy/html/*.html'],
-                    dest: 'docs/privacy-policy/json/privacy-policy-docs.json',
+                    dest: 'docs/privacy-policy/json/privacy_policy_docs.json',
                     options: {
                         separator: 2,
                     },
@@ -95,7 +95,7 @@ module.exports = function(grunt) {
             // Task-specific options go here. 
             },
             your_target: {
-                src: [ "docs/cookie-policy/json/cookie-policy-docs.json","docs/privacy-policy/json/privacy-policy-docs.json"],
+                src: [ "docs/cookie-policy/json/cookie_policy_docs.json","docs/privacy-policy/json/privacy_policy_docs.json"],
                 dest: 'docs/docs.complete.json'
             }
         }
