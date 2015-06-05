@@ -6,7 +6,7 @@
 		var pluginName = "fdCookieLaw",
 				defaults = {
 				    config: "config.json",
-                    docs: "docs/",
+                    docs: "docs/docs.complete.json",
                     page: "",
                     banner: "",
                     bannerPosition: "",
@@ -21,7 +21,7 @@
 				this.settings = $.extend( {}, defaults, options );
 				this._defaults = defaults;
 				this._name = pluginName;
-                this.jsonDocs = "docs/docs.complete.json",
+                this.jsonDocs = this.settings.docs,
             
 				this.init(); 
                     
