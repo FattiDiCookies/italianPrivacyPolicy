@@ -246,7 +246,7 @@
 
                     $(plugin.element).html(markup);
 
-                    plugin.getServices(config,plugin);
+                    plugin.getServices(plugin,config,docs);
             
 
                 },
@@ -255,36 +255,33 @@
                 /* Services Text */
                 /* ==================================================== */
             
-                getServices: function (config,plugin) {
+                getServices: function (plugin,config,docs) {
                     $.each(config.cookiePolicy.services, function(index) {
+                        
+                        if (this.active === true) {
+                        
+                            var catLabel = config.cookiePolicy.services[index].catLabel;
+                            var catName = config.cookiePolicy.services[index].catName;
+                            var catID = "servicesTool-" + catName;
+
+                            $('#cookiePolicyServices').append('<div id="' + catID + '" class="fdctool__services_cat"></div>');
+
+                            $('#' + catID).append('<h2 class="fdctool__services_cat-title">' + catLabel + '</h2>');                                
+
+                            $.each(config.cookiePolicy.services[index].services, function(key, value) {
+
+                                if (value === true) {
+                                    var markup = docs.cookie_policy_docs[key];
+                                    markup = markup.replace(/\[\[NOME SITO\]\]/g, config.globals.site.name);
+                                    markup = markup.replace(/\[\[URL SITO\]\]/g, config.globals.site.url);
+                                    $('#' + catID).append(markup);
+                                }
+
+                            });
+                            
+                        }
                                 
-                        var catLabel = config.cookiePolicy.services[index].catLabel;
-                        var catName = config.cookiePolicy.services[index].catName;
-                        var catID = "servicesTool-" + catName;
-
-                        $('#cookiePolicyServices').append('<div id="' + catID + '" class="fdctool__services_cat"></div>');
-
-                        $('#' + catID).append('<h2 class="fdctool__services_cat-title">' + catLabel + '</h2>');                                
-
-                        $.each(config.cookiePolicy.services[index].services, function(key, value) {
-
-                            if (value === true) {
-                                $.ajax({
-                                    url:plugin.cookieSERVICES + key + ".html" ,
-                                    dataType: 'html',
-                                    success: function(data) {
-                                        data = data.replace(/\[\[NOME SITO\]\]/g, config.globals.site.name);
-                                        data = data.replace(/\[\[URL SITO\]\]/g, config.globals.site.url);
-                                        $('#' + catID).append(data);
-                                    },
-                                    error: function() {
-                                        console.log('error');
-                                    }
-
-                                });
-                            }
-
-                        });
+                        
                     });
 
                 },
