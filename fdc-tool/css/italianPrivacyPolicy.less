@@ -44,6 +44,16 @@
     background: @bannerBackground;
     color: @bannerFontColor;
     
+    a {
+        color: @color-1;
+        text-decoration: none;
+        -webkit-transition: color 0.2s ease;
+                transition: color 0.2s ease;
+        
+        &:hover {
+            color: @color-1-hover;
+        }
+    }
     
     .fdc-cookielaw__banner-buttons {
         margin: 20px 0 0 0;

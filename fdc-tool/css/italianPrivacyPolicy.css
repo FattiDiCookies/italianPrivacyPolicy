@@ -28,6 +28,15 @@
   background: #050505;
   color: #ffffff;
 }
+.fdc-cookielaw__banner a {
+  color: #2976d0;
+  text-decoration: none;
+  -webkit-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+.fdc-cookielaw__banner a:hover {
+  color: #4189dd;
+}
 .fdc-cookielaw__banner .fdc-cookielaw__banner-buttons {
   margin: 20px 0 0 0;
   padding: 20px 0 0 0;
