@@ -4,18 +4,18 @@ Con la presente pagina, redatta ai sensi degli **artt. 13 e 122 del D.Lgs. 196/2
 
 ***
 
-**[[URL SITO]]** o il “**Sito**” utilizza i Cookie per rendere i propri servizi semplici e efficienti per l’utenza che visiona le pagine di **[[URL SITO]]**.  
- Gli utenti che visionano il Sito, vedranno inserite delle **quantità minime di informazioni** nei dispositivi in uso, che siano computer e periferiche mobili, in piccoli file di testo denominati “cookie” salvati nelle directory utilizzate dal browser web dell’Utente.  
+**[[URL SITO]]** (di seguito nominato [[NOME SITO]] o il “**Sito**”, o "questo sito") utilizza i Cookie per rendere i propri servizi semplici e efficienti per l’utenza che visiona le pagine di **[[URL SITO]]**.  
+Gli utenti che visionano il Sito, vedranno inserite delle **quantità minime di informazioni** nei dispositivi in uso, che siano computer e periferiche mobili, in piccoli file di testo denominati “cookie” salvati nelle directory utilizzate dal browser web dell’Utente.  
  Vi sono **vari tipi di cookie**, alcuni per rendere più efficace l’uso del Sito, altri per abilitare determinate funzionalità.  
  Analizzandoli in maniera particolareggiata i nostri cookie permettono di:
 
 *   memorizzare le preferenze inserite
 *   evitare di reinserire le stesse informazioni più volte durante la visita quali ad esempio nome utente e password
-*   analizzare l’utilizzo dei servizi e dei contenuti forniti da **[[URL SITO]]** per ottimizzarne l’esperienza di navigazione e i servizi offerti
+*   analizzare l’utilizzo dei servizi e dei contenuti forniti da **[[NOME SITO]]** per ottimizzarne l’esperienza di navigazione e i servizi offerti
 
-## Tipologie di Cookie utilizzati da **[[URL SITO]]**
+## Tipologie di Cookie utilizzati da **[[NOME SITO]]**
 
-A seguire i vari tipi di cookie utilizzati da **[[URL SITO]]** in funzione delle finalità d’uso
+A seguire i vari tipi di cookie utilizzati da **[[NOME SITO]]** in funzione delle finalità d’uso
 
 ### Cookie Tecnici
 
@@ -32,7 +32,7 @@ I cookie in questa categoria vengono utilizzati per **collezionare informazioni 
 
 ### Cookie di analisi di servizi di terze parti
 
-Questi cookie sono utilizzati al fine di raccogliere informazioni sull’**uso del Sito** da parte degli utenti in **forma anonima** quali: pagine visitate, tempo di permanenza, origini del traffico di provenienza, provenienza geografica, età, genere e interessi ai fini di campagne di marketing. Questi cookie sono inviati da domini di terze parti esterni al Sito.
+Questi cookie sono utilizzati al fine di raccogliere informazioni sull’**uso di [[NOME SITO]]** da parte degli utenti in **forma anonima** quali: pagine visitate, tempo di permanenza, origini del traffico di provenienza, provenienza geografica, età, genere e interessi ai fini di campagne di marketing. Questi cookie sono inviati da domini di terze parti esterni al Sito.
 
 ### Cookie per integrare prodotti e funzioni di software di terze parti
 
@@ -45,7 +45,7 @@ Sono quei cookie necessari a creare profili utenti al fine di inviare messaggi p
 
 * * *
 
-**[[URL SITO]]**, secondo la normativa vigente, non è tenuto a chiedere consenso per i **cookie tecnici** e di **analytics**, in quanto necessari a fornire i servizi richiesti.
+**[[NOME SITO]]**, secondo la normativa vigente, non è tenuto a chiedere consenso per i **cookie tecnici** e di **analytics**, in quanto necessari a fornire i servizi richiesti.
 
 Per tutte le altre tipologie di cookie il consenso può essere espresso dall’Utente con una o più di una delle seguenti modalità:
 
@@ -60,7 +60,7 @@ Il Sito potrebbe contenere collegamenti ad altri siti Web che dispongono di una 
 
 * * *
 
-## Cookie utilizzati da **[[URL SITO]]**
+## Cookie utilizzati da **[[NOME SITO]]**
 
 A seguire la lista di cookie tecnici e di analytics utilizzati da questo Sito:
 
