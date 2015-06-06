@@ -1,4 +1,4 @@
-# FDC CookieLaw Tool (0.7.3-alpha)
+# FDC CookieLaw Tool (0.7.4-alpha)
 Plugin jQuery per la gestione delle pagine necessarie agli adempimenti della CookieLaw
 
 * Informativa breve sull'uso dei cookie (banner)
@@ -9,6 +9,12 @@ I file contenuti in questa directory sono i file di sviluppo che non dovresti us
 
 
 ### Changes
+
+##### version 0.8.0-alpha
+* rinominati file css/less
+* alcuni aggiornamenti al css
+* eliminati html dalla cartella docs
+* versione non retrocompatibile
 
 ##### version 0.7.3-alpha
 * aggiunti servizi alla configurazione
