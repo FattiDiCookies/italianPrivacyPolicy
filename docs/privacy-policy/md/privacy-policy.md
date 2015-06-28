@@ -1,7 +1,3 @@
-## Privacy Policy ITA (v. 0.5.0 alpha)
-
-*Informativa sul trattamento dei dati personali* 
-
 # PRIVACY POLICY <small>sul trattamento dei dati personali</small>
 
 Il presente testo illustra la nostra politica sul trattamento dei dati personali raccolti attraverso i nostri sistemi di contatto e/o altri servizi presenti nel sito: **[[URL SITO]]** (denominato di seguito **[[NOME SITO]]**)
