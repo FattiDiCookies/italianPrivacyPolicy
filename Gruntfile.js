@@ -98,8 +98,11 @@ module.exports = function(grunt) {
                 src: [ "docs/cookie-policy/json/cookie_policy_docs.json","docs/privacy-policy/json/privacy_policy_docs.json"],
                 dest: 'docs/docs.complete.json'
             }
+        },
+        
+        jshint: {
+            all: ['fdc-tool/js/*.js']
         }
-
     });
 
     // Load the plugin that provides the "uglify" task.
@@ -110,6 +113,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-htmljson');
     grunt.loadNpmTasks('grunt-html-json-wrapper');
     grunt.loadNpmTasks('grunt-merge-data');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
 
     // Default task(s).
     grunt.registerTask('default', [
@@ -118,7 +122,8 @@ module.exports = function(grunt) {
         'dom_munger',
         'string-replace',
         'htmljson',
-        'merge_data'
+        'merge_data',
+        'jshint'
     ]);
 
 };
