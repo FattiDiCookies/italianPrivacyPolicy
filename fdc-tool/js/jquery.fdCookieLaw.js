@@ -21,8 +21,8 @@
 				this.settings = $.extend( {}, defaults, options );
 				this._defaults = defaults;
 				this._name = pluginName;
-                this.jsonDocs = this.settings.docs,
-            
+				this.jsonDocs = this.settings.docs;
+        
 				this.init(); 
                     
 		}
@@ -62,16 +62,17 @@
                             
                             var loadDocs = false,
                                 pageActive = false,
-                                bannerActive = false;
+                                bannerActive = false,
+                                bannerData = {};
                             
                             // Check if banner is active 
                             if(plugin.settings.banner === true || config.cookieBanner.active === true) {
                                 
-                                var bannerData = {
+                                bannerData = {
                                     cname: config.cookieBanner.cookieName,
                                     cvalue: config.cookieBanner.cookieValue,
                                     exdays: config.cookieBanner.cookieExpire
-                                }
+                                };
                                 
                                 // if cookie is not found load banner
                                 var cookieHunter = plugin.cookieHunter(plugin,bannerData);
@@ -120,7 +121,7 @@
                             
                             if (bannerActive !== false) {
                                 //plugin.bannerCallback(plugin,config,docs);
-                                plugin.setBanner(plugin,config,docs,bannerData)
+                                plugin.setBanner(plugin,config,docs,bannerData);
                             }
                             
                             if (pageActive !== false) {
@@ -143,7 +144,7 @@
                             // **** DEBUG **** 
                             if(this.settings.debug === true) console.log(pluginName + ": getDocsData() -> ajax error loading docs");
                         }
-                    })//end ajax
+                    });//end ajax
                 },
                 
                 /* ========================================================= */
@@ -211,7 +212,7 @@
                     markup = markup.replace(/\[\[URL SITO\]\]/g, config.globals.site.url);
                     markup = markup.replace(/\[\[SOCIETA-RESPONSABILE\]\]/g, config.globals.company.name);
                     markup = markup.replace(/\[\[INDIRIZZO\]\]/g, config.globals.company.address);
-                    if (config.globals.company.vatNumber != "") {
+                    if (config.globals.company.vatNumber !== "") {
                         var vatNumber = config.globals.company.vatLabel+" "+config.globals.company.vatNumber;
                         markup = markup.replace(/\[\[PIVA\]\]/g, vatNumber);
                     }
@@ -356,7 +357,7 @@
                     
                     var bannerText = "";
                     
-                    if (config.cookieBanner.text.customText === false || config.cookieBanner.text.customText == "") {
+                    if (config.cookieBanner.text.customText === false || config.cookieBanner.text.customText === "") {
                         
                         // **** DEBUG **** 
                         if(plugin.settings.debug === true) console.log(pluginName + ': getBannerText() -> load text');
@@ -402,7 +403,7 @@
                 cookieHunter: function (plugin,bannerData) {
                     
                     var cookieVal = plugin.readCookie(bannerData.cname);
-                    var bannerNeeded = (cookieVal != undefined && cookieVal != bannerData.cvalue) ? false : true;
+                    var bannerNeeded = (cookieVal !== undefined && cookieVal !== bannerData.cvalue) ? false : true;
                     
                     return bannerNeeded;
                     
@@ -433,7 +434,7 @@
                     for(var i=0; i<ca.length; i++) {
                         var c = ca[i];
                         while (c.charAt(0)==' ') c = c.substring(1);
-                        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+                        if (c.indexOf(name) === 0) return c.substring(name.length,c.length);
                     }
                     return "";
                 }

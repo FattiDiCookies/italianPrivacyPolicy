@@ -38,7 +38,7 @@
                 this.cookieDOC = this.settings.docs + "cookie-policy/html/informativa-estesa.html";
                 this.cookieBANNER = this.settings.docs + "cookie-policy/html/banner/";
                 this.cookieSERVICES = this.settings.docs + "cookie-policy/html/services/";
-				this.init(); 
+				this.init();
                     
 		}
 
@@ -82,7 +82,7 @@
                                 cvalue: data.cookieBanner.cookieValue,
                                 exdays: data.cookieBanner.cookieExpire,
                                 acceptOnScroll: data.cookieBanner.acceptOnScroll
-                            }
+                            };
                             
                             
                             if(plugin.settings.banner === true) {
@@ -156,7 +156,7 @@
                             markup = markup.replace(/\[\[URL SITO\]\]/g, config.globals.site.url);
                             markup = markup.replace(/\[\[SOCIETA-RESPONSABILE\]\]/g, config.globals.company.name);
                             markup = markup.replace(/\[\[INDIRIZZO\]\]/g, config.globals.company.address);
-                            if (config.globals.company.vatNumber != "") {
+                            if (config.globals.company.vatNumber !== "") {
                                 var vatNumber = config.globals.company.vatLabel+" "+config.globals.company.vatNumber;
                                 markup = markup.replace(/\[\[PIVA\]\]/g, vatNumber);
                             }
@@ -307,44 +307,45 @@
                 /* ========================================================= */
                 getBannerText: function (plugin,config,bannerData) {
                     
-                    if (config.cookieBanner.text.customText === false || config.cookieBanner.text.customText == "") {
+                    if (config.cookieBanner.text.customText === false || config.cookieBanner.text.customText === "") {
                         
                         // **** DEBUG **** 
                         if(plugin.settings.debug === true) console.log(pluginName + ': getBannerText() -> load text');
                         
+                        var bannerTextFile = "";
                         // Technical
                         if (config.cookieBanner.text.techCookies === true && config.cookieBanner.text.profCookies === false && config.cookieBanner.text.embedCode === false)  {
-                            var bannerTextFile = "banner_tech.html";
+                            bannerTextFile = "banner_tech.html";
                         }
                         
                         // Technical + Profiling + Embed
                         if (config.cookieBanner.text.techCookies === true && config.cookieBanner.text.profCookies === true && config.cookieBanner.text.embedCode === true)  {
-                            var bannerTextFile = "banner_tech-embed-prof.html";
+                            bannerTextFile = "banner_tech-embed-prof.html";
                         }
                         
                         // Technical + Embed
                         if (config.cookieBanner.text.techCookies === true && config.cookieBanner.text.profCookies === false && config.cookieBanner.text.embedCode === true)  {
-                            var bannerTextFile = "banner_tech-embed.html";
+                            bannerTextFile = "banner_tech-embed.html";
                         }
                         
                         // Technical + Profiling
                         if (config.cookieBanner.text.techCookies === true && config.cookieBanner.text.profCookies === true && config.cookieBanner.text.embedCode === false)  {
-                            var bannerTextFile = "banner_tech-prof.html";
+                            bannerTextFile = "banner_tech-prof.html";
                         }
                         
                         // Profiling + Embed
                         if (config.cookieBanner.text.techCookies === false && config.cookieBanner.text.profCookies === true && config.cookieBanner.text.embedCode === true)  {
-                            var bannerTextFile = "banner_embed-prof.html";
+                            bannerTextFile = "banner_embed-prof.html";
                         }
                         
                         // Profiling
                         if (config.cookieBanner.text.techCookies === false && config.cookieBanner.text.profCookies === true && config.cookieBanner.text.embedCode === false)  {
-                            var bannerTextFile = "banner_prof.html";
+                            bannerTextFile = "banner_prof.html";
                         }
                         
                         // Embed
                         if (config.cookieBanner.text.techCookies === false && config.cookieBanner.text.profCookies === false && config.cookieBanner.text.embedCode === false)  {
-                            var bannerTextFile = "banner_embed.html";
+                            bannerTextFile = "banner_embed.html";
                         }
                         
                         $.ajax({
@@ -388,7 +389,7 @@
                     
                     var cookieVal = plugin.readCookie(bannerData.cname);
                     
-                    if (cookieVal != undefined && cookieVal != bannerData.cvalue) {
+                    if (cookieVal !== undefined && cookieVal != bannerData.cvalue) {
                         plugin.getCookieBanner(config,plugin,bannerData);
                     }
                     
@@ -419,7 +420,7 @@
                     for(var i=0; i<ca.length; i++) {
                         var c = ca[i];
                         while (c.charAt(0)==' ') c = c.substring(1);
-                        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+                        if (c.indexOf(name) === 0) return c.substring(name.length,c.length);
                     }
                     return "";
                 }
