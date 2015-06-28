@@ -313,7 +313,7 @@
                             bannerMarkup +=         bannerData.text;
                             bannerMarkup += '   </div>';
                             bannerMarkup += '   <div class="fdc-cookielaw__banner-buttons">';
-                            bannerMarkup += '       <a href="'+ config.cookiePolicy.url +'" class="button privacy">Infromativa Estesa</a>';
+                            bannerMarkup += '       <a href="'+ config.cookiePolicy.url +'" class="button privacy">Informativa Estesa</a>';
                             bannerMarkup += '       <a href="#" id="cookieAccept" class="button accept close" href="'+ config.cookiePolicy.url +'" class="button privacy">OK</a>';
                             bannerMarkup += '   </div>';
                             bannerMarkup += '</div>';
