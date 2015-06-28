@@ -102,7 +102,37 @@ module.exports = function(grunt) {
         
         jshint: {
             all: ['fdc-tool/js/*.js']
+        },
+        
+        less: {
+            development: {
+                options: {
+                    sourceMap: true,
+                    sourceMapFileInline: true
+                },
+                files: [{
+                    "fdc-tool/css/fdCookieLaw.css": "fdc-tool/css/fdCookieLaw.less",
+                    "html/css/italianPrivacyPolicy.css": "html/css/italianPrivacyPolicy.less"
+                }]
+            },
+            production: {
+                files: [{
+                    "fdc-tool/css/fdCookieLaw.css": "fdc-tool/css/fdCookieLaw.less",
+                    "html/css/italianPrivacyPolicy.css": "html/css/italianPrivacyPolicy.less"
+                }]
+            }
+        },
+        
+        watch: {
+            styles: {
+                files: ['**/*.less'], // which files to watch
+                tasks: ['less'],
+                options: {
+                    nospawn: true
+                }
+            }
         }
+        
     });
 
     // Load the plugin that provides the "uglify" task.
@@ -114,6 +144,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-html-json-wrapper');
     grunt.loadNpmTasks('grunt-merge-data');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task(s).
     grunt.registerTask('default', [
@@ -123,7 +155,21 @@ module.exports = function(grunt) {
         'string-replace',
         'htmljson',
         'merge_data',
-        'jshint'
+        'jshint',
+        'less:development',
+        'watch'
+    ]);
+    
+    grunt.registerTask('prod', [
+        'clean',
+        'md2html',
+        'dom_munger',
+        'string-replace',
+        'htmljson',
+        'merge_data',
+        'jshint',
+        'less:production',
+        'watch'
     ]);
 
 };
