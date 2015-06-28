@@ -195,7 +195,7 @@ Per maggiori informazioni visita la [pagina dedicata](https://support.mozilla.or
 
 Questa pagina è visibile, mediante link in calce in tutte le pagine del Sito ai sensi dell’art. 122 secondo comma del D.lgs. 196/2003 e a seguito delle modalità semplificate per l’informativa e l’acquisizione del consenso per l’uso dei cookie pubblicata sulla Gazzetta Ufficiale n.126 del 3 giugno 2014 e relativo registro dei provvedimenti n.229 dell’8 maggio 2014.
 
-Inoltre puoi leggere la nostra informativa sulla privacy da qui [PRIVACY-POLICY]
+Inoltre puoi leggere la nostra informativa sulla privacy da qui [[PRIVACY-POLICY]]
 
 Questi cookie, inviati sempre dal nostro dominio, **sono necessari a visualizzare correttamente il sito** e in relazione ai servizi tecnici offerti, verranno quindi **sempre utilizzati e inviati**, a meno che l’utenza non modifichi le impostazioni nel proprio browser (inficiando così la visualizzazione delle pagine del sito).
 
