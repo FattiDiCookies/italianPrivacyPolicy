@@ -273,9 +273,12 @@
 
                                 if (value === true) {
                                     var markup = docs.cookie_policy_docs[key];
-                                    markup = markup.replace(/\[\[NOME SITO\]\]/g, config.globals.site.name);
-                                    markup = markup.replace(/\[\[URL SITO\]\]/g, config.globals.site.url);
-                                    $('#' + catID).append(markup);
+                                    // Prevent code failure if docs.complete.json is not consistent
+                                    if(typeof markup !== 'undefined') {
+                                        markup = markup.replace(/\[\[NOME SITO\]\]/g, config.globals.site.name);
+                                        markup = markup.replace(/\[\[URL SITO\]\]/g, config.globals.site.url);
+                                        $('#' + catID).append(markup);  
+                                    }
                                 }
 
                             });
