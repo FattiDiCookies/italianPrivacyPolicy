@@ -1,4 +1,4 @@
-# FDC CookieLaw Tool (0.8.0-alpha)
+# FDC CookieLaw Tool (0.8.1-alpha)
 Plugin jQuery per la gestione delle pagine necessarie agli adempimenti della CookieLaw
 
 * Informativa breve sull'uso dei cookie (banner)
@@ -9,6 +9,12 @@ I file contenuti in questa directory sono i file di sviluppo che non dovresti us
 
 
 ### Changes
+
+##### version 0.8.1-alpha
+* Corretti degli errori di ortografia sull'informativa breve all'interno dello script
+* Tolto il banner da entrambe le pagine Policy e Cookie
+* Codice javascript corretto e migliorato con jshint
+* Aggiunto controllo che elimina il blocco di esecuzione dello script se docs.complete.json non è consistente
 
 ##### version 0.8.0-alpha
 * rinominati file css/less
