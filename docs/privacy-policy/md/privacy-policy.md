@@ -1,6 +1,6 @@
 # INFORMATIVA PRIVACY <small>(trattamento dei dati personali)</small>
 
-Il presente testo illustra la nostra politica sul trattamento dei dati personali raccolti attraverso i nostri sistemi di contatto e/o altri servizi presenti nel sito: **[[URL SITO]]** (denominato di seguito anche **[[NOME SITO]]** o **questo sito**)
+Il presente testo illustra la nostra politica sul trattamento dei dati personali raccolti attraverso i nostri sistemi di contatto e/o altri servizi presenti nel sito: **[[URL SITO]]** (di seguito nominato anche **[[NOME SITO]]** o il **"Sito"**, o **"questo sito"**)
 
 In ottemperanza degli obblighi derivanti dalla normativa nazionale e comunitaria in materia di trattamenti dei dati personali, il sito **[[NOME SITO]]** rispetta e tutela la riservatezza dei visitatori e degli utenti. 
 La presente informativa si applica esclusivamente alle attività online del presente sito, non si applica alle informazioni raccolte tramite canali diversi.
