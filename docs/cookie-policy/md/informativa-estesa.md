@@ -4,7 +4,7 @@ Con la presente pagina, redatta ai sensi degli **artt. 13 e 122 del D.Lgs. 196/2
 
 ***
 
-**[[URL SITO]]** (di seguito nominato [[NOME SITO]] o il “**Sito**”, o "questo sito") utilizza i Cookie per rendere i propri servizi semplici e efficienti per l’utenza che visiona le pagine di **[[URL SITO]]**.  
+**[[URL SITO]]** (di seguito nominato anche **[[NOME SITO]]** o il **"Sito"**, o **"questo sito"**) utilizza i Cookie per rendere i propri servizi semplici e efficienti per l’utenza che visiona le pagine di **[[URL SITO]]**.  
 Gli utenti che visionano il Sito, vedranno inserite delle **quantità minime di informazioni** nei dispositivi in uso, che siano computer e periferiche mobili, in piccoli file di testo denominati “cookie” salvati nelle directory utilizzate dal browser web dell’Utente.  
  Vi sono **vari tipi di cookie**, alcuni per rendere più efficace l’uso del Sito, altri per abilitare determinate funzionalità.  
  Analizzandoli in maniera particolareggiata i nostri cookie permettono di:
