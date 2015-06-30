@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>FDC CookieLaw Tool</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/fdCookieLaw.css">
+        <link rel="stylesheet" href="css/demo.css">
+
+    </head>
+    <body>
+        
+        <header>
+            <h1>FDC CookieLaw Tool</h1>
+            <p>Un plugin jQuery a tutela del tuo sito.</p>
+        </header>
+        <main>
+            <h2>Demo Page</h2>
+            <p>
+                Questa pagina &egrave; una live demo del plugin <strong>FDC CookieLaw Tool</strong><br>
+                Con questo tool puoi gestire le tue informative sulla privacy e sull'uso dei cookie.<br>
+                Com questo tool &egrave; possibile gestire anche l'informativa breve sui cookie (banner) che deve necessariamente essere mostrata su tutte le pagine.<br>
+                L'uso di questo strumento &egrave; veramente semplice ed immediato.
+            </p>
+            <p>Guarda le demo delle pagine dinamicamente generate dal tool</p>
+            <ul class="demo-menu">
+                <li><a href="demo_cookiePolicy.html" title="Cookie Policy Demo">Cookie Policy Demo</a></li>
+                <li><a href="demo_privacyPolicy.html" title="Privacy Policy Demo">Privacy Policy Demo</a></li>
+            </ul>
+        </main>
+        
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="js/jquery.fdCookieLaw.js"></script>
+        <script>
+        $(document).on('ready',function() {
+            $('body').fdCookieLaw();
+        }); 
+        </script>
+    </body>
+</html>
