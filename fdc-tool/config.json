@@ -1,0 +1,117 @@
+{
+    "globals": {
+        
+        "site": {
+            "name": "NomeDelSito.com",
+            "url": "http://www.nomedelsito.com",
+            "email": "info@nomedelsito.com"
+        },
+        "company": {
+            "name":"Carullis inc",
+            "address": "Via dalle scatole 00, 0000 Scatolonia (XY)",
+            "vatNumber": "XXXXXXXXXXXX",
+            "vatLabel": "P.I.:",
+            "otherCode-1": "",
+            "otherCode-2": "",
+            "otherInfo": ""
+        },
+        "administrator":{
+            "name": "Carullo Carulli"
+        }
+        
+    },
+    
+    "cookieBanner": {
+        "active": true,
+        "position":"bottom",
+        "text": {
+            "techCookies": true,
+            "profCookies": true,
+            "embedCode": true,
+            "customText": false
+        },
+        "acceptOnScroll": false,
+        "cookieName": "fdCookieLaw",
+        "cookieValue": "accepted",
+        "cookieExpire": 365
+    },
+    
+    "cookiePolicy": {
+        "url": "demo_cookiePolicy.html",
+        "services": [
+            {
+                "catName":"stats",
+                "catLabel": "Servizi per statistiche",
+                "active": true,
+                "services": {
+                    "google-analytics": true,
+                    "shinystat": true
+                }
+            },
+            {
+                "catName":"sharing",
+                "catLabel": "Condivisione su Social Networks",
+                "active": true,
+                "services": {
+                    "addthis": true,
+                    "sharethis": true
+                }
+            },
+            {
+                "catName":"embed",
+                "catLabel": "Codice Incorporato",
+                "active": true,
+                "services": {
+                    "google-maps": true,
+                    "youtube": true,
+                    "vimeo": true,
+                    "social-networks": true,
+                    "facebook-connect": true,
+                    "facebook-social-plugins": true,
+                    "twitter": true,
+                    "google+": true
+                }
+            },
+            {
+                "catName":"comments",
+                "catLabel": "Sistemi per la gestione dei commenti",
+                "active": true,
+                "services": {
+                    "disqus": true,
+                    "facebook-comments": true
+                }
+            },
+            {
+                "catName":"adv",
+                "catLabel": "Sistemi di ADV",
+                "active": true,
+                "services": {
+                    "google-adsense": true,
+                    "adform": true
+                }
+            }
+    
+        ]
+    },
+    
+    "privacyPolicy": {
+        "url": "demo_privacyPolicy.html",
+        "personalData": [
+            "nome e cognome",
+            "data di nascita",
+            "sesso",
+            "indirizzo di residenza",
+            "numero di telefono", 
+            "indirizzo e-mail"
+        ],
+        "purposes": [
+            "instaurare una comunicazione richiesta dall’utente al fine di poter godere appieno dei servizi offerti dalla nostra attività",
+            "invio di future proposte commerciali legate alla nostra attività",
+            "compimento di ricerche di mercato e scopi statistici riguardanti la nostra attività",
+            "Invio di Campagne DEM e di Newsletter informative e pubblicitarie del portale"
+        ]
+        
+    }
+    
+    
+}

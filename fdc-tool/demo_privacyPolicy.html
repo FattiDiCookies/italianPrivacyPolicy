@@ -1,0 +1,12 @@
+
+<link rel="stylesheet" href="css/fdCookieLaw.css">
+
+<div id="privacyPolicy" class="fdc-cookielaw__policy"></div>
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="js/jquery.fdCookieLaw.js"></script>
+<script> 
+    $(document).on('ready',function() {
+        $('#privacyPolicy').fdCookieLaw({page: 'privacy', banner: 'false'});
+    }); 
+</script>

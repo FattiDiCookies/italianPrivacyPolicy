@@ -1,0 +1,58 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+html,
+body {
+    font-family: "Lato", sans-serif;
+    color: #555;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+header {
+    padding: 40px 20%;
+    background: #2976d0;
+    color: #fff;
+}
+
+main {
+    padding: 40px 20%;
+}
+
+header h1 {
+    font-size: 3em;
+    margin-bottom: 0;
+}
+
+header p {
+    margin-top: 0;
+    font-size: 1.3em;
+    text-transform: uppercase;
+}
+
+main h2 {
+    margin-top: 0;
+    color: #2976d0;
+    text-transform: uppercase;
+}
+
+main ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+main ul li {
+    display: inline-block;
+    margin: 0 10px 5px 0;
+}
+
+main ul li a {
+    display: inline-block;
+    text-decoration: none;
+    color: #2976d0;
+    font-weight: 700;
+}
