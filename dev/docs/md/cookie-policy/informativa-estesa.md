@@ -183,6 +183,28 @@ Per maggiori informazioni visita la [pagina dedicata](https://support.google.com
 
 Per maggiori informazioni visita la [pagina dedicata](https://support.mozilla.org/it/kb/attivare-disattivare-cookie-firefox-android)
 
+
+**Impostazioni dei cookie nel browser stock Internet Explorer per Windows Phone 8**
+    
+1. aprire il browser
+2. premere Altro
+3. premere Impostazioni
+4. premere Impostazioni Avanzate
+5. nella sezione Cookie da siti web scegliere tra: Accetta tutti, Blocca alcuni o Blocca tutti
+
+n.d.r. : come specificato nella pagina [http://www.windowsphone.com/it-it/how-to/wp8/apps/change-privacy-and-other-browser-settings](http://www.windowsphone.com/it-it/how-to/wp8/apps/change-privacy-and-other-browser-settings) del sito del browser *"Blocca alcuni"* significa che *"consente di bloccare i cookie di terze parti che non hanno rigidi criteri sulla privacy e cookie di terze parti che tengono traccia di informazioni che potrebbero essere usate per contattarti senza il tuo consenso"*.
+
+Per maggiori informazioni visita la pagina dedicata [http://www.windowsphone.com/it-it/how-to/wp8/apps/change-privacy-and-other-browser-settings](http://www.windowsphone.com/it-it/how-to/wp8/apps/change-privacy-and-other-browser-settings)
+
+
+Impostazioni dei cookie nel browser stock Internet Explorer Mobile per Windows Phone 7
+    aprire il browser
+    premere Altro
+    premere Impostazioni
+    impostare o togliere la spunta della voce Consenti cookie nel telefono per consentire o bloccare il salvataggio dei cookie sul dispositivo
+
+Per maggiori informazioni visita la pagina dedicata [http://www.windowsphone.com/it-it/how-to/wp7/web/changing-privacy-and-other-browser-settings](http://www.windowsphone.com/it-it/how-to/wp7/web/changing-privacy-and-other-browser-settings)
+
 * * *
 
 ## Come disabilitare i cookie di servizi di terzi
