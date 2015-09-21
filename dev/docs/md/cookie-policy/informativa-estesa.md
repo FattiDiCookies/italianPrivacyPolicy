@@ -56,13 +56,13 @@ Entrambe queste soluzioni potrebbero impedire all’utente di utilizzare o visua
 
 **Siti Web e servizi di terze parti**
 
-Il Sito potrebbe contenere collegamenti ad altri siti Web che dispongono di una propria informativa sulla privacy che può essere diverse da quella adottata da www.mio.com e che che quindi **non risponde** di questi siti.
+Il Sito potrebbe contenere collegamenti ad altri siti Web che dispongono di una propria informativa sulla privacy che può essere diverse da quella adottata da [[NOME SITO]] e che che quindi **non risponde** di questi siti.
 
 * * *
 
 ## Cookie utilizzati da **[[NOME SITO]]**
 
-A seguire la lista di cookie tecnici e di analytics utilizzati da questo Sito:
+A seguire la lista dei cookie e dei servizi esterni (che possono a loro volta rilasciare cookie anche di profilazione) utilizzati da [[NOME SITO]]:
 
 **[[ELENCO SERVIZI]]**
 
