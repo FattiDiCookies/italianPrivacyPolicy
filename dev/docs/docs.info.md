@@ -2,6 +2,9 @@
 
 Storia del rilascio delle diverse versioni dei documenti legali a pratire dal giorno 27/06/2015
 
+#### Versione 0.10.1 alpha
+* **cookie policy**: piccole correzioni 
+
 #### Versione 0.10.0 alpha
 * **cookie policy**: aggiunto il servizio *facebook social plugins* 
 * **cookie policy**: aggiunto il servizio *facebook comments*

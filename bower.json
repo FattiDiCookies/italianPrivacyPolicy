@@ -1,0 +1,19 @@
+{
+  "name": "italianPrivacyPolicy",
+  "version": "0.15.1-alpha",
+  "homepage": "https://github.com/FattiDiCookies/italianPrivacyPolicy",
+  "authors": [
+    "FattiDiCookies"
+  ],
+  "description": "Italian Cookie and Privacy policy",
+  "keywords": [
+    "cookielaw",
+    "cookie",
+    "law",
+    "cookies",
+    "cookie",
+    "privacy",
+    "policy"
+  ],
+  "license": "MIT"
+}

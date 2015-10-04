@@ -1,8 +1,10 @@
-# italianPrivacyPolicy v0.15.0-alpha
-Questo repository contiene un'informativa sulla privacy, il trattamento dei dati personali e l'uso dei cookies secondo le vigenti norme di legge.
+# italianPrivacyPolicy v0.15.1-alpha
+
+**Versione Testi** 0.10.1-alpha | **Versione Tool** 0.9.2-alpha
 
 ### Il progetto
-Questo progetto nasce con l'idea di creare un testo a norma di legge che sia modulare (con parti indipendenti redatte per ogni diversa esigenza) da far includere agli sviluppatori nelle proprie pagine web.
+Questo repository contiene un'informativa sulla privacy, il trattamento dei dati personali e l'uso dei cookies secondo le vigenti norme di legge.
+Il progetto nasce con l'idea di creare un testo a norma di legge che sia modulare (con parti indipendenti redatte per ogni diversa esigenza) da far includere agli sviluppatori nelle proprie pagine web.
 
 ## COME FUNZIONA
 Il repository contiene una directory **dist** all'interno della quale sono contenuti i testi legali (directory **dist/docs/**) e il tool di implementazione automatica delle policy e del banner relativo all'uso dei cookie (directory **dist/tool/**).

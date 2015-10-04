@@ -1,6 +1,6 @@
 {
   "name": "italianPrivacyPolicy",
-  "version": "0.15.0-alpha",
+  "version": "0.15.1-alpha",
   "description": "Italian Cookie and Privacy policy",
   "directories": {
     "doc": "docs"
@@ -13,7 +13,7 @@
     "docs": "https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki/FDC-Tool"
   },
   "docs": {
-    "version": "0.10.0-alpha"
+    "version": "0.10.1-alpha"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
