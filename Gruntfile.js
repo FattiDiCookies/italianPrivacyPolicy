@@ -4,6 +4,19 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg : grunt.file.readJSON('package.json'),
+      
+    meta: {
+            banner: "/*!\n" +
+                " *  <%= pkg.tool.name %> - v<%= pkg.tool.version %>\n" +
+                " *  <%= pkg.tool.description %>\n" +
+                " *  GitHub: <%= pkg.tool.github %>\n" +
+                " *  Docs: <%= pkg.tool.docs %>\n" +
+                " *  Bugs: <%= pkg.bugs.url %>\n" +
+                " *\n" +
+                " *  (c) 2015 by <%= pkg.author %>\n" +
+                " *  Made by <%= pkg.author %> and released under <%= pkg.license.tool %> License\n" +
+		        " */\n"
+    },  
 
     clean : {
       dev : ["dev/docs/**/*.*", "!dev/docs/**/*.md"],
@@ -170,12 +183,17 @@ module.exports = function(grunt) {
         }, {
           src: 'dev/tool/css/demo.css',
           dest: 'dist/tool/css/demo.css',
-        }, {
+        },
+        {
+          src: 'dev/tool/js/jquery.fdCookieLaw.js',
+          dest: 'dist/tool/js/jquery.fdCookieLaw.js',
+        },
+        /*{
           expand: true,
           cwd: 'dev/tool/js/',
           src: '*.js',
           dest: 'dist/tool/js/',
-        }, {
+        },*/ {
           expand: true,
           cwd: 'dev/tool/',
           src: '*.*',
@@ -200,6 +218,9 @@ module.exports = function(grunt) {
         }]
       },
       production : {
+        options : {
+          banner: "<%= meta.banner %>"
+        },
         files : [{
           "dist/tool/css/fdCookieLaw.css" : "dev/tool/less/fdCookieLaw.less"
         }]
@@ -214,6 +235,37 @@ module.exports = function(grunt) {
           nospawn : true
         }
       }
+    },
+    cssmin: {
+        options: {
+            shorthandCompacting: false,
+            roundingPrecision: -1,
+            banner: "<%= meta.banner %>"
+        },
+        dist: {
+            files: {
+                'dist/tool/css/fdCookieLaw.min.css': ['dist/tool/css/fdCookieLaw.css']
+            }   
+        }
+    },
+    concat: {
+        options: {
+          banner: "<%= meta.banner %>"
+        },
+        dist: {
+          src: ['dist/tool/js/jquery.fdCookieLaw.js'],
+          dest: 'dist/tool/js/jquery.fdCookieLaw.js',
+        }
+    },  
+    uglify: {
+        options: {
+          banner: "<%= meta.banner %>"
+        },
+        dist: {
+            files: {
+                'dist/tool/js/jquery.fdCookieLaw.min.js': ['dev/tool/js/jquery.fdCookieLaw.js']
+            }
+        }
     }
 
   });
@@ -230,6 +282,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');   
+  grunt.loadNpmTasks('grunt-contrib-uglify');   
+  grunt.loadNpmTasks('grunt-contrib-concat');    
 
   // Default task(s).
   grunt.registerTask('default', [
@@ -255,7 +310,10 @@ module.exports = function(grunt) {
     'merge_data:dist',
     'less:production',
     'copy:dist',
-    'jshint:dist'
+    'jshint:dist',
+    'cssmin:dist',
+    'concat:dist',  
+    'uglify:dist'  
   ]);
 
 };

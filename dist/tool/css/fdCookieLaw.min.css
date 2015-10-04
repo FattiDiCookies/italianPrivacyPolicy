@@ -1,0 +1,10 @@
+/*!
+ *  FDC CookieLaw Tool - v0.9.2-alpha
+ *  Cookie & Privacy management tool
+ *  GitHub: https://github.com/FattiDiCookies/italianPrivacyPolicy/tree/master/dist/tool
+ *  Docs: https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki/FDC-Tool
+ *  Bugs: https://github.com/FattiDiCookies/italianPrivacyPolicy/issues
+ *
+ *  (c) 2015 by FDC Crew
+ *  Made by FDC Crew and released under MIT License
+ */.fdc-cookielaw__policy{margin:40px 10%;font-family:sans-serif;font-size:1em;color:#555}.fdc-cookielaw__policy a{color:#555}.fdc-cookielaw__policy p{margin:0 0 1em;line-height:1.3em}.fdc-cookielaw__policy h2,.fdc-cookielaw__policy h3,.fdc-cookielaw__policy h4{margin:0 0 1em}.fdc-cookielaw__banner{position:fixed;top:-101%;left:0;right:0;padding:20px;font-family:sans-serif;background:#050505;color:#fff}.fdc-cookielaw__banner a{color:#2976d0;text-decoration:none;-webkit-transition:color .2s ease;transition:color .2s ease}.fdc-cookielaw__banner a:hover{color:#4189dd}.fdc-cookielaw__banner .fdc-cookielaw__banner-buttons{margin:20px 0 0;padding:20px 0 0;border-top:1px solid #333}.fdc-cookielaw__banner .fdc-cookielaw__banner-buttons .button{display:inline-block;color:#fff;background:#2976d0;padding:5px 10px;margin:0 10px 5px 0;text-decoration:none;border-radius:6px;-webkit-transition:background .2s ease,color .2s ease;transition:background .2s ease,color .2s ease}.fdc-cookielaw__banner .fdc-cookielaw__banner-buttons .button:hover{background:#4189dd}.fdc-cookielaw__banner.topBanner{top:-101%;bottom:auto;-webkit-transition:top .5s ease;transition:top .5s ease}.fdc-cookielaw__banner.bottomBanner{top:auto;bottom:-101%;-webkit-transition:bottom .5s ease;transition:bottom .5s ease}.fdc-cookielaw__banner.topBanner.showBanner{top:0}.fdc-cookielaw__banner.bottomBanner.showBanner{bottom:0}

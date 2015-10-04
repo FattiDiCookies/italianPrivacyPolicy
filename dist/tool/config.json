@@ -45,7 +45,8 @@
                 "active": true,
                 "services": {
                     "google-analytics": true,
-                    "shinystat": true
+                    "shinystat": true,
+                    "piwik": true
                 }
             },
             {

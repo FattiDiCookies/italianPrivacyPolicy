@@ -1,3 +1,13 @@
+/*!
+ *  FDC CookieLaw Tool - v0.9.2-alpha
+ *  Cookie & Privacy management tool
+ *  GitHub: https://github.com/FattiDiCookies/italianPrivacyPolicy/tree/master/dist/tool
+ *  Docs: https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki/FDC-Tool
+ *  Bugs: https://github.com/FattiDiCookies/italianPrivacyPolicy/issues
+ *
+ *  (c) 2015 by FDC Crew
+ *  Made by FDC Crew and released under MIT License
+ */
 ;(function ( $, window, document, undefined ) {
 
 	"use strict";
@@ -11,6 +21,7 @@
                     banner: "",
                     bannerPosition: "",
                     acceptOnScroll: "",
+                    callbackOnAccepted: "", //function
                     debug: true
 		};
 
@@ -79,6 +90,9 @@
                                 if (cookieHunter === false) {
                                     loadDocs = true;
                                     bannerActive = true;
+                                }else{
+                                    // Callback OnAccepted
+                                    if (plugin.settings.callbackOnAccepted !== "" ) plugin.settings.callbackOnAccepted();
                                 }
                                 
                             }
@@ -417,12 +431,17 @@
                 /* ============================================================ */
                 writeCookie: function(cname, cvalue, exdays) {
                     
+                    // **** DEBUG **** 
                     if(this.settings.debug === true) console.log(pluginName + ': writeCookie(' + cname + ' ' + cvalue + ' ' + exdays +')');
                     
                     var d = new Date();
                     d.setTime(d.getTime() + (exdays*24*60*60*1000));
                     var expires = "expires="+d.toUTCString();
-                    document.cookie = cname + "=" + cvalue + "; " + expires;
+                    document.cookie = cname + "=" + cvalue + "; " + expires + "; path=/ ";
+                    
+                    // Callback OnAccepted
+                    if ( this.settings.callbackOnAccepted !== "" ) this.settings.callbackOnAccepted();
+                    
                 },
                 
                 /* ============================================================ */
@@ -430,6 +449,7 @@
                 /* ============================================================ */
                 readCookie: function(cname) {
                     
+                    // **** DEBUG **** 
                     if(this.settings.debug === true) console.log(pluginName + ': readCookie(' + cname + ')');
                     
                     var name = cname + "=";
