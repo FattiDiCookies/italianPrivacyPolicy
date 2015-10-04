@@ -11,7 +11,6 @@
                     banner: "",
                     bannerPosition: "",
                     acceptOnScroll: "",
-                    callbackOnAccepted: "", //function
                     debug: true
 		};
 
@@ -80,9 +79,6 @@
                                 if (cookieHunter === false) {
                                     loadDocs = true;
                                     bannerActive = true;
-                                }else{
-                                    // Callback OnAccepted
-                                    if (plugin.settings.callbackOnAccepted !== "" ) plugin.settings.callbackOnAccepted();
                                 }
                                 
                             }
@@ -428,10 +424,6 @@
                     d.setTime(d.getTime() + (exdays*24*60*60*1000));
                     var expires = "expires="+d.toUTCString();
                     document.cookie = cname + "=" + cvalue + "; " + expires + "; path=/ ";
-                    
-                    // Callback OnAccepted
-                    if ( this.settings.callbackOnAccepted !== "" ) this.settings.callbackOnAccepted();
-                    
                 },
                 
                 /* ============================================================ */
