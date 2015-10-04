@@ -410,9 +410,9 @@
                 cookieHunter: function (plugin,bannerData) {
                     
                     var cookieVal = plugin.readCookie(bannerData.cname);
-                    var cookieOK = (cookieVal !== undefined && cookieVal !== bannerData.cvalue) ? false : true;
+                    var bannerNeeded = (cookieVal !== undefined && cookieVal !== bannerData.cvalue) ? false : true;
                     
-                    return cookieOK;
+                    return bannerNeeded;
                     
                 },
                 
@@ -421,12 +421,13 @@
                 /* ============================================================ */
                 writeCookie: function(cname, cvalue, exdays) {
                     
+                    // **** DEBUG **** 
                     if(this.settings.debug === true) console.log(pluginName + ': writeCookie(' + cname + ' ' + cvalue + ' ' + exdays +')');
                     
                     var d = new Date();
                     d.setTime(d.getTime() + (exdays*24*60*60*1000));
                     var expires = "expires="+d.toUTCString();
-                    document.cookie = cname + "=" + cvalue + "; " + expires;
+                    document.cookie = cname + "=" + cvalue + "; " + expires + "; path=/ ";
                     
                     // Callback OnAccepted
                     if ( this.settings.callbackOnAccepted !== "" ) this.settings.callbackOnAccepted();
@@ -438,6 +439,7 @@
                 /* ============================================================ */
                 readCookie: function(cname) {
                     
+                    // **** DEBUG **** 
                     if(this.settings.debug === true) console.log(pluginName + ': readCookie(' + cname + ')');
                     
                     var name = cname + "=";

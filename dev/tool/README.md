@@ -10,6 +10,9 @@ I file contenuti in questa directory sono i file di sviluppo che non dovresti us
 
 ### Changes
 
+##### version 0.10.0-alpha
+* Aggiunto pulsante per accettare la policy nell'informativa estesa
+
 ##### version 0.9.2-alpha
 * Rimosso l'import del font "Lato" dal CSS
 * Assegnata famiglia generica sans-serif al banner
