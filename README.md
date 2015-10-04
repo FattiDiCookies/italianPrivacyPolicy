@@ -8,11 +8,11 @@ Questo progetto nasce con l'idea di creare un testo a norma di legge che sia mod
 Il repository contiene una directory **dist** all'interno della quale sono contenuti i testi legali (directory **dist/docs/**) e il tool di implementazione automatica delle policy e del banner relativo all'uso dei cookie (directory **dist/tool/**).
 
 ### Testi
-La directory dei testi delle policy contiene due sub-directory (**cookie-policy** e **privacy-policy**) a loro volta contenenti tutti i relativi documenti esportati nei formati *html* e *json*.<br>
+[La directory dei testi](https://github.com/FattiDiCookies/italianPrivacyPolicy/tree/master/dist/docs) delle policy contiene due sub-directory (**cookie-policy** e **privacy-policy**) a loro volta contenenti tutti i relativi documenti esportati nei formati *html* e *json*.<br>
 Al momento l'esportazione in json è eseguita raccogliendo tutti i documenti in un unico file.
 
 ### Tool
-Il tool di implementazione **FDC CookieLaw Tool** è un plugin jQuery in grado di gestire i testi delle policy (cookie e privacy), il banner di informativa breve sull'uso dei cookie e il relativo consenso degli utenti.<br>
+[Il tool di implementazione](https://github.com/FattiDiCookies/italianPrivacyPolicy/tree/master/dist/tool) **FDC CookieLaw Tool** è un plugin jQuery in grado di gestire i testi delle policy (cookie e privacy), il banner di informativa breve sull'uso dei cookie e il relativo consenso degli utenti.<br>
 Tutti i testi legali sono già inclusi (in formato json) nel tool.
 
 ### Versioni 
