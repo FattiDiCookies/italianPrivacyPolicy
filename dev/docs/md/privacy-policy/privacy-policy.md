@@ -1,4 +1,4 @@
-# INFORMATIVA PRIVACY <small>(trattamento dei dati personali)</small>
+# Informativa Privacy <small>(trattamento dei dati personali)</small>
 
 Il presente testo illustra la nostra politica sul trattamento dei dati personali raccolti attraverso i nostri sistemi di contatto e/o altri servizi presenti nel sito: **[[URL SITO]]** (di seguito nominato anche **[[NOME SITO]]** o il **"Sito"**, o **"questo sito"**)
 
