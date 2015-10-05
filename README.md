@@ -9,6 +9,11 @@ Il progetto nasce con l'idea di creare un testo a norma di legge che sia modular
 ## COME FUNZIONA
 Il repository contiene una directory **dist** all'interno della quale sono contenuti i testi legali (directory **dist/docs/**) e il tool di implementazione automatica delle policy e del banner relativo all'uso dei cookie (directory **dist/tool/**).
 
+#### Bower
+&Egrave; possibile scaricare e gestire il pacchetto usando **[Bower](http://bower.io/)**
+
+`$ bower install italian-privacy-policy --save-dev`
+
 ### Testi
 [La directory dei testi](https://github.com/FattiDiCookies/italianPrivacyPolicy/tree/master/dist/docs) delle policy contiene due sub-directory (**cookie-policy** e **privacy-policy**) a loro volta contenenti tutti i relativi documenti esportati nei formati *html* e *json*.<br>
 Al momento l'esportazione in json è eseguita raccogliendo tutti i documenti in un unico file.
