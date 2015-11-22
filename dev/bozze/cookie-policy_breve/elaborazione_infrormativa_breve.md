@@ -1,3 +1,5 @@
+*Copia di backup del file precedentemente contenuto in https://github.com/FattiDiCookies/italianPrivacyPolicy/blob/master/dev/docs/md/cookie-policy/informativa-breve.md*
+
 ## Esempi di Informative Brevi
 *Scegliere la parte di testo più adatta al proprio sito*.
 
