@@ -1,5 +1,5 @@
 /*!
- *  FDC CookieLaw Tool - v0.11.1-alpha
+ *  FDC CookieLaw Tool - v0.11.2-alpha
  *  Cookie & Privacy management tool
  *  GitHub: https://github.com/FattiDiCookies/italianPrivacyPolicy/tree/master/dist/tool
  *  Docs: https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki/FDC-Tool
@@ -26,27 +26,6 @@
 .fdc-cookielaw__policy h4 {
   margin: 0 0 1em 0;
 }
-.fdc-cookielaw__policy-buttons {
-  margin: 20px 0 0 0;
-  padding: 20px 0 0 0;
-  border-top: 1px solid #333;
-}
-.fdc-cookielaw__policy-buttons .button {
-  display: inline-block;
-  color: #fff;
-  background: #2976d0;
-  padding: 5px 10px;
-  margin: 0 10px 5px 0;
-  text-decoration: none;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  -webkit-transition: background 0.2s ease, color 0.2s ease;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-.fdc-cookielaw__policy-buttons .button:hover {
-  background: #4189dd;
-}
 .fdc-cookielaw__banner {
   position: fixed;
   top: -101%;
@@ -66,27 +45,6 @@
 .fdc-cookielaw__banner a:hover {
   color: #4189dd;
 }
-.fdc-cookielaw__banner .fdc-cookielaw__banner-buttons {
-  margin: 20px 0 0 0;
-  padding: 20px 0 0 0;
-  border-top: 1px solid #333;
-}
-.fdc-cookielaw__banner .fdc-cookielaw__banner-buttons .button {
-  display: inline-block;
-  color: #fff;
-  background: #2976d0;
-  padding: 5px 10px;
-  margin: 0 10px 5px 0;
-  text-decoration: none;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  -webkit-transition: background 0.2s ease, color 0.2s ease;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-.fdc-cookielaw__banner .fdc-cookielaw__banner-buttons .button:hover {
-  background: #4189dd;
-}
 .fdc-cookielaw__banner.topBanner {
   top: -101%;
   bottom: auto;
@@ -104,4 +62,46 @@
 }
 .fdc-cookielaw__banner.bottomBanner.showBanner {
   bottom: 0;
+}
+.fdc-cookielaw__policy-buttons {
+  margin: 20px 0 0 0;
+  padding: 20px 0 0 0;
+  border-top: 1px solid #333;
+}
+.fdc-cookielaw__banner-buttons,
+.fdc-cookielaw__policy-buttons {
+  margin: 20px 0 0 0;
+  padding: 20px 0 0 0;
+  border-top: 1px solid #333;
+}
+.fdc-cookielaw__banner-buttons .button,
+.fdc-cookielaw__policy-buttons .button {
+  display: inline-block;
+  color: #ffffff;
+  background: #2976d0;
+  font-size: 1.2em;
+  padding: 5px 10px;
+  margin: 0 10px 5px 0;
+  text-decoration: none;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.fdc-cookielaw__banner-buttons .button:hover,
+.fdc-cookielaw__policy-buttons .button:hover {
+  background: #4189dd;
+  color: #ffffff;
+}
+.fdc-cookielaw__banner-buttons .button-red,
+.fdc-cookielaw__policy-buttons .button-red {
+  background: #b91313;
+}
+.fdc-cookielaw__banner-buttons .button-red:hover,
+.fdc-cookielaw__policy-buttons .button-red:hover {
+  background: #cb2727;
+}
+.fdc-cookielaw__policy-buttons .button {
+  font-size: 1.2em;
 }

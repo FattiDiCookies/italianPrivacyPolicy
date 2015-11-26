@@ -1,5 +1,5 @@
 /*!
- *  FDC CookieLaw Tool - v0.11.1-alpha
+ *  FDC CookieLaw Tool - v0.11.2-alpha
  *  Cookie & Privacy management tool
  *  GitHub: https://github.com/FattiDiCookies/italianPrivacyPolicy/tree/master/dist/tool
  *  Docs: https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki/FDC-Tool
@@ -21,7 +21,8 @@
                     banner: "",
                     bannerPosition: "",
                     acceptOnScroll: "",
-                    callbackOnAccepted: "", //function
+                    callbackOnAccepted: null, //function
+                    callbackOnRejected: null, //function
                     debug: true
 		};
 
@@ -92,7 +93,7 @@
                                     bannerActive = true;
                                 }else{
                                     // Callback OnAccepted
-                                    if (plugin.settings.callbackOnAccepted !== "" ) plugin.settings.callbackOnAccepted();
+                                    if (plugin.settings.callbackOnAccepted !== null ) plugin.settings.callbackOnAccepted();
                                 }
                                 
                             }
@@ -402,6 +403,8 @@
                         $('.fdc-cookielaw__accept-button.on-policypage').hide();
                         $('.fdc-cookielaw__reject-button.on-policypage').fadeIn();
                         plugin.writeCookie(cookieData.cname,cookieData.cvalue,cookieData.exdays);
+                        // Callback OnAccepted
+                        if ( plugin.settings.callbackOnAccepted !== null ) plugin.settings.callbackOnAccepted();
                     });
                 },
             
@@ -416,6 +419,8 @@
                         $('.fdc-cookielaw__reject-button.on-policypage').hide();
                         $('.fdc-cookielaw__accept-button.on-policypage').fadeIn();
                         plugin.writeCookie(cookieData.cname,"rejected",cookieData.exdays);
+                        // Callback OnRejected
+                        if ( plugin.settings.callbackOnRejected !== null ) plugin.settings.callbackOnRejected();
                     });
                 },
                 
@@ -491,9 +496,6 @@
                     d.setTime(d.getTime() + (exdays*24*60*60*1000));
                     var expires = "expires="+d.toUTCString();
                     document.cookie = cname + "=" + cvalue + "; " + expires + "; path=/ ";
-                    
-                    // Callback OnAccepted
-                    if ( this.settings.callbackOnAccepted !== "" ) this.settings.callbackOnAccepted();
                     
                 },
                 

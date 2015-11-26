@@ -16,27 +16,6 @@
 .fdc-cookielaw__policy h4 {
   margin: 0 0 1em 0;
 }
-.fdc-cookielaw__policy-buttons {
-  margin: 20px 0 0 0;
-  padding: 20px 0 0 0;
-  border-top: 1px solid #333;
-}
-.fdc-cookielaw__policy-buttons .button {
-  display: inline-block;
-  color: #fff;
-  background: #2976d0;
-  padding: 5px 10px;
-  margin: 0 10px 5px 0;
-  text-decoration: none;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  -webkit-transition: background 0.2s ease, color 0.2s ease;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-.fdc-cookielaw__policy-buttons .button:hover {
-  background: #4189dd;
-}
 .fdc-cookielaw__banner {
   position: fixed;
   top: -101%;
@@ -56,27 +35,6 @@
 .fdc-cookielaw__banner a:hover {
   color: #4189dd;
 }
-.fdc-cookielaw__banner .fdc-cookielaw__banner-buttons {
-  margin: 20px 0 0 0;
-  padding: 20px 0 0 0;
-  border-top: 1px solid #333;
-}
-.fdc-cookielaw__banner .fdc-cookielaw__banner-buttons .button {
-  display: inline-block;
-  color: #fff;
-  background: #2976d0;
-  padding: 5px 10px;
-  margin: 0 10px 5px 0;
-  text-decoration: none;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  -webkit-transition: background 0.2s ease, color 0.2s ease;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-.fdc-cookielaw__banner .fdc-cookielaw__banner-buttons .button:hover {
-  background: #4189dd;
-}
 .fdc-cookielaw__banner.topBanner {
   top: -101%;
   bottom: auto;
@@ -95,4 +53,46 @@
 .fdc-cookielaw__banner.bottomBanner.showBanner {
   bottom: 0;
 }
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImRldi90b29sL2xlc3MvZmRDb29raWVMYXcubGVzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFhQTtFQUNJLGdCQUFBO0VBQ0EsdUJBQUE7RUFDQSxjQUFBO0VBQ0EsY0FBQTs7QUFKSixzQkFNSTtFQUNJLFdBQUE7O0FBUFIsc0JBVUk7RUFDSSxpQkFBQTtFQUNBLGtCQUFBOztBQVpSLHNCQWVJO0FBZkosc0JBZ0hBLENBakdPO0FBZlAsc0JBZ0hBLENBakdVO0VBQ0YsaUJBQUE7O0FBS1I7RUFDSSxrQkFBQTtFQUNBLG1CQUFBO0VBQ0EsMEJBQUE7O0FBSEosOEJBS0k7RUFDSSxxQkFBQTtFQUNBLFdBQUE7RUFDQSxtQkFBQTtFQUNBLGlCQUFBO0VBQ0Esb0JBQUE7RUFDQSxxQkFBQTtFQUNBLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLGVBQUE7RUFDQSx5REFBQTtFQUNRLGlEQUFBOztBQUNSLDhCQVpKLFFBWUs7RUFDRyxtQkFBQTs7QUFLWjtFQUNJLGVBQUE7RUFDQSxVQUFBO0VBQ0EsT0FBQTtFQUNBLFFBQUE7RUFDQSxhQUFBO0VBQ0EsdUJBQUE7RUFDQSxtQkFBQTtFQUNBLGNBQUE7O0FBUkosc0JBVUk7RUFDSSxjQUFBO0VBQ0EscUJBQUE7RUFDQSxtQ0FBQTtFQUNRLDJCQUFBOztBQUVSLHNCQU5KLEVBTUs7RUFDRyxjQUFBOztBQWpCWixzQkFxQkk7RUFDSSxrQkFBQTtFQUNBLG1CQUFBO0VBQ0EsMEJBQUE7O0FBeEJSLHNCQXFCSSwrQkFLSTtFQUNJLHFCQUFBO0VBQ0EsV0FBQTtFQUNBLG1CQUFBO0VBQ0EsaUJBQUE7RUFDQSxvQkFBQTtFQUNBLHFCQUFBO0VBQ0Esa0JBQUE7RUFDQSxZQUFBO0VBQ0EsZUFBQTtFQUNBLHlEQUFBO0VBQ1EsaURBQUE7O0FBQ1Isc0JBakJSLCtCQUtJLFFBWUs7RUFDRyxtQkFBQTs7QUFPaEIsc0JBQXNCO0VBQ2xCLFVBQUE7RUFDQSxZQUFBO0VBQ0EsaUNBQUE7RUFDUSx5QkFBQTs7QUFHWixzQkFBc0I7RUFDbEIsU0FBQTtFQUNBLGFBQUE7RUFDQSxvQ0FBQTtFQUNRLDRCQUFBOztBQUdaLHNCQUFzQixVQUFVO0VBQzVCLE1BQUE7O0FBR0osc0JBQXNCLGFBQWE7RUFDL0IsU0FBQSJ9 */
+.fdc-cookielaw__policy-buttons {
+  margin: 20px 0 0 0;
+  padding: 20px 0 0 0;
+  border-top: 1px solid #333;
+}
+.fdc-cookielaw__banner-buttons,
+.fdc-cookielaw__policy-buttons {
+  margin: 20px 0 0 0;
+  padding: 20px 0 0 0;
+  border-top: 1px solid #333;
+}
+.fdc-cookielaw__banner-buttons .button,
+.fdc-cookielaw__policy-buttons .button {
+  display: inline-block;
+  color: #ffffff;
+  background: #2976d0;
+  font-size: 1.2em;
+  padding: 5px 10px;
+  margin: 0 10px 5px 0;
+  text-decoration: none;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.fdc-cookielaw__banner-buttons .button:hover,
+.fdc-cookielaw__policy-buttons .button:hover {
+  background: #4189dd;
+  color: #ffffff;
+}
+.fdc-cookielaw__banner-buttons .button-red,
+.fdc-cookielaw__policy-buttons .button-red {
+  background: #b91313;
+}
+.fdc-cookielaw__banner-buttons .button-red:hover,
+.fdc-cookielaw__policy-buttons .button-red:hover {
+  background: #cb2727;
+}
+.fdc-cookielaw__policy-buttons .button {
+  font-size: 1.2em;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImRldi90b29sL2xlc3MvZmRDb29raWVMYXcubGVzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFnQkE7RUFDSSxnQkFBQTtFQUNBLHVCQUFBO0VBQ0EsY0FBQTtFQUNBLGNBQUE7O0FBSkosc0JBTUk7RUFDSSxXQUFBOztBQVBSLHNCQVVJO0VBQ0ksaUJBQUE7RUFDQSxrQkFBQTs7QUFaUixzQkFlSTtBQWZKLHNCQWlIQyxDQWxHTTtBQWZQLHNCQWlIQyxDQWxHUztFQUNGLGlCQUFBOztBQU9SO0VBQ0ksZUFBQTtFQUNBLFVBQUE7RUFDQSxPQUFBO0VBQ0EsUUFBQTtFQUNBLGFBQUE7RUFDQSx1QkFBQTtFQUNBLG1CQUFBO0VBQ0EsY0FBQTs7QUFSSixzQkFVSTtFQUNJLGNBQUE7RUFDQSxxQkFBQTtFQUNBLG1DQUFBO0VBQ1EsMkJBQUE7O0FBRVIsc0JBTkosRUFNSztFQUNHLGNBQUE7O0FBS1osc0JBQXNCO0VBQ2xCLFVBQUE7RUFDQSxZQUFBO0VBQ0EsaUNBQUE7RUFDUSx5QkFBQTs7QUFHWixzQkFBc0I7RUFDbEIsU0FBQTtFQUNBLGFBQUE7RUFDQSxvQ0FBQTtFQUNRLDRCQUFBOztBQUdaLHNCQUFzQixVQUFVO0VBQzVCLE1BQUE7O0FBR0osc0JBQXNCLGFBQWE7RUFDL0IsU0FBQTs7QUFHSjtFQUNJLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSwwQkFBQTs7QUFHSjtBQUNBO0VBQ0ksa0JBQUE7RUFDQSxtQkFBQTtFQUNBLDBCQUFBOztBQUpKLDhCQU1JO0FBTEosOEJBS0k7RUFDSSxxQkFBQTtFQUNBLGNBQUE7RUFDQSxtQkFBQTtFQUNBLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxvQkFBQTtFQUNBLHFCQUFBO0VBQ0Esa0JBQUE7RUFDQSxZQUFBO0VBQ0EsZUFBQTtFQUNBLHlEQUFBO0VBQ1EsaURBQUE7O0FBQ1IsOEJBYkosUUFhSztBQUFELDhCQWJKLFFBYUs7RUFDRyxtQkFBQTtFQUNBLGNBQUE7O0FBckJaLDhCQXlCSTtBQXhCSiw4QkF3Qkk7RUFDSSxtQkFBQTs7QUFDQSw4QkFGSixZQUVLO0FBQUQsOEJBRkosWUFFSztFQUNHLG1CQUFBOztBQU1aLDhCQUVJO0VBQ0ksZ0JBQUEifQ== */

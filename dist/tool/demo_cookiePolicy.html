@@ -7,6 +7,15 @@
 <script src="js/jquery.fdCookieLaw.js"></script>
 <script> 
     $(document).on('ready',function() {
-        $('#cookiePolicy').fdCookieLaw({page: 'cookie', banner: 'false'});
+        $('#cookiePolicy').fdCookieLaw({
+            page: 'cookie', 
+            banner: 'false',
+            callbackOnAccepted: function() {
+                alert('callbackOnAccepted: Cookie Policy Accepted!');
+            },
+            callbackOnRejected: function() {
+                alert('callbackOnRejected: Cookie Policy Rejected!');
+            }
+        });
     }); 
 </script>
