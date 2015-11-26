@@ -1,5 +1,5 @@
 /*!
- *  FDC CookieLaw Tool - v0.9.2-alpha
+ *  FDC CookieLaw Tool - v0.11.1-alpha
  *  Cookie & Privacy management tool
  *  GitHub: https://github.com/FattiDiCookies/italianPrivacyPolicy/tree/master/dist/tool
  *  Docs: https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki/FDC-Tool
@@ -257,10 +257,40 @@
                     markup = markup.replace(/\[\[URL SITO\]\]/g, config.globals.site.url);
                     markup = markup.replace(/\[\[NOME E COGNOME DEL RESPONSABILE\]\]/g, config.globals.administrator.name);
                     markup = markup.replace(/\[\[ELENCO SERVIZI\]\]/g, '<div id="cookiePolicyServices" class="fdctool__services"></div>');
-
+                    markup = markup.replace(/\[\[PRIVACY-POLICY\]\]/g, '<a href="'+ config.privacyPolicy.url +'" class="button privacy">LINK</a>');
 
                     $(plugin.element).html(markup);
-
+                    
+                    var buttons = '',
+                        cookieData = {
+                            cname: config.cookieBanner.cookieName,
+                            cvalue: config.cookieBanner.cookieValue,
+                            exdays: config.cookieBanner.cookieExpire
+                        },
+                        cookieHunter = this.cookieHunter(plugin,cookieData);
+                    
+                    
+                    buttons +=  '<div class="fdc-cookielaw__policy-buttons">'+
+                                '    <button class="button on-policypage fdc-cookielaw__accept-button">Acconsento all\'uso dei cookie</button>'+
+                                '    <button class="button button-red on-policypage fdc-cookielaw__reject-button">Rimuovo il consenso all\'uso dei cookie</button>'+
+                                '</div>';
+                    
+                    $(plugin.element).append(buttons);
+                    
+                    if (cookieHunter === false) {
+                        $('.fdc-cookielaw__reject-button.on-policypage').hide();
+                        $('.fdc-cookielaw__accept-button.on-policypage').fadeIn();
+                    }else{
+                        $('.fdc-cookielaw__accept-button.on-policypage').hide();
+                        $('.fdc-cookielaw__reject-button.on-policypage').fadeIn();
+                    } 
+                    
+                    
+                    
+                    // cookie policy accept
+                    plugin.cookieAcceptClick(plugin,cookieData);
+                    plugin.cookieRejectClick(plugin,cookieData);
+                    
                     plugin.getServices(plugin,config,docs);
             
 
@@ -320,9 +350,10 @@
                         
                         // banner text
                         bannerData.text = plugin.getBannerText(plugin,config,docs,bannerData);
-                        bannerData.textLink = '<a href="'+ config.cookiePolicy.url +'" title="Informativa Estesa">Informativa Estesa</a>';
+                        bannerData.textLink = '<a href="'+ config.cookiePolicy.url +'" title="Informativa Estesa">informativa estesa</a>';
                         
                         bannerData.text = bannerData.text.replace(/\[\[INFORMATIVA-ESTESA\]\]/g, bannerData.textLink);
+                        bannerData.text = bannerData.text.replace(/\[\[NOME SITO\]\]/g, config.globals.site.name);
                         
                         // banner markup
                         var bannerMarkup = '';
@@ -332,7 +363,7 @@
                             bannerMarkup += '   </div>';
                             bannerMarkup += '   <div class="fdc-cookielaw__banner-buttons">';
                             bannerMarkup += '       <a href="'+ config.cookiePolicy.url +'" class="button privacy">Informativa Estesa</a>';
-                            bannerMarkup += '       <a href="#" id="cookieAccept" class="button accept close" href="'+ config.cookiePolicy.url +'" class="button privacy">OK</a>';
+                            bannerMarkup += '       <a href="#" id="cookieAccept" class="button accept fdc-cookielaw__accept-button" href="'+ config.cookiePolicy.url +'" class="button privacy">OK</a>';
                             bannerMarkup += '   </div>';
                             bannerMarkup += '</div>';
                         
@@ -345,11 +376,7 @@
                         });
                         
                         // cookie policy accept
-                        $('.close').on('click', function(e) {
-                            e.preventDefault();
-                            $('#fdCookieLawBanner').removeClass('showBanner');
-                            plugin.writeCookie(bannerData.cname,bannerData.cvalue,bannerData.exdays);
-                        });
+                        plugin.cookieAcceptClick(plugin,bannerData);
 
                         if (bannerData.acceptOnScroll === true) {
                             $(window).one('scroll', function() {
@@ -364,8 +391,34 @@
                     
                 },
             
+                /* ========================================================= */
+                /* COOKIE POLICY ACCEPT
+                /* ========================================================= */
+                cookieAcceptClick: function (plugin,cookieData) {
+                    // cookie policy accept
+                    $('.fdc-cookielaw__accept-button').on('click', function(e) {
+                        e.preventDefault();
+                        $('#fdCookieLawBanner').removeClass('showBanner');
+                        $('.fdc-cookielaw__accept-button.on-policypage').hide();
+                        $('.fdc-cookielaw__reject-button.on-policypage').fadeIn();
+                        plugin.writeCookie(cookieData.cname,cookieData.cvalue,cookieData.exdays);
+                    });
+                },
             
-            
+                /* ========================================================= */
+                /* COOKIE POLICY REJECT
+                /* ========================================================= */
+                cookieRejectClick: function (plugin,cookieData) {
+                    // cookie policy accept
+                    $('.fdc-cookielaw__reject-button').on('click', function(e) {
+                        e.preventDefault();
+                        $('#fdCookieLawBanner').addClass('showBanner');
+                        $('.fdc-cookielaw__reject-button.on-policypage').hide();
+                        $('.fdc-cookielaw__accept-button.on-policypage').fadeIn();
+                        plugin.writeCookie(cookieData.cname,"rejected",cookieData.exdays);
+                    });
+                },
+                
                 /* ========================================================= */
                 /* BANNER TEXT */
                 /* Get the right banner text */
