@@ -260,10 +260,10 @@
                         cookieHunter = this.cookieHunter(plugin,cookieData);
                     
                     
-                    buttons = ' <div class="fdc-cookielaw__policy-buttons">',
-                    buttons += '    <button class="button on-policypage fdc-cookielaw__accept-button">Acconsento all\'uso dei cookie</button>';
-                    buttons += '    <button class="button button-red on-policypage fdc-cookielaw__reject-button">Rimuovo il consenso all\'uso dei cookie</button>';
-                    buttons += '</div>',
+                    buttons +=  '<div class="fdc-cookielaw__policy-buttons">'+
+                                '    <button class="button on-policypage fdc-cookielaw__accept-button">Acconsento all\'uso dei cookie</button>'+
+                                '    <button class="button button-red on-policypage fdc-cookielaw__reject-button">Rimuovo il consenso all\'uso dei cookie</button>'+
+                                '</div>';
                     
                     $(plugin.element).append(buttons);
                     

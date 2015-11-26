@@ -2,6 +2,9 @@
 
 Storia del rilascio delle diverse versioni dei documenti legali a pratire dal giorno 27/06/2015
 
+#### Versione 0.10.2 alpha
+* **cookie policy**: piccole correzioni alla policy estesa e ai banner
+
 #### Versione 0.10.1 alpha
 * **cookie policy**: piccole correzioni 
 
