@@ -1,6 +1,6 @@
-# italianPrivacyPolicy v0.16.2-alpha
+# italianPrivacyPolicy v0.18.2-beta
 
-**Versione Testi** 0.10.2-alpha | **Versione Tool** 0.11.2-alpha
+**Versione Testi** 0.11.3-beta | **Versione Tool** 0.11.2-beta
 
 ### Il progetto
 Questo repository contiene un'informativa sulla privacy, il trattamento dei dati personali e l'uso dei cookies secondo le vigenti norme di legge.
@@ -29,7 +29,7 @@ Le versioni del progetto **italianPrivacyPolicy** sono numerate con numero incre
 Le versioni dei testi legali e del tool sono anch'esse numerate con un numero di versione indipendente.
 
 ## Attenzione!!!
-Questo progetto è ancora in fase alpha, quindi consigliamo di non integrare ancora nei vostri siti i testi presenti nel repository.
+Questo progetto è in fase beta, quindi consigliamo di usarlo con attenzione, riportando eventuali bug o richiedendo un upgrade dei testi e/o delle funzionalità del tool.
 
 ## COME CONTRIBUIRE
 Questo gruppo di sviluppo è aperto a chiunque sia intenzionato a dare il suo contributo.<br>

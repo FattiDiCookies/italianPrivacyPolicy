@@ -46,7 +46,8 @@
                 "services": {
                     "google-analytics": true,
                     "shinystat": true,
-                    "piwik": true
+                    "piwik": true,
+                    "hotjar": true
                 }
             },
             {
@@ -68,9 +69,7 @@
                     "vimeo": true,
                     "social-networks": true,
                     "facebook-connect": true,
-                    "facebook-social-plugins": true,
-                    "twitter": true,
-                    "google+": true
+                    "facebook-social-plugins": true
                 }
             },
             {
@@ -88,6 +87,7 @@
                 "active": true,
                 "services": {
                     "google-adsense": true,
+                    "doubleclick": true,
                     "adform": true
                 }
             }

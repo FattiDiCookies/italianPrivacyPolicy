@@ -1,0 +1,9 @@
+### AdForm
+AdForm è un sistema di gestione di banner pubblicitari offerto da adform.com, http://www.adform.com, che permette di selezionare e personalizzare il tipo di annunci da pubblicare sul proprio sito. 
+Il servizio AdForm utilizza cookie di profilazione per pubblicare annunci in relazione al comportamento degli utenti durante la navigazione in rete. 
+Il servizio AdForm mette a disposizione un sistema di statistiche che consente di visualizzare il numero di impression e di click, i ricavi giornalieri e totali. 
+
+Questo sito non utilizza il servizio AdForm per la profilazione dell'utente in prima parte e non ha accordi con AdForm per profilare in prima parte.
+
+##### Link di riferimento
+* [http://site.adform.com/](http://site.adform.com/)

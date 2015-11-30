@@ -1,9 +1,18 @@
+# TESTI DELLE POLICY 1.0.0 (0.11.3 beta)
+
 ## Informazioni sul rilascio delle versioni di documenti
 
 Storia del rilascio delle diverse versioni dei documenti legali a pratire dal giorno 27/06/2015
 
-#### Versione 0.10.2 alpha
+#### Versione 1.0.0 (0.11.3 beta)
+* **cookie policy**: ampliato il testo del servizio *double click* 
+* rinominato il file docs.info.md in README.md nella directory dei documenti
+
+#### Versione 0.11.1 alpha
 * **cookie policy**: piccole correzioni alla policy estesa e ai banner
+
+#### Versione 0.11.0 alpha
+* **cookie policy**: aggiunto il servizio *double click* 
 
 #### Versione 0.10.1 alpha
 * **cookie policy**: piccole correzioni 

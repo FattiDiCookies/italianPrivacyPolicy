@@ -1,5 +1,5 @@
 /*!
- *  FDC CookieLaw Tool - v0.11.2-alpha
+ *  FDC CookieLaw Tool - v1.0.0(0.11.2-beta)
  *  Cookie & Privacy management tool
  *  GitHub: https://github.com/FattiDiCookies/italianPrivacyPolicy/tree/master/dist/tool
  *  Docs: https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki/FDC-Tool
