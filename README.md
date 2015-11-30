@@ -1,4 +1,4 @@
-# italianPrivacyPolicy v0.18.2-beta
+# italianPrivacyPolicy v1.0.0-beta
 
 **Versione Testi** 0.11.3-beta | **Versione Tool** 0.11.2-beta
 
