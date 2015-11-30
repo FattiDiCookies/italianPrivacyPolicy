@@ -84,14 +84,14 @@ Le istruzioni per la disabilitazione dei cookie, e per l'eventuale eliminazione 
 * [MS Explorer - windows phone 7](http://www.windowsphone.com/it-it/how-to/wp7/web/changing-privacy-and-other-browser-settings)
 * [MS Explorer - windows phone 8](http://www.windowsphone.com/it-it/how-to/wp8/apps/change-privacy-and-other-browser-settings)
 
-** Android Browser (versione precedente a Lollipop)** 
+**Android Browser (versione precedente a Lollipop)** 
 
 1.  aprire il browser 
 2.  premere il tasto menù 
 3.  premere Impostazioni 
 4.  premere Privacy e sicurezza<br> qui è possibile togliere la spunta dalla voce “Accetta cookie” per rifiutare tutti i cookie
    
-** Android Browser (Lollipop)**
+**Android Browser (Lollipop)**
 
 1.  aprire il browser 
 2.  premere il tasto menù 
