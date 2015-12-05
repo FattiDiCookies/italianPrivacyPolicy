@@ -8,7 +8,7 @@
   "tool": {
     "name": "FDC CookieLaw Tool",
     "description": "Cookie & Privacy management tool",
-    "version": "0.11.2-beta",
+    "version": "0.12.0-beta",
     "github": "https://github.com/FattiDiCookies/italianPrivacyPolicy/tree/master/dist/tool",
     "docs": "https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki/FDC-Tool"
   },

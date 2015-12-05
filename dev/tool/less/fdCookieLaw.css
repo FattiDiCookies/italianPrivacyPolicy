@@ -93,6 +93,12 @@
 .fdc-cookielaw__policy-buttons .button-red:hover {
   background: #cb2727;
 }
+/* ================================================ */
+/* Policy Page */
+/* ================================================ */
+.fdctool__services {
+  margin: 1px solid #ccc;
+}
 .fdc-cookielaw__policy-buttons .button {
   font-size: 1.2em;
 }

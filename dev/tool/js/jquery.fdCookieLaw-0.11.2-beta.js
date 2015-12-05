@@ -10,7 +10,6 @@
                     page: "",
                     banner: "",
                     bannerPosition: "",
-                    bootstrap: false,
                     acceptOnScroll: "",
                     callbackOnAccepted: null, //function
                     callbackOnRejected: null, //function
@@ -248,8 +247,8 @@
                     markup = markup.replace(/\[\[NOME SITO\]\]/g, config.globals.site.name);
                     markup = markup.replace(/\[\[URL SITO\]\]/g, config.globals.site.url);
                     markup = markup.replace(/\[\[NOME E COGNOME DEL RESPONSABILE\]\]/g, config.globals.administrator.name);
-                    markup = markup.replace(/\[\[ELENCO SERVIZI\]\]/g, '<div id="cookiePolicyServices" class="fdctool__services panel-group" role="tablist" aria-multiselectable="true"></div>');
-                    markup = markup.replace(/\[\[PRIVACY-POLICY\]\]/g, '<a href="'+ config.privacyPolicy.url +'" class="fdc-cookielaw__privacy-link">LINK</a>');
+                    markup = markup.replace(/\[\[ELENCO SERVIZI\]\]/g, '<div id="cookiePolicyServices" class="fdctool__services"></div>');
+                    markup = markup.replace(/\[\[PRIVACY-POLICY\]\]/g, '<a href="'+ config.privacyPolicy.url +'" class="button privacy">LINK</a>');
 
                     $(plugin.element).html(markup);
                     
@@ -259,16 +258,12 @@
                             cvalue: config.cookieBanner.cookieValue,
                             exdays: config.cookieBanner.cookieExpire
                         },
-                        cookieHunter = this.cookieHunter(plugin,cookieData),
-                        btnClasses = {
-                            accept: (plugin.settings.bootstrap === true) ? 'btn btn-primary' : 'button',
-                            reject: (plugin.settings.bootstrap === true) ? 'btn btn-danger' : 'button button-red'
-                        }
+                        cookieHunter = this.cookieHunter(plugin,cookieData);
                     
                     
                     buttons +=  '<div class="fdc-cookielaw__policy-buttons">'+
-                                '    <button class="' + btnClasses.accept + ' on-policypage fdc-cookielaw__accept-button">Acconsento all\'uso dei cookie</button>'+
-                                '    <button class="' + btnClasses.reject + ' on-policypage fdc-cookielaw__reject-button">Rimuovo il consenso all\'uso dei cookie</button>'+
+                                '    <button class="button on-policypage fdc-cookielaw__accept-button">Acconsento all\'uso dei cookie</button>'+
+                                '    <button class="button button-red on-policypage fdc-cookielaw__reject-button">Rimuovo il consenso all\'uso dei cookie</button>'+
                                 '</div>';
                     
                     $(plugin.element).append(buttons);
@@ -301,19 +296,13 @@
                         
                         if (this.active === true) {
                         
-                            var catLabel = config.cookiePolicy.services[index].catLabel,
-                                catName = config.cookiePolicy.services[index].catName,
-                                catID = "servicesTool-" + catName,
-                                collapseClass = (index === 0) ? 'collapse in' : 'collapse';
-                                
-                            
-                            $('#cookiePolicyServices').append('<div id="' + catID + '" class="fdctool__services_cat panel panel-default"></div>');
-                            
-                            
-                            $('#' + catID).append('<div class="fdctool__services_cat-heading panel-heading" role="tab" id="' + catID + 'Heading"> <h4 class="fdctool__services_cat-title panel-title"><a role="button" data-toggle="collapse" data-parent="#' + catID + '" href="#' + catID + 'Collapse" aria-expanded="true" aria-controls="' + catID + 'Collapse">' + catLabel + '</a></h4></div>');
-                            $('#' + catID).append('<div id="' + catID + 'Collapse" class="fdctool__services_cat-items panel-collapse ' + collapseClass + '" role="tabpanel" aria-labelledby="' + catID + 'Heading"><div class="fdctool__services_cat-items-body panel-body"></div></div>'); 
-                            
-                            
+                            var catLabel = config.cookiePolicy.services[index].catLabel;
+                            var catName = config.cookiePolicy.services[index].catName;
+                            var catID = "servicesTool-" + catName;
+
+                            $('#cookiePolicyServices').append('<div id="' + catID + '" class="fdctool__services_cat"></div>');
+
+                            $('#' + catID).append('<h2 class="fdctool__services_cat-title">' + catLabel + '</h2>');                                
 
                             $.each(config.cookiePolicy.services[index].services, function(key, value) {
 
@@ -323,18 +312,11 @@
                                     if(typeof markup !== 'undefined') {
                                         markup = markup.replace(/\[\[NOME SITO\]\]/g, config.globals.site.name);
                                         markup = markup.replace(/\[\[URL SITO\]\]/g, config.globals.site.url);
-                                        $('#' + catID).find('.fdctool__services_cat-items-body').append(markup);  
+                                        $('#' + catID).append(markup);  
                                     }
                                 }
 
                             });
-                            
-                            /*$('.fdctool__services_cat-title').on('click', function() {
-                                $('.fdctool__services_cat-items.active').hide();
-                                $('.fdctool__services_cat-items.active').removeClass('active');
-                                $(this).closest('.fdctool__services_cat').find('.fdctool__services_cat-items').addClass('active');
-                                $(this).closest('.fdctool__services_cat').find('.fdctool__services_cat-items').show();
-                            });*/
                             
                         }
                                 
@@ -364,27 +346,9 @@
                         bannerData.text = bannerData.text.replace(/\[\[INFORMATIVA-ESTESA\]\]/g, bannerData.textLink);
                         bannerData.text = bannerData.text.replace(/\[\[NOME SITO\]\]/g, config.globals.site.name);
                         
-                        
                         // banner markup
-                        var bannerMarkup = '',
-                            bootstrapClass = (plugin.settings.bootstrap === true) ? "bootstrap" : "no-bootstrap",
-                            bannerMarkup = '<div id="fdCookieLawBanner" class="fdc-cookielaw__banner '+ bannerData.position +'Banner">';
-                        
-                        if (plugin.settings.bootstrap === true) {
-                            bannerMarkup += '   <div class="container-fluid">';
-                            bannerMarkup += '       <div class="row">';
-                            bannerMarkup += '           <div class="fdc-cookielaw__banner-text col-md-12">';
-                            bannerMarkup +=                 bannerData.text;
-                            bannerMarkup += '           </div>';
-                            bannerMarkup += '       </div>';
-                            bannerMarkup += '       <div class="row">';
-                            bannerMarkup += '           <div class="fdc-cookielaw__banner-buttons col-md-12">';
-                            bannerMarkup += '               <a href="'+ config.cookiePolicy.url +'" class="btn btn-primary privacy">Informativa Estesa</a>';
-                            bannerMarkup += '               <a href="#" id="cookieAccept" class="btn btn-primary accept fdc-cookielaw__accept-button" href="'+ config.cookiePolicy.url +'" class="button privacy">OK</a>';
-                            bannerMarkup += '           </div>';
-                            bannerMarkup += '       </div>';
-                            bannerMarkup += '   </div>';
-                        }else{
+                        var bannerMarkup = '';
+                            bannerMarkup += '<div id="fdCookieLawBanner" class="fdc-cookielaw__banner '+ bannerData.position +'Banner">';
                             bannerMarkup += '   <div class="fdc-cookielaw__banner-text">';
                             bannerMarkup +=         bannerData.text;
                             bannerMarkup += '   </div>';
@@ -392,10 +356,7 @@
                             bannerMarkup += '       <a href="'+ config.cookiePolicy.url +'" class="button privacy">Informativa Estesa</a>';
                             bannerMarkup += '       <a href="#" id="cookieAccept" class="button accept fdc-cookielaw__accept-button" href="'+ config.cookiePolicy.url +'" class="button privacy">OK</a>';
                             bannerMarkup += '   </div>';
-                        }
-                        
-                        bannerMarkup += '</div>';
-
+                            bannerMarkup += '</div>';
                         
                         // load banner
                         $('body').append(bannerMarkup);

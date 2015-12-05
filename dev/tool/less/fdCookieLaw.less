@@ -1,3 +1,5 @@
+//out: ../css/fdCookieLaw.css
+
 @wrapperMargin: 40px 10%;
 @wrapperFontFamily: sans-serif;
 @wrapperFontSize: 1em;
@@ -14,28 +16,10 @@
 
 @chapterMargins: 0 0 30px 0;
 
-.fdc-cookielaw__policy {
-    margin: @wrapperMargin;
-    font-family: @wrapperFontFamily;
-    font-size: @wrapperFontSize;
-    color: @pageFontColor;
-    
-    a {
-        color: #555;
-    }
-    
-    p {
-        margin: 0 0 1em 0;
-        line-height: @wrapperLineHeight;
-    }
 
-    h2,h3,h4 {
-        margin: 0 0 1em 0;
-    }
-    
-}
-
-
+/* ================================================ */
+/* Banner */
+/* ================================================ */
 
 .fdc-cookielaw__banner {
     position: fixed;
@@ -46,13 +30,16 @@
     font-family: @wrapperFontFamily;
     background: @bannerBackground;
     color: @bannerFontColor;
-    
+}
+
+.no-bootstrap.fdc-cookielaw__banner {
+
     a {
         color: @color-1;
         text-decoration: none;
         -webkit-transition: color 0.2s ease;
                 transition: color 0.2s ease;
-        
+
         &:hover {
             color: @color-1-hover;
         }
@@ -81,6 +68,12 @@
     bottom: 0;
 }
 
+.fdc-cookielaw__banner-text {
+    p {
+        margin: 0;
+    }
+}
+
 .fdc-cookielaw__policy-buttons {
     margin: 20px 0 0 0;
     padding: 20px 0 0 0;
@@ -89,8 +82,8 @@
 
 .fdc-cookielaw__banner-buttons,
 .fdc-cookielaw__policy-buttons {
-    margin: 20px 0 0 0;
-    padding: 20px 0 0 0;
+    margin-top: 20px;
+    padding-top: 20px;
     border-top: 1px solid #333;
 
     .button {
@@ -121,10 +114,42 @@
 
 }
 
-.fdc-cookielaw__policy-buttons {
 
-    .button {
-        font-size: 1.2em;
+
+/* ================================================ */
+/* Policy Page */
+/* ================================================ */
+
+.fdc-cookielaw__policy {
+    margin: @wrapperMargin;
+    font-family: @wrapperFontFamily;
+    font-size: @wrapperFontSize;
+    color: @pageFontColor;
+    
+    a {
+        color: #555;
     }
+    
+    p {
+        margin: 0 0 1em 0;
+        line-height: @wrapperLineHeight;
+    }
+    
+}
 
+
+.fdctool__services {
+    
+    
+    .fdctool__services_cat {
+        
+        .fdctool__services_cat-title {
+            font-weight: 700;
+        }
+
+        .fdctool__services_cat-items {
+        }
+        
+    }
+    
 }

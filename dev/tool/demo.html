@@ -3,6 +3,7 @@
     <head>
         <title>FDC CookieLaw Tool</title>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/fdCookieLaw.css">
         <link rel="stylesheet" href="css/demo.css">
 
@@ -29,10 +30,12 @@
         </main>
         
         <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="js/jquery.fdCookieLaw.js"></script>
         <script>
         $(document).on('ready',function() {
             $('body').fdCookieLaw({
+                bootstrap: true,
                 callbackOnAccepted: function() {
                     alert('callbackOnAccepted: Cookie Policy Accepted!');
                 }
