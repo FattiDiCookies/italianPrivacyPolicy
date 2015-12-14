@@ -1,4 +1,13 @@
 ;(function ( $, window, document, undefined ) {
+    
+    /*
+    ***************************************************************************************
+        DEV NOTES: 
+            @NEW UPGRADE (commented code under develope) ... must be fixed or removed
+            @TO-DO (something to do)
+            @DEBUG (debug lines)
+    ***************************************************************************************
+    */
 
 	"use strict";
 
@@ -11,6 +20,8 @@
                     banner: "",
                     bannerPosition: "",
                     bootstrap: false,
+                    // @NEW UPGRADE : addBodyMargin 
+                    // addBodyMargin: true,
                     acceptOnScroll: "",
                     callbackOnAccepted: null, //function
                     callbackOnRejected: null, //function
@@ -34,11 +45,14 @@
 		$.extend(Plugin.prototype, {
 				init: function () {
 					
-                    // **** DEBUG **** 
+                    // @DEBUG 
                     if(this.settings.debug === true) console.log(pluginName + ": start");
                     
-                    var plugin = this;
+                    // @NEW UPGRADE : addBodyMargin 
+                    // this.settings.bodyMargin = (this.settings.addBodyMargin === true) ? $('body').css('margin-bottom') : null;
+                    // this.settings.newBodyMargin = 0;
                     
+                    var plugin = this;
                     this.plugInit(plugin);
                     
 				},
@@ -55,7 +69,7 @@
             
                 getConfig: function (plugin) {
                     
-                    // **** DEBUG **** 
+                    // @DEBUG 
                     if(this.settings.debug === true) console.log(pluginName + ": getConfig() -> loading config");
                     
                     $.ajax({
@@ -103,7 +117,7 @@
                         },
                         error: function() {
                             
-                            // **** DEBUG **** 
+                            // @DEBUG 
                             if(plugin.settings.debug === true) console.log(pluginName + ": getConfig() -> ajax error loading config file");
                             
                             $(plugin.element).html('<h1>Error!</h1>');
@@ -117,7 +131,7 @@
                 /* ========================================================= */
                 getDocsData: function (plugin,config,pageActive,bannerActive,bannerData) {
                     
-                    // **** DEBUG **** 
+                    // @DEBUG 
                     if(this.settings.debug === true) console.log(pluginName + ": getDocsData() -> loading documents");
                     
                     $.ajax({
@@ -147,7 +161,7 @@
                             
                         },
                         error: function() {
-                            // **** DEBUG **** 
+                            // @DEBUG 
                             if(this.settings.debug === true) console.log(pluginName + ": getDocsData() -> ajax error loading docs");
                         }
                     });//end ajax
@@ -158,9 +172,9 @@
                 /* ========================================================= */
                 setBanner: function (plugin,config,docs,bannerData) {
                 
-                    // **** DEBUG **** 
+                    // @DEBUG 
                     if(this.settings.debug === true) console.log(pluginName + ": setBanner() -> start banner");
-
+                    
                     if(plugin.settings.acceptOnScroll === "") {
                         bannerData.acceptOnScroll = config.cookieBanner.acceptOnScroll;
                     }else{
@@ -186,7 +200,7 @@
                 /* ========================================================= */
 				getPrivacyPolicy: function (plugin,config,docs) {
                     
-                    // **** DEBUG **** 
+                    // @DEBUG 
                     if(this.settings.debug === true) console.log(pluginName + ": getPrivacyPolicy() --> load page");
                     
                     var markup = docs.privacy_policy_docs['privacy-policy'],
@@ -239,7 +253,7 @@
                 /* ==================================================== */
                 getCookiePolicy: function (plugin,config,docs) {
                     
-                    // **** DEBUG **** 
+                    // @DEBUG 
                     if(this.settings.debug === true) console.log(pluginName + ": getCookiePolicy()");
                     
 
@@ -263,7 +277,7 @@
                         btnClasses = {
                             accept: (plugin.settings.bootstrap === true) ? 'btn btn-primary' : 'button',
                             reject: (plugin.settings.bootstrap === true) ? 'btn btn-danger' : 'button button-red'
-                        }
+                        };
                     
                     
                     buttons +=  '<div class="fdc-cookielaw__policy-buttons">'+
@@ -304,14 +318,21 @@
                             var catLabel = config.cookiePolicy.services[index].catLabel,
                                 catName = config.cookiePolicy.services[index].catName,
                                 catID = "servicesTool-" + catName,
-                                collapseClass = (index === 0) ? 'collapse in' : 'collapse';
-                                
+                                collapseClass = (index === 0) ? ' collapse in' : ' collapse',
+                                // @TO-DO: inserire qui classi bootstrap
+                                bootstrapCss = {
+                                    panel: (plugin.settings.bootstrap === true) ? " panel panel-default" : "",
+                                    panelHeading: (plugin.settings.bootstrap === true) ? " panel-heading" : "",
+                                    panelTitle: (plugin.settings.bootstrap === true) ? " panel-title" : "",
+                                    panelCollapse: (plugin.settings.bootstrap === true) ? " panel-collapse" + collapseClass : "",
+                                    panelBody: (plugin.settings.bootstrap === true) ? " panel-body" : ""
+                                };
                             
-                            $('#cookiePolicyServices').append('<div id="' + catID + '" class="fdctool__services_cat panel panel-default"></div>');
+                            $('#cookiePolicyServices').append('<div id="' + catID + '" class="fdctool__services_cat panel' + bootstrapCss.panel + '"></div>');
                             
                             
-                            $('#' + catID).append('<div class="fdctool__services_cat-heading panel-heading" role="tab" id="' + catID + 'Heading"> <h4 class="fdctool__services_cat-title panel-title"><a role="button" data-toggle="collapse" data-parent="#' + catID + '" href="#' + catID + 'Collapse" aria-expanded="true" aria-controls="' + catID + 'Collapse">' + catLabel + '</a></h4></div>');
-                            $('#' + catID).append('<div id="' + catID + 'Collapse" class="fdctool__services_cat-items panel-collapse ' + collapseClass + '" role="tabpanel" aria-labelledby="' + catID + 'Heading"><div class="fdctool__services_cat-items-body panel-body"></div></div>'); 
+                            $('#' + catID).append('<div class="fdctool__services_cat-heading' + bootstrapCss.panelHeading + '" role="tab" id="' + catID + 'Heading"> <h4 class="fdctool__services_cat-title' + bootstrapCss.panelTitle + '"><a role="button" data-toggle="collapse" data-parent="#' + catID + '" href="#' + catID + 'Collapse" aria-expanded="true" aria-controls="' + catID + 'Collapse">' + catLabel + '</a></h4></div>');
+                            $('#' + catID).append('<div id="' + catID + 'Collapse" class="fdctool__services_cat-items' + bootstrapCss.panelCollapse + '" role="tabpanel" aria-labelledby="' + catID + 'Heading"><div class="fdctool__services_cat-items-body' + bootstrapCss.panelBody + '"></div></div>'); 
                             
                             
 
@@ -329,13 +350,6 @@
 
                             });
                             
-                            /*$('.fdctool__services_cat-title').on('click', function() {
-                                $('.fdctool__services_cat-items.active').hide();
-                                $('.fdctool__services_cat-items.active').removeClass('active');
-                                $(this).closest('.fdctool__services_cat').find('.fdctool__services_cat-items').addClass('active');
-                                $(this).closest('.fdctool__services_cat').find('.fdctool__services_cat-items').show();
-                            });*/
-                            
                         }
                                 
                         
@@ -349,7 +363,7 @@
                 /* ====================================================== */
                 getCookieBanner: function (config,plugin,docs,bannerData) {
                     
-                    // **** DEBUG **** 
+                    // @DEBUG 
                     if(this.settings.debug === true) console.log(pluginName + ": getCookieBanner() -> load banner");
                     
                     var cookieHunter = plugin.cookieHunter(plugin,bannerData);
@@ -366,11 +380,11 @@
                         
                         
                         // banner markup
-                        var bannerMarkup = '',
-                            bootstrapClass = (plugin.settings.bootstrap === true) ? "bootstrap" : "no-bootstrap",
+                        var bootstrapClass = (plugin.settings.bootstrap === true) ? "bootstrap" : "no-bootstrap",
                             bannerMarkup = '<div id="fdCookieLawBanner" class="fdc-cookielaw__banner '+ bannerData.position +'Banner">';
                         
                         if (plugin.settings.bootstrap === true) {
+                            // bootstrap markup
                             bannerMarkup += '   <div class="container-fluid">';
                             bannerMarkup += '       <div class="row">';
                             bannerMarkup += '           <div class="fdc-cookielaw__banner-text col-md-12">';
@@ -385,6 +399,7 @@
                             bannerMarkup += '       </div>';
                             bannerMarkup += '   </div>';
                         }else{
+                            // common markup
                             bannerMarkup += '   <div class="fdc-cookielaw__banner-text">';
                             bannerMarkup +=         bannerData.text;
                             bannerMarkup += '   </div>';
@@ -402,6 +417,8 @@
                         $('body').promise().done(function() {
                             setTimeout(function() {
                                 $('#fdCookieLawBanner').addClass('showBanner');
+                                // @NEW UPGRADE : addBodyMargin 
+                                // if (plugin.settings.addBodyMargin === true) plugin.bodyAddMargin('#fdCookieLawBanner');
                             }, 100);
                         });
                         
@@ -411,16 +428,28 @@
                         if (bannerData.acceptOnScroll === true) {
                             $(window).one('scroll', function() {
                                 $('#fdCookieLawBanner').removeClass('showBanner');
+                                // @NEW UPGRADE : addBodyMargin 
+                                // if (plugin.settings.addBodyMargin === true) plugin.bodyResetMargin(plugin.settings.bodyMargin);
                                 plugin.writeCookie(bannerData.cname,bannerData.cvalue,bannerData.exdays);
                             });
                         }
                         
                         
-                    }
-                    
+                    }       
                     
                 },
-            
+                
+                // @NEW UPGRADE : addBodyMargin 
+                /*
+                bodyAddMargin: function(bannerElement) {
+                    console.log('ADD NEW MARGIN');
+                    $('body').css('margin-bottom',$(bannerElement).height() + 20);
+                },
+                bodyResetMargin: function(originalMargin) {
+                    console.log('RESET MARGIN');
+                    $('body').css('margin-bottom',originalMargin);
+                },*/
+                
                 /* ========================================================= */
                 /* COOKIE POLICY ACCEPT
                 /* ========================================================= */
@@ -429,6 +458,10 @@
                     $('.fdc-cookielaw__accept-button').on('click', function(e) {
                         e.preventDefault();
                         $('#fdCookieLawBanner').removeClass('showBanner');
+                        
+                        // @NEW UPGRADE : addBodyMargin 
+                        // if (plugin.settings.addBodyMargin === true) plugin.bodyResetMargin(plugin.settings.bodyMargin);
+                        
                         $('.fdc-cookielaw__accept-button.on-policypage').hide();
                         $('.fdc-cookielaw__reject-button.on-policypage').fadeIn();
                         plugin.writeCookie(cookieData.cname,cookieData.cvalue,cookieData.exdays);
@@ -440,11 +473,19 @@
                 /* ========================================================= */
                 /* COOKIE POLICY REJECT
                 /* ========================================================= */
+            
+                
+                // @TO-DO: verificare dopo il click l'esistenza del banne e se non esiste caricarlo
+            
                 cookieRejectClick: function (plugin,cookieData) {
                     // cookie policy accept
                     $('.fdc-cookielaw__reject-button').on('click', function(e) {
                         e.preventDefault();
                         $('#fdCookieLawBanner').addClass('showBanner');
+                        
+                        // @NEW UPGRADE : addBodyMargin 
+                        // if (plugin.settings.addBodyMargin === true) plugin.bodyAddMargin('#fdCookieLawBanner');
+                        
                         $('.fdc-cookielaw__reject-button.on-policypage').hide();
                         $('.fdc-cookielaw__accept-button.on-policypage').fadeIn();
                         plugin.writeCookie(cookieData.cname,"rejected",cookieData.exdays);
@@ -463,7 +504,7 @@
                     
                     if (config.cookieBanner.text.customText === false || config.cookieBanner.text.customText === "") {
                         
-                        // **** DEBUG **** 
+                        // @DEBUG 
                         if(plugin.settings.debug === true) console.log(pluginName + ': getBannerText() -> load text');
                         
                         // Technical
@@ -484,7 +525,7 @@
                         
                     } else {
                         
-                        // **** DEBUG **** 
+                        // @DEBUG 
                         if(plugin.settings.debug === true) console.log(pluginName + ': getBannerText() -> load custom text');
                        
                         bannerText = config.cookieBanner.text.customText;
@@ -518,7 +559,7 @@
                 /* ============================================================ */
                 writeCookie: function(cname, cvalue, exdays) {
                     
-                    // **** DEBUG **** 
+                    // @DEBUG 
                     if(this.settings.debug === true) console.log(pluginName + ': writeCookie(' + cname + ' ' + cvalue + ' ' + exdays +')');
                     
                     var d = new Date();
@@ -533,7 +574,7 @@
                 /* ============================================================ */
                 readCookie: function(cname) {
                     
-                    // **** DEBUG **** 
+                    // @DEBUG 
                     if(this.settings.debug === true) console.log(pluginName + ': readCookie(' + cname + ')');
                     
                     var name = cname + "=";

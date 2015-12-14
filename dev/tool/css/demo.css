@@ -56,3 +56,67 @@ main ul li a {
     color: #2976d0;
     font-weight: 700;
 }
+
+pre {
+    background: #eee;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+pre code {
+    display: block;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.youtubevideo__example {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid #ccc;
+}
+
+.youtubevideo__example h3 {
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+.youtubevideo__wrapper {
+    position: relative;
+    margin: 20px 0;
+}
+
+.youtubevideo__wrapper:before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+}
+
+.youtubevideo__video {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #333;
+}
+
+.youtubevideo__video iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.youtubevideo__blocked {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+}
+
+.youtubevideo__blocked span {
+    font-size: 3em;
+    margin-bottom: 20px
+}

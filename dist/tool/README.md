@@ -1,4 +1,4 @@
-# FDC CookieLaw Tool 1.0.0 (0.11.2-beta)
+# FDC CookieLaw Tool 1.1.1 
 Plugin jQuery per la gestione delle pagine necessarie agli adempimenti della CookieLaw
 
 * Informativa breve sull'uso dei cookie (banner)
@@ -8,6 +8,13 @@ Plugin jQuery per la gestione delle pagine necessarie agli adempimenti della Coo
 
 ### Changes
 
+##### version 1.1.1
+* Miglioramenti codice
+
+##### version 1.1.0
+* Aggiunta compatibilità con Bootstrap 3.X nel banner e nelle policy
+* Aggiunto Bootstrap Accordion per i servizi nell'informativa estesa
+* Aggiunto parametro del plugin per attivazione Bootstrap (default: false)
 
 ##### version 1.0.0 (0.11.2-beta)
 * Modifiche allo stile CSS

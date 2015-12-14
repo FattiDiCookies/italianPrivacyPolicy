@@ -3,6 +3,7 @@
     <head>
         <title>FDC CookieLaw Tool</title>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/fdCookieLaw.css">
         <link rel="stylesheet" href="css/demo.css">
 
@@ -26,18 +27,102 @@
                 <li><a href="demo_cookiePolicy.html" title="Cookie Policy Demo">Cookie Policy Demo</a></li>
                 <li><a href="demo_privacyPolicy.html" title="Privacy Policy Demo">Privacy Policy Demo</a></li>
             </ul>
+            
+            <div class="youtubevideo__example">
+                <h3>Esempio di blocco preventivo</h3>
+                <p>
+                    Il video caricato nel box sottostante è un semplicissimo esempio di blocco preventivo dei cookie e può essere realizzato attraverso la funzione di callback <strong>callbackOnAccepted</strong> (parametro del plugin).<br>
+                    Il video sarà quindi riprodotto soltanto dopo l'effettiva accettazione della policy da parte dell'utente.
+                </p>
+                <div class="youtubevideo__wrapper">
+                    <div id="youTubeVideo" class="youtubevideo__video">
+                        <div class="youtubevideo__blocked">
+                            <span class="glyphicon glyphicon-alert"></span>
+                            <h3>Attenzione! Cookie policy non accettata!</h3>
+                            <p>Per vedere questo video è necessario aver prima accettato la nostra policy sull'uso dei cookie.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p>
+                Usa i bottoni qui sotto per osservare il comportamento del video a seconda della scelta dell'utente
+            </p>
+            <p>
+                <button class="btn btn-primary fdc-cookielaw__accept-button">Accetta la policy</button>
+                <button class="btn btn-danger fdc-cookielaw__reject-button">Rifiuta la policy</button>
+            </p>
+            
+            <h3>Codice usato in questa pagina</h3>
+            
+<pre>
+<code>
+$(document).on('ready',function() {
+    $('body').fdCookieLaw({
+        callbackOnAccepted: function() {
+            loadYouTubeVideo('#youTubeVideo');
+        },
+        callbackOnRejected: function() {
+            removeYouTubeVideo('#youTubeVideo');
+        }
+    });
+}); 
+
+function loadYouTubeVideo(element) {
+    var videocode = '&lt;iframe src="https://www.youtube.com/embed/SBjQ9tuuTJQ" frameborder="0" allowfullscreen>&lt;/iframe>';
+    $(element).find('.youtubevideo__blocked').hide();
+    $(element).append(videocode);
+}  
+
+function removeYouTubeVideo(element) {
+    var iFrame = $(element).find('iframe');
+    if (iFrame.length) {
+        iFrame.remove();
+        $(element).find('.youtubevideo__blocked').show();
+    }
+}
+</code>
+</pre>
+            
         </main>
         
         <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="js/jquery.fdCookieLaw.js"></script>
         <script>
-        $(document).on('ready',function() {
-            $('body').fdCookieLaw({
-                callbackOnAccepted: function() {
-                    alert('callbackOnAccepted: Cookie Policy Accepted!');
+            $(document).on('ready',function() {
+                $('body').fdCookieLaw({
+                    bootstrap: true,
+                    callbackOnAccepted: function() {
+                        loadYouTubeVideo('#youTubeVideo','SBjQ9tuuTJQ');
+                    },
+                    callbackOnRejected: function() {
+                        removeYouTubeVideo('#youTubeVideo');
+                    }
+                });
+                
+                // Data Methods for "accept/reject" buttons 
+                // I metodi pubblici usati qui sotto, anche se parzialmente funzionanti, non sono ancora completamente implementati
+                // Consigliamo di non usarli se non a scopo di test
+                var plugData = $('body').data('plugin_fdCookieLaw');
+                plugData.cookieAcceptClick(plugData,{cname:"fdCookieLaw",cvalue:"accepted",exdays:365});
+                plugData.cookieRejectClick(plugData,{cname:"fdCookieLaw",cvalue:"rejected",exdays:365});
+            }); 
+            
+            // Function "onAccepted"
+            function loadYouTubeVideo(element,videoId) {
+                var videocode = '<iframe src="https://www.youtube.com/embed/'+ videoId +'" frameborder="0" allowfullscreen></iframe>';
+                $(element).find('.youtubevideo__blocked').hide();
+                $(element).append(videocode);
+            } 
+            // Function "onRejected"
+            function removeYouTubeVideo(element) {
+                var iFrame = $(element).find('iframe');
+                if (iFrame.length) {
+                    iFrame.remove();
+                    $(element).find('.youtubevideo__blocked').show();
                 }
-            });
-        }); 
+            } 
         </script>
     </body>
 </html>
