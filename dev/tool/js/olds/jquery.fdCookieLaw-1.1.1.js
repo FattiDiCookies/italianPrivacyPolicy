@@ -1,19 +1,8 @@
-/*!
- *  FDC CookieLaw Tool - v1.2.0
- *  Cookie & Privacy management tool
- *  GitHub: https://github.com/FattiDiCookies/italianPrivacyPolicy/tree/master/dist/tool
- *  Docs: https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki/FDC-Tool
- *  Bugs: https://github.com/FattiDiCookies/italianPrivacyPolicy/issues
- *
- *  (c) 2015 by FDC Crew
- *  Made by FDC Crew and released under MIT License
- */
 ;(function ( $, window, document, undefined ) {
     
     /*
     ***************************************************************************************
         DEV NOTES: 
-            @update [version number] running code changes that need test and debug
             @NEW UPGRADE (commented code under develope) ... must be fixed or removed
             @TO-DO (something to do)
             @DEBUG (debug lines)
@@ -35,7 +24,6 @@
                     // addBodyMargin: true,
                     acceptOnScroll: "",
                     callbackOnAccepted: null, //function
-                    callbackOnNotAccepted: null, //function @update 1.2.0
                     callbackOnRejected: null, //function
                     debug: true
 		};
@@ -108,10 +96,6 @@
                                 if (cookieHunter === false) {
                                     loadDocs = true;
                                     bannerActive = true;
-                                    
-                                    // Callback OnNotAccepted @update 1.2.0
-                                    if (plugin.settings.callbackOnNotAccepted !== null ) plugin.settings.callbackOnNotAccepted();
-                                    
                                 }else{
                                     // Callback OnAccepted
                                     if (plugin.settings.callbackOnAccepted !== null ) plugin.settings.callbackOnAccepted();
@@ -141,7 +125,7 @@
                         }
                     });// end ajax
                 },
-                
+            
                 /* ========================================================= */
                 /* GET ALL DOCS DATA */
                 /* ========================================================= */

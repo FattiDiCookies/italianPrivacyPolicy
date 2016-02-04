@@ -1,6 +1,6 @@
 {
   "name": "italianPrivacyPolicy",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Italian Cookie and Privacy policy",
   "directories": {
     "doc": "docs"
@@ -8,7 +8,7 @@
   "tool": {
     "name": "FDC CookieLaw Tool",
     "description": "Cookie & Privacy management tool",
-    "version": "1.1.1",
+    "version": "1.2.0",
     "github": "https://github.com/FattiDiCookies/italianPrivacyPolicy/tree/master/dist/tool",
     "docs": "https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki/FDC-Tool"
   },

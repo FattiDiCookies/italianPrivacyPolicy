@@ -2,11 +2,16 @@
 Plugin jQuery per la gestione delle pagine necessarie agli adempimenti della CookieLaw
 
 * Informativa breve sull'uso dei cookie (banner)
+* Gestione del consenso da parte dell'utente
+* Blocco preventivo dei cookie
 * Informativa estesa sull'uso dei cookie
 * Privacy Policy
 
 
 ### Changes
+
+##### version 1.2.0
+* Introdotta nuova callback **callbackOnNotAccepted**
 
 ##### version 1.1.1
 * Miglioramenti codice
