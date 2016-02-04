@@ -1,4 +1,4 @@
-# FDC CookieLaw Tool 1.1.1 
+# FDC CookieLaw Tool 1.2.0 
 Plugin jQuery per la gestione delle pagine necessarie agli adempimenti della CookieLaw
 
 * Informativa breve sull'uso dei cookie (banner)
