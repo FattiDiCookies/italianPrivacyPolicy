@@ -1,4 +1,4 @@
-# FDC CookieLaw Tool 1.2.0 
+# FDC CookieLaw Tool 1.2.1
 Plugin jQuery per la gestione delle pagine necessarie agli adempimenti della CookieLaw
 
 * Informativa breve sull'uso dei cookie (banner)
@@ -10,8 +10,11 @@ Plugin jQuery per la gestione delle pagine necessarie agli adempimenti della Coo
 
 ### Changes
 
+##### version 1.2.1
+* Corretto bug apertura banner dopo rifiuto del consenso
+
 ##### version 1.2.0
-* Introdotta nuova callback **callbackOnNotAccepted**
+* Introdotta nuova callback *callbackOnNotAccepted*
 
 ##### version 1.1.1
 * Miglioramenti codice

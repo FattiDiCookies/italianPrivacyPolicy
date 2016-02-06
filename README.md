@@ -1,6 +1,6 @@
-# italianPrivacyPolicy v1.4.0
+# italianPrivacyPolicy v1.4.1
 
-**Versione Testi** 0.12.0-beta | **Versione Tool** 1.2.0<br>
+**Versione Testi** 0.12.0-beta | **Versione Tool** 1.2.1<br>
 
 ### Il progetto
 Questo repository contiene un'informativa sulla privacy, il trattamento dei dati personali e l'uso dei cookies secondo le vigenti norme di legge.
@@ -18,7 +18,7 @@ Il repository contiene una directory **dist** all'interno della quale sono conte
 [La directory dei testi](https://github.com/FattiDiCookies/italianPrivacyPolicy/tree/master/dist/docs) delle policy contiene due sub-directory (**cookie-policy** e **privacy-policy**) a loro volta contenenti tutti i relativi documenti esportati nei formati *html* e *json*.<br>
 Al momento l'esportazione in json è eseguita raccogliendo tutti i documenti in un unico file.
 
-### Tool
+### jQuery Plugin (jquery.fdCookieLaw.js)
 [Il tool di implementazione](https://github.com/FattiDiCookies/italianPrivacyPolicy/tree/master/dist/tool) **FDC CookieLaw Tool** è un plugin jQuery in grado di gestire i testi delle policy (cookie e privacy), il banner di informativa breve sull'uso dei cookie e il relativo consenso degli utenti.<br>
 Tutti i testi legali sono già inclusi (in formato json) nel tool.
 

@@ -1,5 +1,5 @@
 /*!
- *  FDC CookieLaw Tool - v1.2.0
+ *  FDC CookieLaw Tool - v1.2.1
  *  Cookie & Privacy management tool
  *  GitHub: https://github.com/FattiDiCookies/italianPrivacyPolicy/tree/master/dist/tool
  *  Docs: https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki/FDC-Tool
@@ -65,21 +65,23 @@
                     // this.settings.newBodyMargin = 0;
                     
                     var plugin = this;
-                    this.plugInit(plugin);
+                    this.plugInit(plugin, false); // @update 1.2.1
                     
 				},
-            
-                plugInit: function (plugin) {
                 
-                    this.getConfig(plugin);
+                // @update 1.2.1
+                plugInit: function (plugin, reloadAfterReject) {
+                
+                    this.getConfig(plugin, reloadAfterReject);
                     
                 },
                 
                 /* ========================================================= */
                 /* LOAD CONFIG */
                 /* ========================================================= */
-            
-                getConfig: function (plugin) {
+                
+                // @update 1.2.1
+                getConfig: function (plugin, reloadAfterReject) {
                     
                     // @DEBUG 
                     if(this.settings.debug === true) console.log(pluginName + ": getConfig() -> loading config");
@@ -109,8 +111,8 @@
                                     loadDocs = true;
                                     bannerActive = true;
                                     
-                                    // Callback OnNotAccepted @update 1.2.0
-                                    if (plugin.settings.callbackOnNotAccepted !== null ) plugin.settings.callbackOnNotAccepted();
+                                    // Callback OnNotAccepted @update 1.2.0 and @update 1.2.1
+                                    if (plugin.settings.callbackOnNotAccepted !== null && reloadAfterReject === false) plugin.settings.callbackOnNotAccepted();
                                     
                                 }else{
                                     // Callback OnAccepted
@@ -444,6 +446,10 @@
                         if (bannerData.acceptOnScroll === true) {
                             $(window).one('scroll', function() {
                                 $('#fdCookieLawBanner').removeClass('showBanner');
+                                // @update 1.2.1
+                                setTimeout(function () {
+                                    $('#fdCookieLawBanner').remove();
+                                },1000);
                                 // @NEW UPGRADE : addBodyMargin 
                                 // if (plugin.settings.addBodyMargin === true) plugin.bodyResetMargin(plugin.settings.bodyMargin);
                                 plugin.writeCookie(bannerData.cname,bannerData.cvalue,bannerData.exdays);
@@ -473,7 +479,12 @@
                     // cookie policy accept
                     $('.fdc-cookielaw__accept-button').on('click', function(e) {
                         e.preventDefault();
+                        
+                        // @update 1.2.1
                         $('#fdCookieLawBanner').removeClass('showBanner');
+                        setTimeout(function () {
+                            $('#fdCookieLawBanner').remove();
+                        },1000);
                         
                         // @NEW UPGRADE : addBodyMargin 
                         // if (plugin.settings.addBodyMargin === true) plugin.bodyResetMargin(plugin.settings.bodyMargin);
@@ -497,14 +508,19 @@
                     // cookie policy accept
                     $('.fdc-cookielaw__reject-button').on('click', function(e) {
                         e.preventDefault();
+                        
+                        /* // @update 1.2.1 Da rimuovere dopo test
                         $('#fdCookieLawBanner').addClass('showBanner');
+                        $('.fdc-cookielaw__reject-button.on-policypage').hide();
+                        $('.fdc-cookielaw__accept-button.on-policypage').fadeIn();*/
                         
                         // @NEW UPGRADE : addBodyMargin 
                         // if (plugin.settings.addBodyMargin === true) plugin.bodyAddMargin('#fdCookieLawBanner');
                         
-                        $('.fdc-cookielaw__reject-button.on-policypage').hide();
-                        $('.fdc-cookielaw__accept-button.on-policypage').fadeIn();
                         plugin.writeCookie(cookieData.cname,"rejected",cookieData.exdays);
+                        plugin.plugInit(plugin,true); // @update 1.2.1
+
+                        
                         // Callback OnRejected
                         if ( plugin.settings.callbackOnRejected !== null ) plugin.settings.callbackOnRejected();
                     });
