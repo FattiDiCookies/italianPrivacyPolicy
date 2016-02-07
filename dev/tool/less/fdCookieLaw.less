@@ -127,7 +127,7 @@
     color: @pageFontColor;
     
     a {
-        color: #555;
+        color: @pageFontColor;
     }
     
     p {
@@ -153,3 +153,55 @@
     }
     
 }
+
+
+// @NEW-CODE Gix075 ----------------------------------------- * 
+// This is for new update (single cookie choise)
+
+.fdctool__services_item-choise {
+    padding: 15px 0;
+    margin: 15px 0;
+    border-width: 0 0 1px 0;
+    border-style: dotted;
+    border-color: #ccc;
+    &:last-child {
+        border-width: 0;
+    }
+    h5 {
+        margin: 0;
+        font-weight: bold;
+    }
+    p {
+        font-size: 0.9em;
+    }
+    .fdctool__services_item-choise-buttons {
+        .item-choise-btn {}
+    }
+    .fdctool__services_item-choise-msg {
+        
+    }
+}
+
+.fdctool__services_item-choise.accepted {
+    h5 {
+        .choise-label.accepted {
+            display: inline-block;
+        }
+        .choise-label.rejected {
+            display: none;
+        }
+    }
+}
+
+.fdctool__services_item-choise.rejected {
+    h5 {
+        .choise-label.accepted {
+            display: none;
+        }
+        .choise-label.rejected {
+            display: inline-block;
+        }
+    }
+}
+
+// / @NEW-CODE ---------------------------------------------- * 
