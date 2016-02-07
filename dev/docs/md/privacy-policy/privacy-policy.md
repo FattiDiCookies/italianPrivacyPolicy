@@ -7,7 +7,9 @@ La presente informativa si applica esclusivamente alle attività online del pres
 
 ## 1) Tipologia dei dati raccolti
 
-I dati personali inviati attraverso i moduli di contatto e/o gli altri servizi presenti nel sito **[[NOME SITO]]** sono i seguenti: **[[DATI PERSONALI]]**.
+I dati relativi al dispositivo utilizzato dall'utente per la navigazione all'interno del sito **[[NOME SITO]]**, nonché i dati personali inviati volontariamente attraverso i moduli di contatto e/o gli altri servizi presenti nel sito **[[NOME SITO]]** sono i seguenti: 
+[[DATI DISPOSITIVO]] 
+[[DATI PERSONALI]]
 
 ### 1.1) Obbligatorietà del consenso
 

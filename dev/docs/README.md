@@ -4,6 +4,9 @@
 
 Storia del rilascio delle diverse versioni dei documenti legali a pratire dal giorno 27/06/2015
 
+#### Versione 1.0.1
+* aggiornamento dei testi della privacy policy con inserimento dei dati relativi al dispositivo dell'utente
+
 #### Versione 1.0.0 
 * piccoli aggiustamenti al markup delle policy dei servizi
 
