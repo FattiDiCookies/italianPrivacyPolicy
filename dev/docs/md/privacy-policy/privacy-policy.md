@@ -26,9 +26,8 @@ Il rifiuto del consenso al trattamento dei dati personali comporterà una mancat
 ## 2) Scopi
 
 I dati personali inviati verranno utilizzati ai seguenti fini: 
-* instaurare una comunicazione richiesta dall’interessato al fine di poter godere appieno dei servizi offerti dalla nostra attività; 
-* invio di future proposte commerciali legate alla nostra attività *(quando espressamente consentito dall'interessato)*; 
-* compimento di ricerche di mercato e scopi statistici riguardanti la nostra attività. 
+
+[[SCOPI RACCOLTA DATI]]
 
 I dati raccolti saranno conservati in forma digitale negli archivi della società incaricata della conservazione e del trattamento.
 
