@@ -1,8 +1,11 @@
-# TESTI DELLE POLICY 0.12.0 beta
+# TESTI DELLE POLICY 1.0.0
 
 ## Informazioni sul rilascio delle versioni di documenti
 
 Storia del rilascio delle diverse versioni dei documenti legali a pratire dal giorno 27/06/2015
+
+#### Versione 1.0.0 
+* piccoli aggiustamenti al markup delle policy dei servizi
 
 #### Versione 0.12.0 beta
 * **cookie policy**: cambiato testo relativo alla disabilitazione dei cookie via browser in informativa estesa 

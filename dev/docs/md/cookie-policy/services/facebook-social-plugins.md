@@ -9,6 +9,6 @@ Gli utenti che possiedono un account Facebook possono gestire le impostazioni re
 
 [[NOME SITO]] Non ha accordi con Facebook per la profilazione dell'utente in prima parte e non ha accordi con Facebook per profilare in prima parte.
 
-#### Link di riferimento
+##### Link di riferimento
 [http://facebook.com](http://facebook.com)
 [developers.facebook.com/docs/plugins](developers.facebook.com/docs/plugins)

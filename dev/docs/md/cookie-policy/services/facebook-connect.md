@@ -13,6 +13,6 @@ Non è necessario utilizzare Facebook Connect per registrasi su **[[NOME SITO]]*
 
 **[[NOME SITO]]** non utilizza il servizio *Facebook Connect* per la profilazione dell'utente in prima parte e non ha accordi con Facebook per profilare in prima parte.
 
-#### Link di riferimento
+##### Link di riferimento
 * [https://www.facebook.com/full_data_use_policy](https://www.facebook.com/full_data_use_policy)
 * [https://www.facebook.com/help/cookies/](https://www.facebook.com/help/cookies/)

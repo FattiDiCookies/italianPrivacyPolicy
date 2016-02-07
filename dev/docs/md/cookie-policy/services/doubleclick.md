@@ -15,6 +15,6 @@ Nel cookie, però, DoubleClick non memorizza informazioni che consentono l'ident
 [[NOME SITO]] non utilizza il servizio DoubleClick per la profilazione dell'utente in prima parte 
 e non ha accordi con DoubleClick per profilare in prima parte.
 
-#### Link di riferimento
+##### Link di riferimento
 [https://www.google.it/intl/it/doubleclick/](https://www.google.it/intl/it/doubleclick/)
 [https://support.google.com/adsense/answer/2839090?hl=it](https://support.google.com/adsense/answer/2839090?hl=it)

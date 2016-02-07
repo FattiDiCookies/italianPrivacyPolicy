@@ -1,7 +1,7 @@
-#### Google Analytics 
+### Google Analytics 
 *Google Analytics* è uno strumento analitico, [www.google.it/intl/it/analytics/](www.google.it/intl/it/analytics/), che aiuta i proprietari di siti web a misurare le statistiche del sito web. In particolare *Google Analytics* fornisce indicazioni su come gli utenti interagiscono con i contenuti del sito, con che frequenza gli utenti visitano ciascuna pagina del sito, per quanto tempo si trattengono e con quale frequenza generano una conversione. *Google Analytics* utilizza principalmente cookie proprietari per generare i rapporti sulle interazioni dei visitatori con i siti web. Questi cookie vengono utilizzati per memorizzare informazioni che non consentono l'identificazione personale degli utenti. Inoltre, utilizzando il metodo di [mascheratura dell'indirizzo IP](https://support.google.com/analytics/answer/2905384?hl=it), le informazioni memorizzate nel cookie vengono ridotte a un numero identificativo casuale. Gli utenti dei siti web che non vogliono che i dati relativi alla loro visita vengano monitorati possono installare il [componente aggiuntivo del browser per la disattivazione di Google Analytics] (https://tools.google.com/dlpage/gaoptout). 
 [[NOME SITO]] non utilizza il servizio *Google Analytics* per la profilazione dell'utente in prima parte e non ha accordi con *Google Analytics* per profilare in prima parte.
 
-#### Link di riferimento
+##### Link di riferimento
 * [Protezione dei dati di Google Analytics](http://www.google.com/intl/it_ALL/analytics/learn/privacy.html)
 * [Google Analytics Cookie Usage on Websites](https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage)
