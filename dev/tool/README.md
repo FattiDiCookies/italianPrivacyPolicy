@@ -10,6 +10,19 @@ Plugin jQuery per la gestione delle pagine necessarie agli adempimenti della Coo
 
 ### Changes
 
+##### version 1.3.2-beta
+* Itrodotto markup bootstrap per i pannelli di scelta dei singoli servizi nella cookie policy
+* Aggiustamenti CSS
+
+##### version 1.3.1-beta
+* Introdotta possibilità di personalizzazione del valore dei cookie di accettazione e rifiuto della policy, nonché dei singoli servizi<br>
+(questo update rende necessario un aggiornamento del file di configurazione. 
+Per tutte le installazioni precedenti è possibile effettuare comunque l'aggiornamento anche senza update 
+del file di configurazione. Questa possibilità verrà rimossa dalla versione 1.5.0 del plugin)
+
+##### version 1.3.0-beta
+* Introdotta gestione del consenso per singoli servizi
+
 ##### version 1.2.1
 * Corretto bug apertura banner dopo rifiuto del consenso
 

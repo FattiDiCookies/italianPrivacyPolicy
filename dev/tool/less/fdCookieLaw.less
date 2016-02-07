@@ -135,6 +135,10 @@
         line-height: @wrapperLineHeight;
     }
     
+    h5 {
+        font-weight: bold;
+        font-style: italic;
+    }
 }
 
 
@@ -157,33 +161,35 @@
 
 // @NEW-CODE Gix075 ----------------------------------------- * 
 // This is for new update (single cookie choise)
+// @update 1.3.0 @update 1.3.1 @update 1.3.2  
 
 .fdctool__services_item-choise {
-    padding: 15px 0;
-    margin: 15px 0;
-    border-width: 0 0 1px 0;
-    border-style: dotted;
-    border-color: #ccc;
-    &:last-child {
-        border-width: 0;
-    }
-    h5 {
+    margin-top:  30px;
+    margin-bottom:  30px;
+    h6 {
         margin: 0;
         font-weight: bold;
     }
-    p {
-        font-size: 0.9em;
+    
+    .fdctool__services_item-choise-panelbody {
+        p {
+            font-size: 0.9em;
+        }
+        .fdctool__services_item-choise-buttons {
+            .item-choise-btn {}
+        }
+        .fdctool__services_item-choise-msg {
+            font-size: 0.8em;
+            font-weight: bold;
+            display: none;
+            padding: 15px 0 0 0;
+        }
     }
-    .fdctool__services_item-choise-buttons {
-        .item-choise-btn {}
-    }
-    .fdctool__services_item-choise-msg {
-        
-    }
+    
 }
 
 .fdctool__services_item-choise.accepted {
-    h5 {
+    h6 {
         .choise-label.accepted {
             display: inline-block;
         }
@@ -194,7 +200,7 @@
 }
 
 .fdctool__services_item-choise.rejected {
-    h5 {
+    h6 {
         .choise-label.accepted {
             display: none;
         }

@@ -33,6 +33,7 @@
         "acceptOnScroll": false,
         "cookieName": "fdCookieLaw",
         "cookieValue": "accepted",
+        "cookieValueRejected": "rejected",
         "cookieExpire": 365
     },
     

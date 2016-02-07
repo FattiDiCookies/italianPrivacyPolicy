@@ -79,11 +79,22 @@
 
             // @DEBUG 
             if(this.settings.debug === true) console.log(pluginName + ": getConfig() -> loading config");
-
+            
             $.ajax({
                 url: plugin.settings.config,
                 dataType: 'json',
                 success: function (config) {
+                    
+                    // @TO-DO: inserire funzione per retrocompatibilità con vecchio file di configurazione
+                    
+                    // @update 1.3.1
+                    // Qui assegno manualmente il valore "rejected" al parametro di configurazione
+                    // config.cookieBanner.cookieValueRejected
+                    config.cookieBanner.cookieValueRejected = (config.cookieBanner.cookieValueRejected !== "undefined") ? config.cookieBanner.cookieValueRejected : "rejected";
+                    // Questo serve solo per gestire la retrocompatibilità con la vecchia configurazione
+                    // Quando il vecchio file di config sarà completamente deprecato,
+                    // questa riga dovrà essere eliminata
+                    
 
                     var loadDocs = false,
                         pageActive = false,
@@ -96,6 +107,7 @@
                         bannerData = {
                             cname: config.cookieBanner.cookieName,
                             cvalue: config.cookieBanner.cookieValue,
+                            cvalue_rejected: config.cookieBanner.cookieValueRejected, // @update 1.3.1
                             exdays: config.cookieBanner.cookieExpire
                         };
 
@@ -283,6 +295,7 @@
                 cookieData = {
                     cname: config.cookieBanner.cookieName,
                     cvalue: config.cookieBanner.cookieValue,
+                    cvalue_rejected: config.cookieBanner.cookieValueRejected, // @update 1.3.1
                     exdays: config.cookieBanner.cookieExpire
                 },
                 cookieHunter = this.cookieHunter(plugin,cookieData),
@@ -547,22 +560,26 @@
         },
         
         cookieReject: function (plugin,cookieData) {
-            plugin.writeCookie(cookieData.cname,"rejected",cookieData.exdays);
+            plugin.writeCookie(cookieData.cname,cookieData.cvalue_rejected,cookieData.exdays);
                 
             // @NEW-CODE Gix075 ----------------------------------------- * 
             // @update 1.3.0
             plugin.servicesChoise_handleAll(plugin, cookieData.cname, false);
             // /@NEW-CODE ----------------------------------------------- * 
 
-            /*if ( $('#fdCookieLawBanner').length > 0 ) {
+            /* 
+            @update 1.2.1 (parte rimossa)
+            if ( $('#fdCookieLawBanner').length > 0 ) {
                 $('#fdCookieLawBanner').addClass('showBanner');
                 $('.fdc-cookielaw__reject-button.on-policypage').hide();
                 $('.fdc-cookielaw__accept-button.on-policypage').fadeIn();
             }else {
                 plugin.plugInit(plugin,true);
-            }*/
-
-            plugin.plugInit(plugin,true); // @update 1.2.1
+            }
+            */
+            
+            // @update 1.2.1
+            plugin.plugInit(plugin,true); 
 
             // Callback OnRejected
             if ( plugin.settings.callbackOnRejected !== null ) plugin.settings.callbackOnRejected();
@@ -610,13 +627,14 @@
                 cookieData = {
                     cname: config.cookieBanner.cookieName,
                     cvalue: config.cookieBanner.cookieValue,
+                    cvalue_rejected: config.cookieBanner.cookieValueRejected, // @update 1.3.1
                     exdays: config.cookieBanner.cookieExpire
                 };
             
             switch(action) {
                 case "add":
                     
-                    if(currentCookie !== undefined && currentCookie !== "" && currentCookie !== "rejected") {
+                    if(currentCookie !== undefined && currentCookie !== "" && currentCookie !== cookieData.cvalue_rejected) {
                         currentCookie = currentCookie.split(',');
                         if($.inArray(service, currentCookie) === -1) currentCookie.push(service);
                         callbackData.allowed_services = currentCookie;
@@ -640,7 +658,7 @@
                         newCookieValue = currentCookie.toString(); 
                         if (newCookieValue === "") {
                             callbackData.allowed_services = [];
-                            newCookieValue = "rejected";
+                            newCookieValue = cookieData.cvalue_rejected;
                             plugin.cookieReject(plugin, cookieData);
                         }
                         
@@ -708,6 +726,7 @@
                 btnRejectClass,
                 choiseLabelAccepted = 'accettato',
                 choiseLabelRejected = 'non accettato',
+                panelClasses = {},
                 markup;
             
             if(plugin.serviceChoise_serviceHunter(plugin, config, service) === true) {
@@ -722,23 +741,37 @@
             
             if(plugin.settings.bootstrap === true) {
                 btnAcceptClass = "btn btn-primary";
-                btnRejectClass = "btn btn-danger"
+                btnRejectClass = "btn btn-danger";
+                panelClasses.panel = "panel panel-default ";
+                panelClasses.heading = "panel-heading ";
+                panelClasses.title = "panel-title ";
+                panelClasses.body = "panel-body ";
             }else{
                 btnAcceptClass = "button";
                 btnRejectClass = "button button-red";
+                panelClasses.panel = "";
+                panelClasses.heading = "";
+                panelClasses.title = "";
+                panelClasses.body = "";
             }
             
-            markup =    ' <div class="fdctool__services_item-choise ' + elementClass + '" data-cookie="' + service + '">\n' +
-                        '   <h5>La tua scelta: <span class="choise-label accepted">' + choiseLabelAccepted + '</span><span class="choise-label rejected">' + choiseLabelRejected + '</span></h5>\n' +
-                        '   <p>Decidi se attivare o meno questo cookie. Ricorda che disabilitando questo cookie potresti non poter usufruire di alcuni servizi offerti da questo sito.</p>\n' +
-                        '   <div class="fdctool__services_item-choise-buttons">\n' +
-                        '       <button class="' + btnAcceptClass + ' item-choise-btn accept"' + acceptBtnDisabled + '>Abilita</button>\n' +
-                        '       <button class="' + btnRejectClass + ' item-choise-btn reject"' + rejectacceptBtnDisabled + '>Disabilita</button>\n' +
+            markup =    ' <div class="' + panelClasses.panel + 'fdctool__services_item-choise ' + elementClass + '" data-cookie="' + service + '">\n' +
+                        '   <div class="' + panelClasses.heading + 'fdctool__services_item-choise-heading">\n' +
+                        '       <h6 class="' + panelClasses.title + 'fdctool__services_item-choise-title">La tua scelta: <span class="choise-label accepted"><span class="glyphicon glyphicon-ok-circle"></span> ' + choiseLabelAccepted + '</span><span class="choise-label rejected"><span class="glyphicon glyphicon-ban-circle"></span> ' + choiseLabelRejected + '</span></h6>\n' +
                         '   </div>\n' +
-                        '   <div class="fdctool__services_item-choise-msg"></div>\n' +
+                        '   <div class="' + panelClasses.body + 'fdctool__services_item-choise-panelbody">\n' +
+                        '       <p>Decidi se attivare o meno questo cookie. Ricorda che disabilitando questo cookie potresti non poter usufruire di alcuni servizi offerti da questo sito.</p>\n' +
+                        '       <div class="fdctool__services_item-choise-buttons">\n' +
+                        '           <button class="' + btnAcceptClass + ' item-choise-btn accept"' + acceptBtnDisabled + '>Abilita</button>\n' +
+                        '           <button class="' + btnRejectClass + ' item-choise-btn reject"' + rejectacceptBtnDisabled + '>Disabilita</button>\n' +
+                        '       </div>\n' +
+                        '       <div class="fdctool__services_item-choise-msg">\n' +
+                        '           <span class="glyphicon glyphicon-floppy-saved"></span> La tua scelta è stata salvata!\n' +
+                        '       </div>\n' +
+                        '    </div>\n' +
                         ' </div>';
             
-            return markup;    
+            return markup; 
             
         },
         
@@ -755,7 +788,7 @@
                 var service = $(this).closest('.fdctool__services_item-choise').data('cookie'),
                     msgDiv = $(this).closest('.fdctool__services_item-choise').find('.fdctool__services_item-choise-msg');
                 
-                msgDiv.text('');
+                msgDiv.hide();
                 
                 if ($(this).hasClass('accept')) {
                     plugin.serviceChoise_handleServiceCookie(plugin, config, service, "add", true);
@@ -770,9 +803,9 @@
                     $(this).closest('.fdctool__services_item-choise').removeClass('accepted');
                     $(this).closest('.fdctool__services_item-choise').addClass('rejected');
                 }
-                msgDiv.text('La tua scelta è stata salvata!');
+                msgDiv.fadeIn();
                 setTimeout(function() {
-                    msgDiv.text('');
+                    msgDiv.fadeOut();
                 },2000);
             });
         },
