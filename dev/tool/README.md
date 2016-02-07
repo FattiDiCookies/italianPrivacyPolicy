@@ -1,4 +1,4 @@
-# FDC CookieLaw Tool 1.2.1
+# FDC CookieLaw Tool 1.3.3-beta
 Plugin jQuery per la gestione delle pagine necessarie agli adempimenti della CookieLaw
 
 * Informativa breve sull'uso dei cookie (banner)
@@ -10,6 +10,13 @@ Plugin jQuery per la gestione delle pagine necessarie agli adempimenti della Coo
 
 ### Changes
 
+##### version 1.3.3-beta
+* Sostanziale aggiornamento nella gestione della privacy policy (questo update rende necessario un aggiornamento del file di configurazione. 
+Per tutte le installazioni precedenti è possibile effettuare comunque l'aggiornamento anche senza update 
+del file di configurazione. In questo caso saranno utilizzati dei valori di default. Questa possibilità verrà rimossa dalla versione 1.5.0 del plugin)
+
+*Per l'elenco delle modifiche incluse in questo aggiornamento vedasi la relativa pagina nel wiki di documentazione.*
+
 ##### version 1.3.2-beta
 * Itrodotto markup bootstrap per i pannelli di scelta dei singoli servizi nella cookie policy
 * Aggiustamenti CSS
@@ -18,7 +25,7 @@ Plugin jQuery per la gestione delle pagine necessarie agli adempimenti della Coo
 * Introdotta possibilità di personalizzazione del valore dei cookie di accettazione e rifiuto della policy, nonché dei singoli servizi<br>
 (questo update rende necessario un aggiornamento del file di configurazione. 
 Per tutte le installazioni precedenti è possibile effettuare comunque l'aggiornamento anche senza update 
-del file di configurazione. Questa possibilità verrà rimossa dalla versione 1.5.0 del plugin)
+del file di configurazione. In questo caso saranno utilizzati dei valori di default. Questa possibilità verrà rimossa dalla versione 1.5.0 del plugin)
 
 ##### version 1.3.0-beta
 * Introdotta gestione del consenso per singoli servizi

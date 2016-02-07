@@ -229,14 +229,75 @@
 
             var markup = docs.privacy_policy_docs['privacy-policy'],
                 personalDataMarkup = "",
-                pesonalDataLenght = config.privacyPolicy.personalData.length,
+                deviceDataMarkup = "", // @update 1.3.3
+                deviceDataLenght, // @update 1.3.3 (retrocompatibilità)
+                //deviceDataLenght = config.privacyPolicy.deviceData.length;, // @update 1.3.3 commentato per retrocompatibilità (dovrà essere reinserito alla versione 1.5.0)
+                pesonalDataLenght = config.privacyPolicy.personalData.length, 
                 purposesMarkup = "",
                 purposesDataLenght = config.privacyPolicy.purposes.length,
                 itemStart = "",
                 itemEnd = "",
                 stringEnd = "";
-
+            
+            
+            // @update 1.3.3
+            // Controlli per vecchi file di configurazione (rimuovere alla versione 1.5.0)
+            
+            if ( config.privacyPolicy.deviceDataTitle !== undefined && config.privacyPolicy.deviceDataTitle !== "") {
+                config.privacyPolicy.deviceDataTitle = config.privacyPolicy.deviceDataTitle;
+            }else{
+                config.privacyPolicy.deviceDataTitle = "Dati relativi al dispositivo dell'utente";
+            }
+            
+            if ( config.privacyPolicy.deviceDataDesc !== undefined && config.privacyPolicy.deviceDataDesc !== "") {
+                config.privacyPolicy.deviceDataDesc = config.privacyPolicy.deviceDataDesc;
+            }else{
+                config.privacyPolicy.deviceDataDesc = "Sono dati raccolti automaticamente dal sistema che riguardano il dispositivo con il quale viene navigato il sito. I dati così raccolti vengono conservati in forma completamente anonima e sono consultabili solo in forma aggreta. In alcuni casi l'indirizzo ip viene anonimizzato sottraendo ad esso le ultime tre cifre.";
+            }
+            
+            if ( config.privacyPolicy.deviceData !== undefined && config.privacyPolicy.deviceData !== "") {
+                config.privacyPolicy.deviceData = config.privacyPolicy.deviceData;
+                deviceDataLenght = config.privacyPolicy.deviceData.length;
+            }else{
+                config.privacyPolicy.deviceData = [
+                    "indirizzo internet protocol (IP)",
+                    "tipo di browser",
+                    "dispositivo usato per connettersi al sito",
+                    "internet service provider (ISP)",
+                    "data e orario di visita",
+                    "pagina web di provenienza del visitatore (referral) e di uscita",
+                    "numero di click"
+                ];
+                deviceDataLenght = config.privacyPolicy.deviceData.length;
+            }
+            
+            if ( config.privacyPolicy.personalDataTitle !== undefined && config.privacyPolicy.personalDataTitle !== "") {
+                config.privacyPolicy.personalDataTitle = config.privacyPolicy.personalDataTitle;
+            }else{
+                config.privacyPolicy.personalDataTitle = "Dati personali dell'utente";
+            }
+            
+            if ( config.privacyPolicy.personalDataDesc !== undefined && config.privacyPolicy.personalDataDesc !== "") {
+                config.privacyPolicy.personalDataDesc = config.privacyPolicy.personalDataDesc;
+            }else{
+                config.privacyPolicy.personalDataDesc = "I dati personali dell'utente vengono rilasciati volontariamente, dove espressamente richiesto, e sono conservati secondo le modalità descritte.";
+            }
+            
+            
+            // device data 
+            // @update 1.3.3
+            deviceDataMarkup += '<p><strong>' + config.privacyPolicy.deviceDataTitle + '</strong><br>';
+            deviceDataMarkup += '<small><em>' + config.privacyPolicy.deviceDataDesc + '</em></small></p>';
+            $.each(config.privacyPolicy.deviceData, function (index, value) {
+                stringEnd = (index === deviceDataLenght - 1) ? "." : ";";
+                itemStart = (index === 0) ? "<ul>" : "";
+                itemEnd = (index === deviceDataLenght - 1) ? "</ul>" : "";
+                deviceDataMarkup += itemStart + '<li>' + value + stringEnd + '</li>' + itemEnd;
+            });
+            
             // personal data
+            personalDataMarkup += '<p><strong>' + config.privacyPolicy.personalDataTitle + '</strong><br>';
+            personalDataMarkup += '<small><em>' + config.privacyPolicy.personalDataDesc + '</em></small></p>';
             $.each(config.privacyPolicy.personalData, function (index, value) {
                 stringEnd = (index === pesonalDataLenght - 1) ? "." : ";";
                 itemStart = (index === 0) ? "<ul>" : "";
@@ -263,6 +324,7 @@
 
             markup = markup.replace(/\[\[NOME E COGNOME DEL RESPONSABILE\]\]/g, config.globals.administrator.name);
             markup = markup.replace(/\[\[EMAIL DI CONTATTO\]\]/g, config.globals.site.email);
+            markup = markup.replace(/\[\[DATI DISPOSITIVO\]\]/g, deviceDataMarkup); // @update 1.3.3
             markup = markup.replace(/\[\[DATI PERSONALI\]\]/g, personalDataMarkup);
             markup = markup.replace(/\[\[SCOPI RACCOLTA DATI\]\]/g, purposesMarkup);
 
