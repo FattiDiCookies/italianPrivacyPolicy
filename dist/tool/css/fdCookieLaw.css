@@ -1,5 +1,5 @@
 /*!
- *  FDC CookieLaw Tool - v1.2.1
+ *  FDC CookieLaw Tool - v1.3.0
  *  Cookie & Privacy management tool
  *  GitHub: https://github.com/FattiDiCookies/italianPrivacyPolicy/tree/master/dist/tool
  *  Docs: https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki/FDC-Tool
@@ -100,12 +100,45 @@
   color: #555555;
 }
 .fdc-cookielaw__policy a {
-  color: #555;
+  color: #555555;
 }
 .fdc-cookielaw__policy p {
   margin: 0 0 1em 0;
   line-height: 1.3em;
 }
+.fdc-cookielaw__policy h5 {
+  font-weight: bold;
+  font-style: italic;
+}
 .fdctool__services .fdctool__services_cat .fdctool__services_cat-title {
   font-weight: 700;
+}
+.fdctool__services_item-choise {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.fdctool__services_item-choise h6 {
+  margin: 0;
+  font-weight: bold;
+}
+.fdctool__services_item-choise .fdctool__services_item-choise-panelbody p {
+  font-size: 0.9em;
+}
+.fdctool__services_item-choise .fdctool__services_item-choise-panelbody .fdctool__services_item-choise-msg {
+  font-size: 0.8em;
+  font-weight: bold;
+  display: none;
+  padding: 15px 0 0 0;
+}
+.fdctool__services_item-choise.accepted h6 .choise-label.accepted {
+  display: inline-block;
+}
+.fdctool__services_item-choise.accepted h6 .choise-label.rejected {
+  display: none;
+}
+.fdctool__services_item-choise.rejected h6 .choise-label.accepted {
+  display: none;
+}
+.fdctool__services_item-choise.rejected h6 .choise-label.rejected {
+  display: inline-block;
 }

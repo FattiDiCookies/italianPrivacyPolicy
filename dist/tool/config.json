@@ -33,6 +33,7 @@
         "acceptOnScroll": false,
         "cookieName": "fdCookieLaw",
         "cookieValue": "accepted",
+        "cookieValueRejected": "rejected",
         "cookieExpire": 365
     },
     
@@ -97,6 +98,19 @@
     
     "privacyPolicy": {
         "url": "demo_privacyPolicy.html",
+        "deviceDataTitle": "Dati relativi al dispositivo dell'utente",
+        "deviceDataDesc": "Sono dati raccolti automaticamente dal sistema che riguardano il dispositivo con il quale viene navigato il sito. I dati così raccolti vengono conservati in forma completamente anonima e sono consultabili solo in forma aggreta. In alcuni casi l'indirizzo ip viene anonimizzato sottraendo ad esso le ultime tre cifre.",
+        "deviceData": [
+            "indirizzo internet protocol (IP)",
+            "tipo di browser",
+            "dispositivo usato per connettersi al sito",
+            "internet service provider (ISP)",
+            "data e orario di visita",
+            "pagina web di provenienza del visitatore (referral) e di uscita",
+            "numero di click"
+        ],
+        "personalDataTitle": "Dati personali dell'utente",
+        "personalDataDesc": "I dati personali dell'utente vengono rilasciati volontariamente, dove espressamente richiesto, e sono conservati secondo le modalità descritte.",
         "personalData": [
             "nome e cognome",
             "data di nascita",

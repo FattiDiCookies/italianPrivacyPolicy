@@ -25,7 +25,13 @@
             },*/
             callbackOnRejected: function() {
                 alert('callbackOnRejected: Cookie Policy Rejected!');
-            }
+            },
+            callbackOnChoiseChange: function(data) {
+                console.log('choiseChanged -> action: ' + data.action);
+                console.log('choiseChanged -> changed: ' + data.changed);
+                console.log('choiseChanged -> allowed: ' + data.allowed_services);
+            },
+            debug: false
         });
     }); 
 </script>

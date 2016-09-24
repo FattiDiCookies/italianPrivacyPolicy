@@ -671,7 +671,7 @@
                     // @DEBUG 
                     if(plugin.settings.debug === true) console.log(pluginName + ": searchService() -> get config");
                     var servicesCookie = plugin.serviceChoise_serviceHunter(plugin, config, serviceName);
-                    if (servicesCookie == true) {
+                    if (servicesCookie === true) {
                         callbackOnTrue();
                     }else{
                         callbackOnFalse();

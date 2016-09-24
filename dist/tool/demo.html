@@ -98,7 +98,8 @@ function removeYouTubeVideo(element) {
                     },
                     callbackOnRejected: function() {
                         removeYouTubeVideo('#youTubeVideo');
-                    }
+                    },
+                    debug: true
                 });
                 
                 // Data Methods for "accept/reject" buttons 
@@ -107,6 +108,15 @@ function removeYouTubeVideo(element) {
                 var plugData = $('body').data('plugin_fdCookieLaw');
                 plugData.cookieAcceptClick(plugData,{cname:"fdCookieLaw",cvalue:"accepted",exdays:365});
                 plugData.cookieRejectClick(plugData,{cname:"fdCookieLaw",cvalue:"rejected",exdays:365});
+                
+               
+                var gan = plugData.searchService(
+                    'google-analytics',
+                    function(){console.log('######## TRUE')}, // callback if service is acceppted
+                    function(){console.log('######## FALSE')} // callback if service is NOT acceppted
+                );
+                //console.log('######## '+gan);
+                
             }); 
             
             // Function "onAccepted"

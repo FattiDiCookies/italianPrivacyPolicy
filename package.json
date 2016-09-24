@@ -13,7 +13,7 @@
     "docs": "https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki/FDC-Tool"
   },
   "docs": {
-    "version": "0.12"
+    "version": "1.0.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
