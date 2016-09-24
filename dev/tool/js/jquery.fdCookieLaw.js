@@ -85,7 +85,7 @@
                 dataType: 'json',
                 success: function (config) {
                     
-                    // @TO-DO: inserire funzione per retrocompatibilità con vecchio file di configurazione
+                    // @TO-DO: rimuovere funzione per retrocompatibilità con vecchio file di configurazione
                     
                     // @update 1.3.1
                     // Qui assegno manualmente il valore "rejected" al parametro di configurazione
