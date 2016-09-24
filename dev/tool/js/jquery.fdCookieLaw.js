@@ -656,6 +656,36 @@
         /* ####################################################################################### */
         
         
+        // @NEW-CODE Gix075 ----------------------------------------- * 
+        // @update 1.3.4
+        // Public method for service choise control
+        searchService: function(serviceName,callbackOnTrue,callbackOnFalse) {
+            
+            // @DEBUG 
+            if(this.settings.debug === true) console.log(pluginName + ": searchService() -> start");
+            var plugin = this;
+            $.ajax({
+                url: this.settings.config,
+                dataType: 'json',
+                success: function(config) {
+                    // @DEBUG 
+                    if(plugin.settings.debug === true) console.log(pluginName + ": searchService() -> get config");
+                    var servicesCookie = plugin.serviceChoise_serviceHunter(plugin, config, serviceName);
+                    if (servicesCookie == true) {
+                        callbackOnTrue();
+                    }else{
+                        callbackOnFalse();
+                    }
+                },
+                error: function() {
+                    // @DEBUG 
+                    if(plugin.settings.debug === true) console.log(pluginName + ": searchService() -> AJAXERROR! getting config");
+                }
+            });
+        },
+        // @NEW-CODE ----------------------------------------- * 
+        
+        
         /* ================================================================ */
         /* Single Service Hunter */
         /* Tests if a service is accepted by the user */
