@@ -1,5 +1,5 @@
 /*!
- *  FDC CookieLaw Tool - v1.3.0
+ *  FDC CookieLaw Tool - v1.4.0
  *  Cookie & Privacy management tool
  *  GitHub: https://github.com/FattiDiCookies/italianPrivacyPolicy/tree/master/dist/tool
  *  Docs: https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki/FDC-Tool
@@ -741,10 +741,15 @@
                         if($.inArray(service, currentCookie) === -1) currentCookie.push(service);
                         callbackData.allowed_services = currentCookie;
                         newCookieValue = currentCookie.toString(); 
+                        // add single service cookie
+                        plugin.writeCookie(config.cookieBanner.cookieName + '_' + service, "true", config.cookieBanner.cookieExpire);
+                        
                     }else{
                         callbackData.allowed_services = [service];
                         newCookieValue = service;  
                         plugin.cookieAccept(plugin, cookieData, false);
+                        // add single service cookie
+                        plugin.writeCookie(config.cookieBanner.cookieName + '_' + service, "true", config.cookieBanner.cookieExpire);
                     }
                     
                     break;
@@ -758,11 +763,12 @@
                         }    
                         callbackData.allowed_services = currentCookie;
                         newCookieValue = currentCookie.toString(); 
-                        if (newCookieValue === "") {
+                        if (newCookieValue === "") {  
                             callbackData.allowed_services = [];
                             newCookieValue = cookieData.cvalue_rejected;
-                            plugin.cookieReject(plugin, cookieData);
+                            plugin.cookieReject(plugin, cookieData);        
                         }
+                        plugin.writeCookie(config.cookieBanner.cookieName + '_' + service, "false", config.cookieBanner.cookieExpire);
                         
                     }
                     break;
@@ -784,7 +790,7 @@
             
             var servicesCookieName = cookieName + "_services";
             
-            if(action === true) {
+            
                 
                 $.ajax({
                     url: plugin.settings.config,
@@ -792,14 +798,22 @@
                     success: function (config) {
                         // @DEBUG 
                         if(plugin.settings.debug === true) console.log(pluginName + ': servicesChoise_acceptAll() -> config loaded!');
-
-                        $.each(config.cookiePolicy.services, function(index) {
-                            if (this.active === true) { 
+                        if(action === true) {
+                            $.each(config.cookiePolicy.services, function(index) {
+                                if (this.active === true) { 
+                                    $.each(config.cookiePolicy.services[index].services, function(key, value) {
+                                        if(value === true) plugin.serviceChoise_handleServiceCookie(plugin, config, key, "add", false);
+                                    });
+                                }
+                            });
+                        }else{
+                            plugin.writeCookie(servicesCookieName, 'rejected', 365);
+                            $.each(config.cookiePolicy.services, function(index) {
                                 $.each(config.cookiePolicy.services[index].services, function(key, value) {
-                                    if(value === true) plugin.serviceChoise_handleServiceCookie(plugin, config, key, "add", false);
+                                    plugin.serviceChoise_handleServiceCookie(plugin, config, key, "remove", false);
                                 });
-                            }
-                        });
+                            });
+                        }
 
                     },
                     error: function () {
@@ -808,9 +822,7 @@
                     }
                 });
                 
-            }else{
-                plugin.writeCookie(servicesCookieName, 'rejected', 365);
-            }
+            
             // get configuration file
             
         },

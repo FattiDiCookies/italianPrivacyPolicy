@@ -801,7 +801,6 @@
                             $.each(config.cookiePolicy.services, function(index) {
                                 $.each(config.cookiePolicy.services[index].services, function(key, value) {
                                     plugin.serviceChoise_handleServiceCookie(plugin, config, key, "remove", false);
-                                    console.log(key)
                                 });
                             });
                         }

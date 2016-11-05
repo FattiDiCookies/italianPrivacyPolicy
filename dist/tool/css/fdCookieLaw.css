@@ -1,5 +1,5 @@
 /*!
- *  FDC CookieLaw Tool - v1.3.0
+ *  FDC CookieLaw Tool - v1.4.0
  *  Cookie & Privacy management tool
  *  GitHub: https://github.com/FattiDiCookies/italianPrivacyPolicy/tree/master/dist/tool
  *  Docs: https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki/FDC-Tool
@@ -19,7 +19,7 @@
   padding: 20px;
   font-family: sans-serif;
   background: #050505;
-  color: #ffffff;
+  color: #fff;
 }
 .no-bootstrap.fdc-cookielaw__banner a {
   color: #2976d0;
@@ -65,7 +65,7 @@
 .fdc-cookielaw__banner-buttons .button,
 .fdc-cookielaw__policy-buttons .button {
   display: inline-block;
-  color: #ffffff;
+  color: #fff;
   background: #2976d0;
   font-size: 1.2em;
   padding: 5px 10px;
@@ -80,7 +80,7 @@
 .fdc-cookielaw__banner-buttons .button:hover,
 .fdc-cookielaw__policy-buttons .button:hover {
   background: #4189dd;
-  color: #ffffff;
+  color: #fff;
 }
 .fdc-cookielaw__banner-buttons .button-red,
 .fdc-cookielaw__policy-buttons .button-red {
@@ -97,10 +97,10 @@
   margin: 40px 10%;
   font-family: sans-serif;
   font-size: 1em;
-  color: #555555;
+  color: #555;
 }
 .fdc-cookielaw__policy a {
-  color: #555555;
+  color: #555;
 }
 .fdc-cookielaw__policy p {
   margin: 0 0 1em 0;
