@@ -11,7 +11,7 @@ Plugin jQuery per la gestione delle pagine necessarie agli adempimenti della Coo
 
 ### Changes
 
-##### version 1.4.0-beta
+##### version 1.4.0
 * Aggiunto singolo cookie per ogni servizio caricato nella policy.
 
 ##### version 1.3.4-beta

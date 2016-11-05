@@ -1,4 +1,4 @@
-# italianPrivacyPolicy v1.5.0
+# italianPrivacyPolicy v1.6.0
 
 **Versione Testi** 1.0.2 | **Versione Tool** 1.4.0<br>
 
