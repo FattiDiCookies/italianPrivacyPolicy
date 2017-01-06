@@ -295,7 +295,6 @@
             
             
             // device data 
-            // @update 1.3.3
             deviceDataMarkup += '<p><strong>' + config.privacyPolicy.deviceDataTitle + '</strong><br>';
             deviceDataMarkup += '<small><em>' + config.privacyPolicy.deviceDataDesc + '</em></small></p>';
             $.each(config.privacyPolicy.deviceData, function (index, value) {
@@ -416,7 +415,6 @@
                         catName = config.cookiePolicy.services[index].catName,
                         catID = "servicesTool-" + catName,
                         collapseClass = (index === 0) ? ' collapse in' : ' collapse',
-                        // @TO-DO: inserire qui classi bootstrap accordion (fatto? controllare e rimuovere to-do)
                         bootstrapCss = {
                             panel: (plugin.settings.bootstrap === true) ? " panel panel-default" : "",
                             panelHeading: (plugin.settings.bootstrap === true) ? " panel-heading" : "",
@@ -741,15 +739,20 @@
                         if($.inArray(service, currentCookie) === -1) currentCookie.push(service);
                         callbackData.allowed_services = currentCookie;
                         newCookieValue = currentCookie.toString(); 
+                        // @NEW-CODE Gix075 ----------------------------------------- * 
+                        // @update 1.4.0
                         // add single service cookie
                         plugin.writeCookie(config.cookieBanner.cookieName + '_' + service, "true", config.cookieBanner.cookieExpire);
-                        
+                        // @/NEW-CODE ----------------------------------------------- * 
                     }else{
                         callbackData.allowed_services = [service];
                         newCookieValue = service;  
                         plugin.cookieAccept(plugin, cookieData, false);
+                        // @NEW-CODE Gix075 ----------------------------------------- * 
+                        // @update 1.4.0
                         // add single service cookie
                         plugin.writeCookie(config.cookieBanner.cookieName + '_' + service, "true", config.cookieBanner.cookieExpire);
+                        // @/NEW-CODE ----------------------------------------------- * 
                     }
                     
                     break;
@@ -768,8 +771,10 @@
                             newCookieValue = cookieData.cvalue_rejected;
                             plugin.cookieReject(plugin, cookieData);        
                         }
+                        // @NEW-CODE Gix075 ----------------------------------------- * 
+                        // @update 1.4.0
                         plugin.writeCookie(config.cookieBanner.cookieName + '_' + service, "false", config.cookieBanner.cookieExpire);
-                        
+                        // @/NEW-CODE ----------------------------------------------- * 
                     }
                     break;
             }
@@ -808,11 +813,14 @@
                             });
                         }else{
                             plugin.writeCookie(servicesCookieName, 'rejected', 365);
+                            // @NEW-CODE Gix075 ----------------------------------------- * 
+                            // @update 1.4.0
                             $.each(config.cookiePolicy.services, function(index) {
                                 $.each(config.cookiePolicy.services[index].services, function(key, value) {
                                     plugin.serviceChoise_handleServiceCookie(plugin, config, key, "remove", false);
                                 });
                             });
+                            // @/NEW-CODE ----------------------------------------------- * 
                         }
 
                     },

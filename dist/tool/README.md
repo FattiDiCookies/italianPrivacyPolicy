@@ -1,4 +1,4 @@
-# FDC CookieLaw Tool 1.4.0
+# FDC CookieLaw Tool 1.4.1
 Plugin jQuery per la gestione delle pagine necessarie agli adempimenti della CookieLaw
 
 * Informativa breve sull'uso dei cookie (banner)
@@ -10,6 +10,10 @@ Plugin jQuery per la gestione delle pagine necessarie agli adempimenti della Coo
 
 
 ### Changes
+
+##### version 1.4.1
+* Aggiunto il servizio *facebook pixel* nel json di configurazione a seguito dell'implementazione del servizio 
+nei testi della policy.
 
 ##### version 1.4.0
 * Aggiunto singolo cookie per ogni servizio caricato nella policy.

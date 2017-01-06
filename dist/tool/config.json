@@ -89,7 +89,8 @@
                 "services": {
                     "google-adsense": true,
                     "doubleclick": true,
-                    "adform": true
+                    "adform": true,
+                    "facebook-pixel": true
                 }
             }
     
