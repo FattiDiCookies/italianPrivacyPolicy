@@ -1,8 +1,11 @@
-# TESTI DELLE POLICY 1.0.0
+# TESTI DELLE POLICY 1.1.0
 
 ## Informazioni sul rilascio delle versioni di documenti
 
 Storia del rilascio delle diverse versioni dei documenti legali a pratire dal giorno 27/06/2015
+
+#### Versione 1.1.0
+* **cookie policy**: aggiunto il servizio *facebook pixel*
 
 #### Versione 1.0.2
 * **privacy policy**: inserito marcatore per sostituzione del testo relativo agli scopi della raccolta dati.
