@@ -336,8 +336,19 @@
             markup = markup.replace(/\[\[DATI DISPOSITIVO\]\]/g, deviceDataMarkup); // @update 1.3.3
             markup = markup.replace(/\[\[DATI PERSONALI\]\]/g, personalDataMarkup);
             markup = markup.replace(/\[\[SCOPI RACCOLTA DATI\]\]/g, purposesMarkup);
-            markup = markup.replace(/\[\[LUOGO TRATTAMENTO\]\]/g, config.globals.dataStorageLocation); // @update 1.4.5
-           
+            
+            // @update 1.4.5
+            // controllo per retrocompatibilità
+            // nel caso in cui il json non sia aggiornato sostituisce il valore mancante 
+            // del luogo del trattamento con l'indirizzo aziendale
+            // rimuovere controllo alla versione 1.5.0
+            if (config.globals.dataStorageLocation !== undefined && config.globals.dataStorageLocation !== "") {
+                markup = markup.replace(/\[\[LUOGO TRATTAMENTO\]\]/g, config.globals.dataStorageLocation);  
+            }else{
+                markup = markup.replace(/\[\[LUOGO TRATTAMENTO\]\]/g, config.globals.company.address); 
+            }
+            
+            
             
             // place markup on element
             $(plugin.element).html(markup);
