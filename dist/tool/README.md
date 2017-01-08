@@ -1,4 +1,4 @@
-# FDC CookieLaw Tool 1.4.1
+# FDC CookieLaw Tool 1.4.5
 Plugin jQuery per la gestione delle pagine necessarie agli adempimenti della CookieLaw
 
 * Informativa breve sull'uso dei cookie (banner)
@@ -8,8 +8,13 @@ Plugin jQuery per la gestione delle pagine necessarie agli adempimenti della Coo
 * Informativa estesa sull'uso dei cookie
 * Privacy Policy
 
-
 ### Changes
+
+##### version 1.4.5
+* Aggiornamento del file json di configurazione in seguito all'aggiornamento della Privacy Policy
+* Aggiornamento del file js in seguito all'aggiornamento della Privacy Policy
+* Aggiunto file SASS per lo stile. La compilazione ufficiale del css attraverso Grunt avviene ancora tramile i file LESS
+* Aggiunta proprieta *z-index: 10000* alla classe *.fdc-cookielaw__banner*
 
 ##### version 1.4.1
 * Aggiunto il servizio *facebook pixel* nel json di configurazione a seguito dell'implementazione del servizio 

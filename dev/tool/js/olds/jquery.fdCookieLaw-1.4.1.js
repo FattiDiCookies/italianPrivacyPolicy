@@ -326,9 +326,7 @@
             markup = markup.replace(/\[\[DATI DISPOSITIVO\]\]/g, deviceDataMarkup); // @update 1.3.3
             markup = markup.replace(/\[\[DATI PERSONALI\]\]/g, personalDataMarkup);
             markup = markup.replace(/\[\[SCOPI RACCOLTA DATI\]\]/g, purposesMarkup);
-            markup = markup.replace(/\[\[LUOGO TRATTAMENTO\]\]/g, config.globals.dataStorageLocation); // @update 1.4.5
-           
-            
+
             // place markup on element
             $(plugin.element).html(markup);
 

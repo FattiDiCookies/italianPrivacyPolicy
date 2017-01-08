@@ -1,5 +1,5 @@
 /*!
- *  FDC CookieLaw Tool - v1.4.0
+ *  FDC CookieLaw Tool - v1.4.5
  *  Cookie & Privacy management tool
  *  GitHub: https://github.com/FattiDiCookies/italianPrivacyPolicy/tree/master/dist/tool
  *  Docs: https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki/FDC-Tool
@@ -20,6 +20,7 @@
   font-family: sans-serif;
   background: #050505;
   color: #fff;
+  z-index: 10000;
 }
 .no-bootstrap.fdc-cookielaw__banner a {
   color: #2976d0;

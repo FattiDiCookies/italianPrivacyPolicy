@@ -1,20 +1,20 @@
 //out: ../css/fdCookieLaw.css
 
-@wrapperMargin: 40px 10%;
-@wrapperFontFamily: sans-serif;
-@wrapperFontSize: 1em;
-@wrapperLineHeight: 1.3em;
+$wrapperMargin: 40px 10%;
+$wrapperFontFamily: sans-serif;
+$wrapperFontSize: 1em;
+$wrapperLineHeight: 1.3em;
 
-@pageFontColor: #555;
-@bannerBackground: #050505;
-@bannerFontColor: @white;
-@color-1: #2976d0;
-@color-1-hover: #4189dd;
-@color-2: #b91313;
-@color-2-hover: #cb2727;
-@white: #fff;
+$pageFontColor: #555;
+$bannerBackground: #050505;
+$bannerFontColor: $white;
+$color-1: #2976d0;
+$color-1-hover: #4189dd;
+$color-2: #b91313;
+$color-2-hover: #cb2727;
+$white: #fff;
 
-@chapterMargins: 0 0 30px 0;
+$chapterMargins: 0 0 30px 0;
 
 
 /* ================================================ */
@@ -27,22 +27,21 @@
     left: 0;
     right: 0;
     padding: 20px;
-    font-family: @wrapperFontFamily;
-    background: @bannerBackground;
-    color: @bannerFontColor;
-    z-index: 10000;
+    font-family: $wrapperFontFamily;
+    background: $bannerBackground;
+    color: $bannerFontColor;
 }
 
 .no-bootstrap.fdc-cookielaw__banner {
 
     a {
-        color: @color-1;
+        color: $color-1;
         text-decoration: none;
         -webkit-transition: color 0.2s ease;
                 transition: color 0.2s ease;
 
         &:hover {
-            color: @color-1-hover;
+            color: $color-1-hover;
         }
     }
 }
@@ -89,8 +88,8 @@
 
     .button {
         display: inline-block;
-        color: @white;
-        background: @color-1;
+        color: $white;
+        background: $color-1;
         font-size: 1.2em;
         padding: 5px 10px;
         margin: 0 10px 5px 0;
@@ -101,15 +100,15 @@
         -webkit-transition: background 0.2s ease, color 0.2s ease;
                 transition: background 0.2s ease, color 0.2s ease;
         &:hover {
-            background: @color-1-hover;
-            color: @white;
+            background: $color-1-hover;
+            color: $white;
         }
     }
     
     .button-red {
-        background: @color-2;
+        background: $color-2;
         &:hover {
-            background: @color-2-hover;
+            background: $color-2-hover;
         }
     }
 
@@ -122,18 +121,18 @@
 /* ================================================ */
 
 .fdc-cookielaw__policy {
-    margin: @wrapperMargin;
-    font-family: @wrapperFontFamily;
-    font-size: @wrapperFontSize;
-    color: @pageFontColor;
+    margin: $wrapperMargin;
+    font-family: $wrapperFontFamily;
+    font-size: $wrapperFontSize;
+    color: $pageFontColor;
     
     a {
-        color: @pageFontColor;
+        color: $pageFontColor;
     }
     
     p {
         margin: 0 0 1em 0;
-        line-height: @wrapperLineHeight;
+        line-height: $wrapperLineHeight;
     }
     
     h5 {
@@ -211,4 +210,4 @@
     }
 }
 
-// / @NEW-CODE ---------------------------------------------- * 
+// / $NEW-CODE ---------------------------------------------- * 

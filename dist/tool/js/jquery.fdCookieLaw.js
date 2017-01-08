@@ -1,5 +1,5 @@
 /*!
- *  FDC CookieLaw Tool - v1.4.0
+ *  FDC CookieLaw Tool - v1.4.5
  *  Cookie & Privacy management tool
  *  GitHub: https://github.com/FattiDiCookies/italianPrivacyPolicy/tree/master/dist/tool
  *  Docs: https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki/FDC-Tool
@@ -336,7 +336,9 @@
             markup = markup.replace(/\[\[DATI DISPOSITIVO\]\]/g, deviceDataMarkup); // @update 1.3.3
             markup = markup.replace(/\[\[DATI PERSONALI\]\]/g, personalDataMarkup);
             markup = markup.replace(/\[\[SCOPI RACCOLTA DATI\]\]/g, purposesMarkup);
-
+            markup = markup.replace(/\[\[LUOGO TRATTAMENTO\]\]/g, config.globals.dataStorageLocation); // @update 1.4.5
+           
+            
             // place markup on element
             $(plugin.element).html(markup);
 
