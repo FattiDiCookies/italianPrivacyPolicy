@@ -1,5 +1,5 @@
 /*!
- *  FDC CookieLaw Tool - v1.4.5
+ *  FDC CookieLaw Tool - v1.4.6
  *  Cookie & Privacy management tool
  *  GitHub: https://github.com/FattiDiCookies/italianPrivacyPolicy/tree/master/dist/tool
  *  Docs: https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki/FDC-Tool
@@ -217,7 +217,7 @@
 
 
             if(plugin.settings.banner === true) {
-                bannerData.position = plugin.settings.bannerPosition;
+                bannerData.position = config.cookieBanner.position;
                 plugin.getCookieBanner(config,plugin,docs,bannerData);
             }
 

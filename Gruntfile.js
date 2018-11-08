@@ -207,7 +207,7 @@ module.exports = function(grunt) {
       dist : ['dist/tool/js/*.js']
     },
 
-    less : {
+    /*less : {
       development : {
         options : {
           sourceMap : true,
@@ -226,17 +226,56 @@ module.exports = function(grunt) {
         }]
       }
     },
+      */
+    sass: {
+        dev: {
+            options: {
+                style: 'expanded'
+            },
+            files: {
+                'dev/tool/css/fdCookieLaw.css': 'dev/tool/sass/fdCookieLaw.scss'
+            }
+        },
+        dist: {
+            options: {
+                style: 'expanded'
+            },
+            files: {
+                'dist/tool/css/fdCookieLaw.css': 'dev/tool/sass/fdCookieLaw.scss'
+            }
+        }
+    },
+      
+    postcss: {
+        options: {
+            map: {
+                inline: false
+            },
+
+            processors: [
+                require('pixrem')(), // add fallbacks for rem units
+                require('autoprefixer')({ browsers: 'last 2 versions'}), // add vendor prefixes
+                require('cssnano')() // minify the result
+            ]
+        },
+        dev: {
+            src: 'dev/tool/css/fdCookieLaw.css'
+        },
+        dist: {
+            src: 'dist/tool/css/fdCookieLaw.css'
+        }
+    },
 
     watch : {
       styles : {
-        files : ['**/*.less'], // which files to watch
-        tasks : ['less'],
+        files : ['**/*.scss'], // which files to watch
+        tasks : ['sass'],
         options : {
           nospawn : true
         }
       }
     },
-    cssmin: {
+    /*cssmin: {
         options: {
             shorthandCompacting: false,
             roundingPrecision: -1,
@@ -247,7 +286,7 @@ module.exports = function(grunt) {
                 'dist/tool/css/fdCookieLaw.min.css': ['dist/tool/css/fdCookieLaw.css']
             }   
         }
-    },
+    },*/
     concat: {
         options: {
           banner: "<%= meta.banner %>"
@@ -279,6 +318,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-html-json-wrapper');
   grunt.loadNpmTasks('grunt-merge-data');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -295,9 +336,17 @@ module.exports = function(grunt) {
     'htmljson:dev_1',
     'htmljson:dev_2',
     'merge_data:dev',
-    'less:development',
+    'sass:dev',
+    'postcss:dev',
     'copy:dev',
     'jshint:dev',
+  ]);
+    
+  // Tool Developing task(s).
+  grunt.registerTask('tool', [
+    'sass:dev',
+    'postcss:dev',
+    'watch'
   ]);
 
   grunt.registerTask('dist', [
@@ -308,10 +357,10 @@ module.exports = function(grunt) {
     'htmljson:dist_1',
     'htmljson:dist_2',
     'merge_data:dist',
-    'less:production',
+    'sass:dist',
+    'postcss:dist',
     'copy:dist',
     'jshint:dist',
-    'cssmin:dist',
     'concat:dist',  
     'uglify:dist'  
   ]);

@@ -4,6 +4,9 @@
 
 Storia del rilascio delle diverse versioni dei documenti legali a pratire dal giorno 27/06/2015
 
+#### Versione 1.3.0
+* **privacy policy**: cambiati testi per conformità GDPR
+
 #### Versione 1.2.0
 * **privacy policy**: aggiunti paragrafi su luogo e durata del trattamento
 

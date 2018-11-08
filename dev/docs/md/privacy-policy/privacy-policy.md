@@ -2,7 +2,7 @@
 
 Il presente testo illustra la nostra politica sul trattamento dei dati personali raccolti attraverso i nostri sistemi di contatto e/o altri servizi presenti nel sito: **[[URL SITO]]** (di seguito nominato anche **[[NOME SITO]]** o il **"Sito"**, o **"questo sito"**)
 
-In ottemperanza degli obblighi derivanti dalla normativa nazionale e comunitaria in materia di trattamenti dei dati personali, il sito **[[NOME SITO]]** rispetta e tutela la riservatezza dei visitatori e degli utenti. 
+In ottemperanza degli obblighi derivanti dalla normativa nazionale e comunitaria in materia di trattamenti dei dati personali (legge denominata GDPR UE 2016/679), il sito **[[NOME SITO]]** rispetta e tutela la riservatezza dei visitatori e degli utenti. 
 La presente informativa si applica esclusivamente alle attività online del presente sito, non si applica alle informazioni raccolte tramite canali diversi.
 
 ## 1) Tipologia dei dati raccolti
@@ -77,6 +77,6 @@ oppure inviando una eMail a **[[EMAIL DI CONTATTO]]**
 
 ## 8) Conclusione
 
-I dati personali da noi raccolti saranno trattati e conservati secondo le modalità previste dalla legge italiana e precisamente secondo il **Decreto legislativo 30 giugno 2003, n. 196 (e successivi aggiornamenti)**.
+I dati personali da noi raccolti saranno trattati e conservati secondo le modalità previste dalla legge italiana e comunitaria secondo **il Regolamento UE 2016/679 - GDPR - (e successivi aggiornamenti)**.
 
 Per una più approfondita conoscenza delle norme legislative italiane attualmente in vigore, si rimanda alla seguente pagina web: **[http://www.garanteprivacy.it/web/guest/home/docweb/-/docweb-display/docweb/1311248](http://www.garanteprivacy.it/web/guest/home/docweb/-/docweb-display/docweb/1311248 "Legge Privacy")**

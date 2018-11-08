@@ -207,7 +207,7 @@
 
 
             if(plugin.settings.banner === true) {
-                bannerData.position = plugin.settings.bannerPosition;
+                bannerData.position = config.cookieBanner.position;
                 plugin.getCookieBanner(config,plugin,docs,bannerData);
             }
 
