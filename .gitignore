@@ -24,4 +24,4 @@ node_modules
 
 # Website
 website
-#.sass-cache
+.sass-cache
