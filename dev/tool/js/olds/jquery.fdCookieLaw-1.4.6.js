@@ -217,35 +217,6 @@
             }
 
         },
-        
-        /* ========================================================= */
-        /* PRIVACY POLICY SERVICES MARKUP GENERATOR */
-        /* ========================================================= */
-        generateListMarkup: function (src_array) {
-              
-            var array_length = src_array.length,
-                markup = "",
-                stringEnd = "";
-                
-            if (array_length > 0) {
-
-                markup = "<ul>";
-
-                $.each(src_array, function (index,value) {
-                    stringEnd = (index === array_length - 1) ? "." : ";";
-                    markup += "<li>" + value + stringEnd + "</li>";
-                });
-
-                markup += "</ul>";
-
-            } else {
-
-                markup = "";
-
-            }
-            
-            return markup;
-        },
 
         /* ========================================================= */
         /* PRIVACY POLICY GENERATOR */
@@ -257,16 +228,6 @@
             if(this.settings.debug === true) console.log(pluginName + ": getPrivacyPolicy() --> load page");
 
             var markup = docs.privacy_policy_docs['privacy-policy'],
-                services_docs = { // @update 1.5.0
-                    hosting: docs.privacy_policy_docs.hosting,
-                    newsletter: docs.privacy_policy_docs.newsletter,
-                    contactform: docs.privacy_policy_docs.contactform,
-                    ecommerce: docs.privacy_policy_docs.ecommerce,
-                    siteaccount: docs.privacy_policy_docs.siteaccount
-                },
-                service_markup = "",
-                services_markup = "",
-                services_thirdparty_markup = "",
                 personalDataMarkup = "",
                 deviceDataMarkup = "", // @update 1.3.3
                 deviceDataLenght, // @update 1.3.3 (retrocompatibilità)
@@ -322,50 +283,8 @@
                 config.privacyPolicy.personalDataDesc = "I dati personali dell'utente vengono rilasciati volontariamente, dove espressamente richiesto, e sono conservati secondo le modalità descritte.";
             }
             
-            // @NEW-CODE [author(Gix075)] ------------------------------- * 
             
-                // @update 1.5.0 controlli per retrocompatibilità
-                // @TODO : rimuovere controlli alla versione 1.6.0
-            
-            // @DEBUG 
-            if(this.settings.debug === true) console.log(pluginName + ": getPrivacyPolicy() --> load services (compatibility)");
-            
-            if ( config.privacyPolicy.contactForm !== undefined) {
-                config.privacyPolicy.contactForm = config.privacyPolicy.contactForm;
-            }else{
-                config.privacyPolicy.contactForm = {
-                    active: false
-                };
-            }
-            
-            if ( config.privacyPolicy.account !== undefined) {
-                config.privacyPolicy.account = config.privacyPolicy.account;
-            }else{
-                config.privacyPolicy.account = {
-                    active: false
-                };
-            }
-            
-            if ( config.privacyPolicy.ecommerce !== undefined) {
-                config.privacyPolicy.ecommerce = config.privacyPolicy.ecommerce;
-            }else{
-                config.privacyPolicy.ecommerce = {
-                    active: false
-                };
-            }
-            
-            if ( config.privacyPolicy.thirdpartyDataStorage !== undefined) {
-                config.privacyPolicy.thirdpartyDataStorage = config.privacyPolicy.thirdpartyDataStorage;
-            }else{
-                config.privacyPolicy.thirdpartyDataStorage = false;
-            }
-                
-                // Fine dei controlli per retrocompatibilità
-                
-            // @/NEW-CODE ----------------------------------------------- * 
-            
-            
-            // device data // @update 1.3.3
+            // device data 
             deviceDataMarkup += '<p><strong>' + config.privacyPolicy.deviceDataTitle + '</strong><br>';
             deviceDataMarkup += '<small><em>' + config.privacyPolicy.deviceDataDesc + '</em></small></p>';
             $.each(config.privacyPolicy.deviceData, function (index, value) {
@@ -375,7 +294,7 @@
                 deviceDataMarkup += itemStart + '<li>' + value + stringEnd + '</li>' + itemEnd;
             });
             
-            // personal data // @update 1.3.3
+            // personal data
             personalDataMarkup += '<p><strong>' + config.privacyPolicy.personalDataTitle + '</strong><br>';
             personalDataMarkup += '<small><em>' + config.privacyPolicy.personalDataDesc + '</em></small></p>';
             $.each(config.privacyPolicy.personalData, function (index, value) {
@@ -385,117 +304,13 @@
                 personalDataMarkup += itemStart + '<li>' + value + stringEnd + '</li>' + itemEnd;
             });
 
-            // purposes // @update 1.3.3
+            // purposes
             $.each(config.privacyPolicy.purposes, function (index, value) {
                 stringEnd = (index === purposesDataLenght - 1) ? "." : ";";
                 itemStart = (index === 0) ? "<ul>" : "";
                 itemEnd = (index === purposesDataLenght - 1) ? "</ul>" : "";
                 purposesMarkup += itemStart + '<li>' + value + stringEnd + '</li>' + itemEnd;
             });
-            
-            
-            // @NEW-CODE [author(Gix075)] ------------------------------- * 
-            // @update 1.5.0 nuove funzionalità relative al GDPR
-            
-            // @DEBUG 
-            if(this.settings.debug === true) console.log(pluginName + ": getPrivacyPolicy() --> load services");
-            
-            // CONTACT FORM @update 1.5.0
-            if (config.privacyPolicy.contactForm.active === true) {
-                
-                service_markup = plugin.generateListMarkup(config.privacyPolicy.contactForm.personalData);
-                services_docs.contactform = services_docs.contactform.replace(/\[\[CONTACTFORM DATA\]\]/g,service_markup);
-                
-                service_markup = plugin.generateListMarkup(config.privacyPolicy.contactForm.storage);
-                services_docs.contactform = services_docs.contactform.replace(/\[\[CONTACTFORM DATA STORAGE\]\]/g,service_markup);
-                
-                services_markup += services_docs.contactform;
-                
-            }
-            
-            // USER ACCOUNT @update 1.5.0
-            if (config.privacyPolicy.account.active === true) {
-                
-                service_markup = plugin.generateListMarkup(config.privacyPolicy.account.personalData);
-                services_docs.siteaccount = services_docs.siteaccount.replace(/\[\[ACCOUNT DATA\]\]/g,service_markup);
-                
-                service_markup = plugin.generateListMarkup(config.privacyPolicy.account.storage);
-                services_docs.siteaccount = services_docs.siteaccount.replace(/\[\[ACCOUNT DATA STORAGE\]\]/g,service_markup);
-                
-                services_markup += services_docs.siteaccount;
-                
-            }
-            
-            // ECOMMERCE @update 1.5.0
-            if (config.privacyPolicy.ecommerce.active === true) {
-                
-                service_markup = plugin.generateListMarkup(config.privacyPolicy.ecommerce.personalData);
-                services_docs.ecommerce = services_docs.ecommerce.replace(/\[\[ECOMMERCE DATA\]\]/g,service_markup);
-                
-                service_markup = plugin.generateListMarkup(config.privacyPolicy.account.storage);
-                services_docs.ecommerce = services_docs.ecommerce.replace(/\[\[ECOMMERCE DATA STORAGE\]\]/g,service_markup);
-                
-                services_markup += services_docs.ecommerce;
-                
-            }
-            
-            // THIRD PARTY DATA STORAGE @update 1.5.0
-            if (config.privacyPolicy.thirdpartyDataStorage !== false) {
-                
-                
-                // HOSTING
-                if (config.privacyPolicy.thirdpartyDataStorage.hosting.home !== false && config.privacyPolicy.thirdpartyDataStorage.hosting.home !== "") {
-                    config.privacyPolicy.thirdpartyDataStorage.hosting.provider = '<a href="' + config.privacyPolicy.thirdpartyDataStorage.hosting.home + '">' + config.privacyPolicy.thirdpartyDataStorage.hosting.provider + '</a>';
-                } 
-                
-                if (config.privacyPolicy.thirdpartyDataStorage.hosting.policy !== false && config.privacyPolicy.thirdpartyDataStorage.hosting.policy !== "") {
-                    config.privacyPolicy.thirdpartyDataStorage.hosting.policy = '<a href="' + config.privacyPolicy.thirdpartyDataStorage.hosting.policy + '">' + config.privacyPolicy.thirdpartyDataStorage.hosting.policy + '</a>';
-                } else {
-                    config.privacyPolicy.thirdpartyDataStorage.hosting.policy = "";
-                }
-                
-                services_docs.hosting = services_docs.hosting.replace(/\[\[HOSTING PROVIDER\]\]/g,config.privacyPolicy.thirdpartyDataStorage.hosting.provider);
-                services_docs.hosting = services_docs.hosting.replace(/\[\[HOSTING DATACENTER\]\]/g,config.privacyPolicy.thirdpartyDataStorage.hosting.datacenter);
-                services_docs.hosting = services_docs.hosting.replace(/\[\[HOSTING DATA ADMINISTRATOR\]\]/g,config.privacyPolicy.thirdpartyDataStorage.hosting.data_administrator);
-                services_docs.hosting = services_docs.hosting.replace(/\[\[HOSTING POLICY\]\]/g,config.privacyPolicy.thirdpartyDataStorage.hosting.policy);
-                
-                
-                // NEWSLETTER
-                if (config.privacyPolicy.thirdpartyDataStorage.newsletter.active !== false) {
-                    
-                    
-                    if (config.privacyPolicy.thirdpartyDataStorage.newsletter.home !== false && config.privacyPolicy.thirdpartyDataStorage.newsletter.home !== "") {
-                        config.privacyPolicy.thirdpartyDataStorage.newsletter.provider = '<a href="' + config.privacyPolicy.thirdpartyDataStorage.newsletter.home + '">' + config.privacyPolicy.thirdpartyDataStorage.newsletter.provider + '</a>';
-                    } 
-
-                    if (config.privacyPolicy.thirdpartyDataStorage.newsletter.policy !== false && config.privacyPolicy.thirdpartyDataStorage.newsletter.policy !== "") {
-                        config.privacyPolicy.thirdpartyDataStorage.newsletter.policy = '<a href="' + config.privacyPolicy.thirdpartyDataStorage.newsletter.policy + '">' + config.privacyPolicy.thirdpartyDataStorage.newsletter.policy + '</a>';
-                    } else {
-                        config.privacyPolicy.thirdpartyDataStorage.newsletter.policy = "";
-                    }
-                    
-                    services_docs.newsletter = services_docs.newsletter.replace(/\[\[NEWSLETTER PROVIDER\]\]/g,config.privacyPolicy.thirdpartyDataStorage.newsletter.provider);
-                    services_docs.newsletter = services_docs.newsletter.replace(/\[\[NEWSLETTER DATACENTER\]\]/g,config.privacyPolicy.thirdpartyDataStorage.newsletter.datacenter);
-                    services_docs.newsletter = services_docs.newsletter.replace(/\[\[NEWSLETTER DATA ADMINISTRATOR\]\]/g,config.privacyPolicy.thirdpartyDataStorage.newsletter.data_administrator);
-                    services_docs.newsletter = services_docs.newsletter.replace(/\[\[NEWSLETTER PROVIDER POLICY\]\]/g,config.privacyPolicy.thirdpartyDataStorage.newsletter.policy);
-                
-                } else {
-                    
-                    services_docs.newsletter = "";
-                    
-                }
-                
-                
-                services_thirdparty_markup += services_docs.hosting;
-                services_thirdparty_markup += services_docs.newsletter;
-                
-                
-            }
-            
-            markup = markup.replace(/\[\[SERVIZI DI TERZE PARTI\]\]/g, services_thirdparty_markup);
-            markup = markup.replace(/\[\[SERVIZI DI PRIMA PARTE\]\]/g, services_markup);
-            
-            // @/NEW-CODE ----------------------------------------------- * 
 
             markup = markup.replace(/\[\[NOME SITO\]\]/g, config.globals.site.name);
             markup = markup.replace(/\[\[URL SITO\]\]/g, config.globals.site.url);
@@ -509,8 +324,8 @@
             markup = markup.replace(/\[\[NOME E COGNOME DEL RESPONSABILE\]\]/g, config.globals.administrator.name);
             markup = markup.replace(/\[\[EMAIL DI CONTATTO\]\]/g, config.globals.site.email);
             markup = markup.replace(/\[\[DATI DISPOSITIVO\]\]/g, deviceDataMarkup); // @update 1.3.3
-            markup = markup.replace(/\[\[DATI PERSONALI\]\]/g, personalDataMarkup); // @update 1.3.3
-            markup = markup.replace(/\[\[SCOPI RACCOLTA DATI\]\]/g, purposesMarkup); // @update 1.3.3
+            markup = markup.replace(/\[\[DATI PERSONALI\]\]/g, personalDataMarkup);
+            markup = markup.replace(/\[\[SCOPI RACCOLTA DATI\]\]/g, purposesMarkup);
             
             // @update 1.4.5
             // controllo per retrocompatibilità

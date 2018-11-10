@@ -1,6 +1,6 @@
-# italianPrivacyPolicy v1.9.0
+# italianPrivacyPolicy v1.10.0
 
-**Versione Testi** 1.3.0 | **Versione Tool** 1.4.6<br>
+**Versione Testi** 1.4.0 | **Versione Tool** 1.5.0-beta<br>
 
 ### Il progetto
 Questo repository contiene un'informativa sulla privacy, il trattamento dei dati personali e l'uso dei cookies secondo le vigenti norme di legge.

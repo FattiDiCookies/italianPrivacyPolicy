@@ -135,7 +135,7 @@ module.exports = function(grunt) {
         dest : 'dev/docs/cookie-policy/json/cookie_policy_docs.json'
       },
       dev_2 : {
-        src : ['dev/docs/privacy-policy/html/*.html'],
+        src : ['dev/docs/privacy-policy/**/*.html'],
         dest : 'dev/docs/privacy-policy/json/privacy_policy_docs.json',
         options: {
           separator: 2,
@@ -146,7 +146,7 @@ module.exports = function(grunt) {
         dest : 'dist/docs/cookie-policy/json/cookie_policy_docs.json'
       },
       dist_2 : {
-        src : ['dist/docs/privacy-policy/html/*.html'],
+        src : ['dist/docs/privacy-policy/**/*.html'],
         dest : 'dist/docs/privacy-policy/json/privacy_policy_docs.json',
         options: {
           separator: 2,

@@ -1,4 +1,4 @@
-# FDC CookieLaw Tool 1.4.6
+# FDC CookieLaw Tool 1.5.0-beta
 Plugin jQuery per la gestione delle pagine necessarie agli adempimenti della CookieLaw
 
 * Informativa breve sull'uso dei cookie (banner)
@@ -10,12 +10,18 @@ Plugin jQuery per la gestione delle pagine necessarie agli adempimenti della Coo
 
 ### Changes
 
+##### version 1.5.0-beta
+* Aggiornamento delle funzionalità per introduzione dei testi per i servizi in cui avviene la raccolta dati, inseriti nei testi dinamici della privacy policy<br>
+(questo update rende necessario un aggiornamento del file di configurazione. 
+Per tutte le installazioni precedenti è possibile effettuare comunque l'aggiornamento anche senza update 
+del file di configurazione. In questo caso saranno utilizzati dei valori di default. Questa possibilità verrà rimossa dalla versione 1.6.0 del plugin)
+
 ##### version 1.4.6
 * Bug fixing
 * La compilazione ufficiale del css attraverso Grunt avviene ora tramile i file SASS
 * Introdotto POSTCSS per la gestione dei prefissi delle regole CSS e per la minificazione dei file
 * Rimosso CssMin dal file Grunt
-* Il file less verranno rimossi dalla prossima versione
+* I file less verranno rimossi dalla prossima versione
 
 ##### version 1.4.5
 * Aggiornamento del file json di configurazione in seguito all'aggiornamento della Privacy Policy
