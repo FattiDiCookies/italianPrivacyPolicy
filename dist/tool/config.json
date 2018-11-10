@@ -126,7 +126,58 @@
             "invio di future proposte commerciali legate alla nostra attività",
             "compimento di ricerche di mercato e scopi statistici riguardanti la nostra attività",
             "Invio di Campagne DEM e di Newsletter informative e pubblicitarie del portale"
-        ]
+        ],
+        "contactForm": {
+            "active": true,
+            "personalData": [
+                "nome e cognome (facoltativo)",
+                "indirizzo email",
+                "numero di telefono (facoltativo)"
+            ],
+            "storage": [
+                "Servizio di posta offerto dal provider del sito",
+                "Database del sito"
+            ]
+        },
+        "account": {
+            "active": true,
+            "personalData": [
+                "nome e cognome",
+                "nome utente",
+                "indirizzo email",
+                "numero di telefono (facoltativo)",
+                "indirizzo di residenza"
+            ],
+            "storage": [
+                "Database del sito"
+            ]
+        },
+        "ecommerce": {
+            "active": true,
+            "personalData": [
+                "nome e cognome",
+                "indirizzo di residenza",
+                "numero di telefono", 
+                "indirizzo e-mail"
+            ]
+        },
+        "thirdpartyDataStorage": {
+            "hosting": {
+                "provider": "",
+                "home": false,
+                "datacenter": "",
+                "policy": false,
+                "data_administrator": ""
+            },
+            "newsletter": {
+                "active": false,
+                "provider": "",
+                "home": false,
+                "datacenter": "",
+                "policy": false,
+                "data_administrator": ""
+            }
+        }
         
     }
     
