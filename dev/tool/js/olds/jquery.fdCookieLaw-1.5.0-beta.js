@@ -8,7 +8,7 @@
         DEV NOTES: 
             @update [version number] update marker
             @NEW-IDEA (commented code under develope) ... must be fixed or removed
-            @TODO (something to do)
+            @TO-DO (something to do)
             @DEBUG (debug lines)
             
             @NEW-CODE [author(github username)] ---------------------- * 
@@ -85,14 +85,12 @@
                 dataType: 'json',
                 success: function (config) {
                     
-                    // @TODO: rimuovere funzione per retrocompatibilità con vecchio file di configurazione
-                    
-                    // @TODO: rimuovere parti commentate dopo controllo funzionalità
+                    // @TO-DO: rimuovere funzione per retrocompatibilità con vecchio file di configurazione
                     
                     // @update 1.3.1
                     // Qui assegno manualmente il valore "rejected" al parametro di configurazione
                     // config.cookieBanner.cookieValueRejected
-                    // config.cookieBanner.cookieValueRejected = (config.cookieBanner.cookieValueRejected !== "undefined") ? config.cookieBanner.cookieValueRejected : "rejected";
+                    config.cookieBanner.cookieValueRejected = (config.cookieBanner.cookieValueRejected !== "undefined") ? config.cookieBanner.cookieValueRejected : "rejected";
                     // Questo serve solo per gestire la retrocompatibilità con la vecchia configurazione
                     // Quando il vecchio file di config sarà completamente deprecato,
                     // questa riga dovrà essere eliminata
@@ -271,8 +269,8 @@
                 services_thirdparty_markup = "",
                 personalDataMarkup = "",
                 deviceDataMarkup = "", // @update 1.3.3
-                //deviceDataLenght, // @update 1.3.3 (retrocompatibilità)
-                deviceDataLenght = config.privacyPolicy.deviceData.length, // @update 1.3.3 commentato per retrocompatibilità (dovrà essere reinserito alla versione 1.5.0)
+                deviceDataLenght, // @update 1.3.3 (retrocompatibilità)
+                //deviceDataLenght = config.privacyPolicy.deviceData.length;, // @update 1.3.3 commentato per retrocompatibilità (dovrà essere reinserito alla versione 1.5.0)
                 pesonalDataLenght = config.privacyPolicy.personalData.length, 
                 purposesMarkup = "",
                 purposesDataLenght = config.privacyPolicy.purposes.length,
@@ -281,11 +279,9 @@
                 stringEnd = "";
             
             
-            // @TODO: rimuovere parti commentate dopo controllo funzionalità
-            
             // @update 1.3.3
             // Controlli per vecchi file di configurazione (rimuovere alla versione 1.5.0)
-            /*
+            
             if ( config.privacyPolicy.deviceDataTitle !== undefined && config.privacyPolicy.deviceDataTitle !== "") {
                 config.privacyPolicy.deviceDataTitle = config.privacyPolicy.deviceDataTitle;
             }else{
@@ -324,7 +320,7 @@
                 config.privacyPolicy.personalDataDesc = config.privacyPolicy.personalDataDesc;
             }else{
                 config.privacyPolicy.personalDataDesc = "I dati personali dell'utente vengono rilasciati volontariamente, dove espressamente richiesto, e sono conservati secondo le modalità descritte.";
-            }*/
+            }
             
             // @NEW-CODE [author(Gix075)] ------------------------------- * 
             
@@ -516,20 +512,16 @@
             markup = markup.replace(/\[\[DATI PERSONALI\]\]/g, personalDataMarkup); // @update 1.3.3
             markup = markup.replace(/\[\[SCOPI RACCOLTA DATI\]\]/g, purposesMarkup); // @update 1.3.3
             
-            // @TODO Rimuovere parte commentata
-            
             // @update 1.4.5
             // controllo per retrocompatibilità
             // nel caso in cui il json non sia aggiornato sostituisce il valore mancante 
             // del luogo del trattamento con l'indirizzo aziendale
             // rimuovere controllo alla versione 1.5.0
-            /*if (config.globals.dataStorageLocation !== undefined && config.globals.dataStorageLocation !== "") {
+            if (config.globals.dataStorageLocation !== undefined && config.globals.dataStorageLocation !== "") {
                 markup = markup.replace(/\[\[LUOGO TRATTAMENTO\]\]/g, config.globals.dataStorageLocation);  
             }else{
                 markup = markup.replace(/\[\[LUOGO TRATTAMENTO\]\]/g, config.globals.company.address); 
-            }*/
-            
-            markup = markup.replace(/\[\[LUOGO TRATTAMENTO\]\]/g, config.globals.dataStorageLocation);
+            }
             
             
             
@@ -814,8 +806,8 @@
         /* ========================================================= */
         /* COOKIE POLICY REJECT
         /* ========================================================= */
-        // @TODO: verificare dopo il click l'esistenza del banner e se non esiste caricarlo
-        // @TODO: testare bene se la soluzione proposta funziona
+        // @TO-DO: verificare dopo il click l'esistenza del banner e se non esiste caricarlo
+        // @TO-DO: testare bene se la soluzione proposta funziona
 
         cookieRejectClick: function (plugin,cookieData) {
             // cookie policy accept
