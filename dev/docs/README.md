@@ -1,8 +1,11 @@
-# TESTI DELLE POLICY 1.4.0
+# TESTI DELLE POLICY 1.5.0
 
 ## Informazioni sul rilascio delle versioni di documenti
 
 Storia del rilascio delle diverse versioni dei documenti legali a pratire dal giorno 27/06/2015
+
+#### Versione 1.5.0
+* **cookie policy**: aggiunti testi Google ADS
 
 #### Versione 1.4.0
 * **privacy policy**: aggiunti testi per i servizi in cui avviene raccolta di dati personali per conformità GDPR
