@@ -13,6 +13,8 @@ $color-1: #2976d0;
 $color-1-hover: #4189dd;
 $color-2: #b91313;
 $color-2-hover: #cb2727;
+$color-3: #30d459;
+$color-3-hover: #3ae464;
 
 
 $chapterMargins: 0 0 30px 0;
@@ -105,6 +107,13 @@ $chapterMargins: 0 0 30px 0;
             color: $white;
         }
     }
+
+    .button-green {
+        background: $color-3;
+        &:hover {
+            background: $color-3-hover;
+        }
+    }
     
     .button-red {
         background: $color-2;
@@ -115,7 +124,20 @@ $chapterMargins: 0 0 30px 0;
 
 }
 
-
+.fdc-cookielaw__banner-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: white;
+    color: black;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
 
 /* ================================================ */
 /* Policy Page */

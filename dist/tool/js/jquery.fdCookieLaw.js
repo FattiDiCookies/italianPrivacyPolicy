@@ -1,5 +1,5 @@
 /*!
- *  FDC CookieLaw Tool - v1.5.0
+ *  FDC CookieLaw Tool - v1.6.0
  *  Cookie & Privacy management tool
  *  GitHub: https://github.com/FattiDiCookies/italianPrivacyPolicy/tree/master/dist/tool
  *  Docs: https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki/FDC-Tool
@@ -18,7 +18,7 @@
         DEV NOTES: 
             @update [version number] update marker
             @NEW-IDEA (commented code under develope) ... must be fixed or removed
-            @TO-DO (something to do)
+            @TODO (something to do)
             @DEBUG (debug lines)
             
             @NEW-CODE [author(github username)] ---------------------- * 
@@ -40,6 +40,8 @@
             page: "",
             banner: "",
             bannerPosition: "",
+            bannerRejectButton: false, // @update 1.6.0
+            bannerCloseButton: true, // @update 1.6.0
             bootstrap: false,
             acceptOnScroll: "",
             callbackOnAccepted: null, //function
@@ -94,18 +96,18 @@
                 url: plugin.settings.config,
                 dataType: 'json',
                 success: function (config) {
-                    
-                    // @TO-DO: rimuovere funzione per retrocompatibilità con vecchio file di configurazione
-                    
-                    // @update 1.3.1
-                    // Qui assegno manualmente il valore "rejected" al parametro di configurazione
-                    // config.cookieBanner.cookieValueRejected
-                    config.cookieBanner.cookieValueRejected = (config.cookieBanner.cookieValueRejected !== "undefined") ? config.cookieBanner.cookieValueRejected : "rejected";
-                    // Questo serve solo per gestire la retrocompatibilità con la vecchia configurazione
-                    // Quando il vecchio file di config sarà completamente deprecato,
-                    // questa riga dovrà essere eliminata
-                    
 
+                    //@update 1.6.0
+                    // Assegno valori dei nuovi parametri di config
+                    // Questi due parametri vengono gestiti da due opzioni dirette del plugin jQuery
+                    if (config.cookieBanner.rejectButton !== "undefined") {
+                        plugin.settings.bannerRejectButton = config.cookieBanner.rejectButton;
+                    }
+
+                    if (config.cookieBanner.closeButton !== "undefined") {
+                        plugin.settings.bannerCloseButton = config.cookieBanner.closeButton;
+                    }
+                    
                     var loadDocs = false,
                         pageActive = false,
                         bannerActive = false,
@@ -279,8 +281,8 @@
                 services_thirdparty_markup = "",
                 personalDataMarkup = "",
                 deviceDataMarkup = "", // @update 1.3.3
-                deviceDataLenght, // @update 1.3.3 (retrocompatibilità)
-                //deviceDataLenght = config.privacyPolicy.deviceData.length;, // @update 1.3.3 commentato per retrocompatibilità (dovrà essere reinserito alla versione 1.5.0)
+                //deviceDataLenght, // @update 1.3.3 (retrocompatibilità)
+                deviceDataLenght = config.privacyPolicy.deviceData.length, // @update 1.3.3 commentato per retrocompatibilità (dovrà essere reinserito alla versione 1.5.0)
                 pesonalDataLenght = config.privacyPolicy.personalData.length, 
                 purposesMarkup = "",
                 purposesDataLenght = config.privacyPolicy.purposes.length,
@@ -289,9 +291,11 @@
                 stringEnd = "";
             
             
+            // @TODO: rimuovere parti commentate dopo controllo funzionalità
+            
             // @update 1.3.3
             // Controlli per vecchi file di configurazione (rimuovere alla versione 1.5.0)
-            
+            /*
             if ( config.privacyPolicy.deviceDataTitle !== undefined && config.privacyPolicy.deviceDataTitle !== "") {
                 config.privacyPolicy.deviceDataTitle = config.privacyPolicy.deviceDataTitle;
             }else{
@@ -330,7 +334,7 @@
                 config.privacyPolicy.personalDataDesc = config.privacyPolicy.personalDataDesc;
             }else{
                 config.privacyPolicy.personalDataDesc = "I dati personali dell'utente vengono rilasciati volontariamente, dove espressamente richiesto, e sono conservati secondo le modalità descritte.";
-            }
+            }*/
             
             // @NEW-CODE [author(Gix075)] ------------------------------- * 
             
@@ -522,16 +526,20 @@
             markup = markup.replace(/\[\[DATI PERSONALI\]\]/g, personalDataMarkup); // @update 1.3.3
             markup = markup.replace(/\[\[SCOPI RACCOLTA DATI\]\]/g, purposesMarkup); // @update 1.3.3
             
+            // @TODO Rimuovere parte commentata
+            
             // @update 1.4.5
             // controllo per retrocompatibilità
             // nel caso in cui il json non sia aggiornato sostituisce il valore mancante 
             // del luogo del trattamento con l'indirizzo aziendale
             // rimuovere controllo alla versione 1.5.0
-            if (config.globals.dataStorageLocation !== undefined && config.globals.dataStorageLocation !== "") {
+            /*if (config.globals.dataStorageLocation !== undefined && config.globals.dataStorageLocation !== "") {
                 markup = markup.replace(/\[\[LUOGO TRATTAMENTO\]\]/g, config.globals.dataStorageLocation);  
             }else{
                 markup = markup.replace(/\[\[LUOGO TRATTAMENTO\]\]/g, config.globals.company.address); 
-            }
+            }*/
+            
+            markup = markup.replace(/\[\[LUOGO TRATTAMENTO\]\]/g, config.globals.dataStorageLocation);
             
             
             
@@ -723,8 +731,19 @@
 
                 // banner markup
                 var bootstrapClass = (plugin.settings.bootstrap === true) ? "bootstrap" : "no-bootstrap",
-                    bannerMarkup = '<div id="fdCookieLawBanner" class="fdc-cookielaw__banner '+ bannerData.position +'Banner">';
+                    closeButtonMarkup = '<div class="fdc-cookielaw__banner-close fdc-cookielaw__reject-button"><span>X</span></div>',           
+                    bannerMarkup = '<div id="fdCookieLawBanner" class="fdc-cookielaw__banner '+ bannerData.position +'Banner">',
+                    //@update 1.6.0
+                    // cookieData aggiunto per rifiuto cookie alla chiusura (tramite x o pulsante "solo necessari") del banner
+                    cookieData = {
+                        cname: config.cookieBanner.cookieName,
+                        cvalue: config.cookieBanner.cookieValue,
+                        cvalue_rejected: config.cookieBanner.cookieValueRejected, // @update 1.3.1
+                        exdays: config.cookieBanner.cookieExpire
+                    };
+                
 
+                
                 if (plugin.settings.bootstrap === true) {
                     // bootstrap markup
                     bannerMarkup += '   <div class="container-fluid">';
@@ -736,7 +755,10 @@
                     bannerMarkup += '       <div class="row">';
                     bannerMarkup += '           <div class="fdc-cookielaw__banner-buttons col-md-12">';
                     bannerMarkup += '               <a href="'+ config.cookiePolicy.url +'" class="btn btn-primary privacy">Informativa Estesa</a>';
-                    bannerMarkup += '               <a href="#" id="cookieAccept" class="btn btn-primary accept fdc-cookielaw__accept-button" href="'+ config.cookiePolicy.url +'" class="button privacy">OK</a>';
+                    if(plugin.settings.bannerRejectButton === true) {
+                        bannerMarkup += '               <a href="#" class="btn btn-danger fdc-cookielaw__reject-button">Solo Necessari</a>';
+                    }
+                    bannerMarkup += '               <a href="#" id="cookieAccept" class="btn btn-success accept fdc-cookielaw__accept-button">Accetto Tutto</a>';
                     bannerMarkup += '           </div>';
                     bannerMarkup += '       </div>';
                     bannerMarkup += '   </div>';
@@ -747,8 +769,15 @@
                     bannerMarkup += '   </div>';
                     bannerMarkup += '   <div class="fdc-cookielaw__banner-buttons">';
                     bannerMarkup += '       <a href="'+ config.cookiePolicy.url +'" class="button privacy">Informativa Estesa</a>';
-                    bannerMarkup += '       <a href="#" id="cookieAccept" class="button accept fdc-cookielaw__accept-button" href="'+ config.cookiePolicy.url +'" class="button privacy">OK</a>';
+                    if(plugin.settings.bannerRejectButton === true) {
+                        bannerMarkup += '               <a href="#" class="button button-red reject fdc-cookielaw__reject-button">Solo Necessari</a>';
+                    }
+                    bannerMarkup += '       <a href="#" id="cookieAccept" class="fdc-cookielaw__accept-button button accept button-green">Accetto Tutto</a>';
                     bannerMarkup += '   </div>';
+                }
+
+                if(plugin.settings.bannerCloseButton === true) {
+                    bannerMarkup += closeButtonMarkup;
                 }
 
                 bannerMarkup += '</div>';
@@ -762,8 +791,11 @@
                     }, 100);
                 });
 
+                
+
                 // cookie policy accept
                 plugin.cookieAcceptClick(plugin,bannerData);
+                plugin.cookieRejectClick(plugin,cookieData);
 
                 if (bannerData.acceptOnScroll === true) {
                     $(window).one('scroll', function() {
@@ -816,8 +848,8 @@
         /* ========================================================= */
         /* COOKIE POLICY REJECT
         /* ========================================================= */
-        // @TO-DO: verificare dopo il click l'esistenza del banner e se non esiste caricarlo
-        // @TO-DO: testare bene se la soluzione proposta funziona
+        // @TODO: verificare dopo il click l'esistenza del banner e se non esiste caricarlo
+        // @TODO: testare bene se la soluzione proposta funziona
 
         cookieRejectClick: function (plugin,cookieData) {
             // cookie policy accept
@@ -835,19 +867,20 @@
             plugin.servicesChoise_handleAll(plugin, cookieData.cname, false);
             // /@NEW-CODE ----------------------------------------------- * 
 
-            /* 
-            @update 1.2.1 (parte rimossa)
+            
+            //@update 1.6.0 (parte reintrodotta)
             if ( $('#fdCookieLawBanner').length > 0 ) {
-                $('#fdCookieLawBanner').addClass('showBanner');
-                $('.fdc-cookielaw__reject-button.on-policypage').hide();
-                $('.fdc-cookielaw__accept-button.on-policypage').fadeIn();
+                console.log('banner exists on reject');
+                $('#fdCookieLawBanner').removeClass('showBanner');
+                /* $('.fdc-cookielaw__reject-button.on-policypage').hide();
+                $('.fdc-cookielaw__accept-button.on-policypage').fadeIn(); */
             }else {
                 plugin.plugInit(plugin,true);
             }
-            */
+           
             
-            // @update 1.2.1
-            plugin.plugInit(plugin,true); 
+            // @update 1.6.0 rimosso
+            //plugin.plugInit(plugin,true); 
 
             // Callback OnRejected
             if ( plugin.settings.callbackOnRejected !== null ) plugin.settings.callbackOnRejected();
@@ -1159,7 +1192,13 @@
         cookieHunter: function (plugin,bannerData) {
 
             var cookieVal = plugin.readCookie(bannerData.cname);
-            var bannerNeeded = (cookieVal !== undefined && cookieVal !== bannerData.cvalue) ? false : true;
+            var bannerNeeded;
+            
+            if (cookieVal !== undefined && cookieVal !== bannerData.cvalue && cookieVal !== bannerData.cvalue_rejected) {
+                bannerNeeded = false;
+            }else{
+                bannerNeeded = true;
+            }
 
             return bannerNeeded;
 

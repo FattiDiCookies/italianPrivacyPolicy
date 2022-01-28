@@ -31,6 +31,8 @@
             "embedCode": true,
             "customText": false
         },
+        "rejectButton": false,
+        "closeButton": true,
         "acceptOnScroll": false,
         "cookieName": "fdCookieLaw",
         "cookieValue": "accepted",
@@ -89,6 +91,7 @@
                 "active": true,
                 "services": {
                     "google-adsense": true,
+                    "google-ads": true,
                     "doubleclick": true,
                     "adform": true,
                     "facebook-pixel": true
