@@ -1,4 +1,4 @@
-;(function ( $, window, document, undefined ) {
+(function ( $, window, document ) {
     
     
     /*
@@ -31,6 +31,9 @@
             banner: "",
             bannerPosition: "",
             bannerRejectButton: false, // @update 1.6.0
+            bannerRejectButtonLabel: "Solo necessari", // @update 1.7.0
+            bannerAcceptAllButtonLabel: "Accetto tutto", // @update 1.7.0
+            bannerPrivacyButtonLabel: "Informativa estesa", // @update 1.7.0
             bannerCloseButton: true, // @update 1.6.0
             bootstrap: false,
             acceptOnScroll: "",
@@ -62,14 +65,14 @@
 
             // @DEBUG 
             if(this.settings.debug === true) console.log(pluginName + ": start");
-            var plugin = this;
-            this.plugInit(plugin, false);
+            //var plugin = this;
+            this.plugInit(false);
 
         },
 
-        plugInit: function (plugin, reloadAfterReject) {
+        plugInit: function (reloadAfterReject) {
 
-            this.getConfig(plugin, reloadAfterReject);
+            this.getConfig(reloadAfterReject);
 
         },
 
@@ -83,19 +86,19 @@
             if(this.settings.debug === true) console.log(pluginName + ": getConfig() -> loading config");
             
             $.ajax({
-                url: plugin.settings.config,
+                url: this.settings.config,
                 dataType: 'json',
-                success: function (config) {
+                success: (config) => {
 
                     //@update 1.6.0
                     // Assegno valori dei nuovi parametri di config
                     // Questi due parametri vengono gestiti da due opzioni dirette del plugin jQuery
                     if (config.cookieBanner.rejectButton !== "undefined") {
-                        plugin.settings.bannerRejectButton = config.cookieBanner.rejectButton;
+                        this.settings.bannerRejectButton = config.cookieBanner.rejectButton;
                     }
 
                     if (config.cookieBanner.closeButton !== "undefined") {
-                        plugin.settings.bannerCloseButton = config.cookieBanner.closeButton;
+                        this.settings.bannerCloseButton = config.cookieBanner.closeButton;
                     }
                     
                     var loadDocs = false,
@@ -104,49 +107,55 @@
                         bannerData = {};
 
                     // Check if banner is active 
-                    if(plugin.settings.banner === true || config.cookieBanner.active === true) {
+                    if(this.settings.banner === true || config.cookieBanner.active === true) {
 
                         bannerData = {
                             cname: config.cookieBanner.cookieName,
                             cvalue: config.cookieBanner.cookieValue,
                             cvalue_rejected: config.cookieBanner.cookieValueRejected, // @update 1.3.1
-                            exdays: config.cookieBanner.cookieExpire
+                            exdays: config.cookieBanner.cookieExpire,
+                            // @update 1.7.0
+                            buttons_label: {
+                                bannerRejectButtonLabel: (config.cookieBanner.buttons_label.bannerRejectButtonLabel !== ""  && config.cookieBanner.buttons_label.bannerRejectButtonLabel !== false) ? config.cookieBanner.buttons_label.bannerRejectButtonLabel : this.settings.bannerRejectButtonLabel,
+                                bannerAcceptAllButtonLabel: (config.cookieBanner.buttons_label.bannerAcceptAllButtonLabel !== "" && config.cookieBanner.buttons_label.bannerAcceptAllButtonLabel !== false ) ? config.cookieBanner.buttons_label.bannerAcceptAllButtonLabel : this.settings.bannerAcceptAllButtonLabel,
+                                bannerPrivacyButtonLabel: (config.cookieBanner.buttons_label.bannerPrivacyButtonLabel !== "" && config.cookieBanner.buttons_label.bannerPrivacyButtonLabel !== false) ? config.cookieBanner.buttons_label.bannerPrivacyButtonLabel : this.settings.bannerPrivacyButtonLabel,
+                            }
                         };
 
                         // if cookie is not found load banner
-                        var cookieHunter = plugin.cookieHunter(plugin,bannerData);
+                        var cookieHunter = this.cookieHunter(bannerData);
                         if (cookieHunter === false) {
                             loadDocs = true;
                             bannerActive = true;
 
                             // Callback OnNotAccepted @update 1.2.0
-                            if (plugin.settings.callbackOnNotAccepted !== null && reloadAfterReject === false ) plugin.settings.callbackOnNotAccepted();
+                            if (this.settings.callbackOnNotAccepted !== null && reloadAfterReject === false ) this.settings.callbackOnNotAccepted();
 
                         }else{
                             // Callback OnAccepted
-                            if (plugin.settings.callbackOnAccepted !== null ) plugin.settings.callbackOnAccepted();
+                            if (this.settings.callbackOnAccepted !== null ) this.settings.callbackOnAccepted();
                         }
 
                     }
 
-                    if (plugin.settings.page !== "") {
+                    if (this.settings.page !== "") {
                         loadDocs = true;
                         pageActive = true;
                     }
 
                     // Load JsonDocsData only if is required
                     if (loadDocs === true) {
-                        plugin.getDocsData(plugin,config,pageActive,bannerActive,bannerData);
+                        this.getDocsData(config,pageActive,bannerActive,bannerData);
                     }
 
 
                 },
-                error: function() {
+                error: () => {
 
                     // @DEBUG 
-                    if(plugin.settings.debug === true) console.log(pluginName + ": getConfig() -> ajax error loading config file");
+                    if(this.settings.debug === true) console.log(pluginName + ": getConfig() -> ajax error loading config file");
 
-                    $(plugin.element).html('<h1>Error!</h1>');
+                    $(this.element).html('<h1>Error!</h1>');
 
                 }
             });// end ajax
@@ -155,38 +164,38 @@
         /* ========================================================= */
         /* GET ALL DOCS DATA */
         /* ========================================================= */
-        getDocsData: function (plugin,config,pageActive,bannerActive,bannerData) {
+        getDocsData: function (config,pageActive,bannerActive,bannerData) {
 
             // @DEBUG 
             if(this.settings.debug === true) console.log(pluginName + ": getDocsData() -> loading documents");
 
             $.ajax({
-                url: plugin.jsonDocs,
+                url: this.jsonDocs,
                 dataType: 'json',
-                success: function (docs) {
+                success: (docs) => {
 
                     if (bannerActive !== false) {
                         //plugin.bannerCallback(plugin,config,docs);
-                        plugin.setBanner(plugin,config,docs,bannerData);
+                        this.setBanner(config,docs,bannerData);
                     }
 
                     if (pageActive !== false) {
                         // Cookie or Privacy policy
-                        switch(plugin.settings.page) {
+                        switch(this.settings.page) {
                             case "privacy" :
-                                plugin.getPrivacyPolicy(plugin,config,docs);
+                                this.getPrivacyPolicy(config,docs);
                                 break;
                             case "cookie" :
-                                plugin.getCookiePolicy(plugin,config,docs);
+                                this.getCookiePolicy(config,docs);
                                 break;
                             default:
-                                //plugin.getCookiePolicy(data);
+                                //this.getCookiePolicy(data);
                                 break;
                         }
                     }
 
                 },
-                error: function() {
+                error: () => {
                     // @DEBUG 
                     if(this.settings.debug === true) console.log(pluginName + ": getDocsData() -> ajax error loading docs");
                 }
@@ -196,26 +205,26 @@
         /* ========================================================= */
         /* SET BANNER */
         /* ========================================================= */
-        setBanner: function (plugin,config,docs,bannerData) {
+        setBanner: function (config,docs,bannerData) {
 
             // @DEBUG 
             if(this.settings.debug === true) console.log(pluginName + ": setBanner() -> start banner");
 
-            if(plugin.settings.acceptOnScroll === "") {
+            if(this.settings.acceptOnScroll === "") {
                 bannerData.acceptOnScroll = config.cookieBanner.acceptOnScroll;
             }else{
-                bannerData.acceptOnScroll = plugin.settings.acceptOnScroll;
+                bannerData.acceptOnScroll = this.settings.acceptOnScroll;
             }
 
 
-            if(plugin.settings.banner === true) {
+            if(this.settings.banner === true) {
                 bannerData.position = config.cookieBanner.position;
-                plugin.getCookieBanner(config,plugin,docs,bannerData);
+                this.getCookieBanner(config,docs,bannerData);
             }
 
-            if(plugin.settings.banner === "" && plugin.settings.banner !== false && config.cookieBanner.active === true) {
+            if(this.settings.banner === "" && this.settings.banner !== false && config.cookieBanner.active === true) {
                 bannerData.position = config.cookieBanner.position;
-                plugin.getCookieBanner(config,plugin,docs,bannerData);
+                this.getCookieBanner(config,docs,bannerData);
             }
 
         },
@@ -253,10 +262,11 @@
         /* PRIVACY POLICY GENERATOR */
         /* This function generates a dynamical Privacy Policy */
         /* ========================================================= */
-        getPrivacyPolicy: function (plugin,config,docs) {
+        getPrivacyPolicy: function (config,docs) {
 
             // @DEBUG 
             if(this.settings.debug === true) console.log(pluginName + ": getPrivacyPolicy() --> load page");
+            if(this.settings.debug === true) console.log(pluginName + ": getPrivacyPolicy() --> docs: " + JSON.stringify(docs));
 
             var markup = docs.privacy_policy_docs['privacy-policy'],
                 services_docs = { // @update 1.5.0
@@ -279,95 +289,7 @@
                 itemStart = "",
                 itemEnd = "",
                 stringEnd = "";
-            
-            
-            // @TODO: rimuovere parti commentate dopo controllo funzionalità
-            
-            // @update 1.3.3
-            // Controlli per vecchi file di configurazione (rimuovere alla versione 1.5.0)
-            /*
-            if ( config.privacyPolicy.deviceDataTitle !== undefined && config.privacyPolicy.deviceDataTitle !== "") {
-                config.privacyPolicy.deviceDataTitle = config.privacyPolicy.deviceDataTitle;
-            }else{
-                config.privacyPolicy.deviceDataTitle = "Dati relativi al dispositivo dell'utente";
-            }
-            
-            if ( config.privacyPolicy.deviceDataDesc !== undefined && config.privacyPolicy.deviceDataDesc !== "") {
-                config.privacyPolicy.deviceDataDesc = config.privacyPolicy.deviceDataDesc;
-            }else{
-                config.privacyPolicy.deviceDataDesc = "Sono dati raccolti automaticamente dal sistema che riguardano il dispositivo con il quale viene navigato il sito. I dati così raccolti vengono conservati in forma completamente anonima e sono consultabili solo in forma aggreta. In alcuni casi l'indirizzo ip viene anonimizzato sottraendo ad esso le ultime tre cifre.";
-            }
-            
-            if ( config.privacyPolicy.deviceData !== undefined && config.privacyPolicy.deviceData !== "") {
-                config.privacyPolicy.deviceData = config.privacyPolicy.deviceData;
-                deviceDataLenght = config.privacyPolicy.deviceData.length;
-            }else{
-                config.privacyPolicy.deviceData = [
-                    "indirizzo internet protocol (IP)",
-                    "tipo di browser",
-                    "dispositivo usato per connettersi al sito",
-                    "internet service provider (ISP)",
-                    "data e orario di visita",
-                    "pagina web di provenienza del visitatore (referral) e di uscita",
-                    "numero di click"
-                ];
-                deviceDataLenght = config.privacyPolicy.deviceData.length;
-            }
-            
-            if ( config.privacyPolicy.personalDataTitle !== undefined && config.privacyPolicy.personalDataTitle !== "") {
-                config.privacyPolicy.personalDataTitle = config.privacyPolicy.personalDataTitle;
-            }else{
-                config.privacyPolicy.personalDataTitle = "Dati personali dell'utente";
-            }
-            
-            if ( config.privacyPolicy.personalDataDesc !== undefined && config.privacyPolicy.personalDataDesc !== "") {
-                config.privacyPolicy.personalDataDesc = config.privacyPolicy.personalDataDesc;
-            }else{
-                config.privacyPolicy.personalDataDesc = "I dati personali dell'utente vengono rilasciati volontariamente, dove espressamente richiesto, e sono conservati secondo le modalità descritte.";
-            }*/
-            
-            // @NEW-CODE [author(Gix075)] ------------------------------- * 
-            
-                // @update 1.5.0 controlli per retrocompatibilità
-                // @TODO : rimuovere controlli alla versione 1.6.0
-            
-            // @DEBUG 
-            if(this.settings.debug === true) console.log(pluginName + ": getPrivacyPolicy() --> load services (compatibility)");
-            
-            if ( config.privacyPolicy.contactForm !== undefined) {
-                config.privacyPolicy.contactForm = config.privacyPolicy.contactForm;
-            }else{
-                config.privacyPolicy.contactForm = {
-                    active: false
-                };
-            }
-            
-            if ( config.privacyPolicy.account !== undefined) {
-                config.privacyPolicy.account = config.privacyPolicy.account;
-            }else{
-                config.privacyPolicy.account = {
-                    active: false
-                };
-            }
-            
-            if ( config.privacyPolicy.ecommerce !== undefined) {
-                config.privacyPolicy.ecommerce = config.privacyPolicy.ecommerce;
-            }else{
-                config.privacyPolicy.ecommerce = {
-                    active: false
-                };
-            }
-            
-            if ( config.privacyPolicy.thirdpartyDataStorage !== undefined) {
-                config.privacyPolicy.thirdpartyDataStorage = config.privacyPolicy.thirdpartyDataStorage;
-            }else{
-                config.privacyPolicy.thirdpartyDataStorage = false;
-            }
-                
-                // Fine dei controlli per retrocompatibilità
-                
-            // @/NEW-CODE ----------------------------------------------- * 
-            
+
             
             // device data // @update 1.3.3
             deviceDataMarkup += '<p><strong>' + config.privacyPolicy.deviceDataTitle + '</strong><br>';
@@ -407,10 +329,10 @@
             // CONTACT FORM @update 1.5.0
             if (config.privacyPolicy.contactForm.active === true) {
                 
-                service_markup = plugin.generateListMarkup(config.privacyPolicy.contactForm.personalData);
+                service_markup = this.generateListMarkup(config.privacyPolicy.contactForm.personalData);
                 services_docs.contactform = services_docs.contactform.replace(/\[\[CONTACTFORM DATA\]\]/g,service_markup);
                 
-                service_markup = plugin.generateListMarkup(config.privacyPolicy.contactForm.storage);
+                service_markup = this.generateListMarkup(config.privacyPolicy.contactForm.storage);
                 services_docs.contactform = services_docs.contactform.replace(/\[\[CONTACTFORM DATA STORAGE\]\]/g,service_markup);
                 
                 services_markup += services_docs.contactform;
@@ -420,10 +342,10 @@
             // USER ACCOUNT @update 1.5.0
             if (config.privacyPolicy.account.active === true) {
                 
-                service_markup = plugin.generateListMarkup(config.privacyPolicy.account.personalData);
+                service_markup = this.generateListMarkup(config.privacyPolicy.account.personalData);
                 services_docs.siteaccount = services_docs.siteaccount.replace(/\[\[ACCOUNT DATA\]\]/g,service_markup);
                 
-                service_markup = plugin.generateListMarkup(config.privacyPolicy.account.storage);
+                service_markup = this.generateListMarkup(config.privacyPolicy.account.storage);
                 services_docs.siteaccount = services_docs.siteaccount.replace(/\[\[ACCOUNT DATA STORAGE\]\]/g,service_markup);
                 
                 services_markup += services_docs.siteaccount;
@@ -433,10 +355,10 @@
             // ECOMMERCE @update 1.5.0
             if (config.privacyPolicy.ecommerce.active === true) {
                 
-                service_markup = plugin.generateListMarkup(config.privacyPolicy.ecommerce.personalData);
+                service_markup = this.generateListMarkup(config.privacyPolicy.ecommerce.personalData);
                 services_docs.ecommerce = services_docs.ecommerce.replace(/\[\[ECOMMERCE DATA\]\]/g,service_markup);
                 
-                service_markup = plugin.generateListMarkup(config.privacyPolicy.account.storage);
+                service_markup = this.generateListMarkup(config.privacyPolicy.account.storage);
                 services_docs.ecommerce = services_docs.ecommerce.replace(/\[\[ECOMMERCE DATA STORAGE\]\]/g,service_markup);
                 
                 services_markup += services_docs.ecommerce;
@@ -534,7 +456,7 @@
             
             
             // place markup on element
-            $(plugin.element).html(markup);
+            $(this.element).html(markup);
 
         },
 
@@ -542,13 +464,17 @@
         /* COOKIE POLICY GENERATOR */
         /* This function generates a dynamical Cookie Policy    */
         /* ==================================================== */
-        getCookiePolicy: function (plugin,config,docs) {
+        getCookiePolicy: function (config,docs) {
 
             // @DEBUG 
             if(this.settings.debug === true) console.log(pluginName + ": getCookiePolicy()");
+            if(this.settings.debug === true) console.log(pluginName + ": getCookiePolicy() config: " + JSON.stringify(config));
+            if(this.settings.debug === true) console.log(pluginName + ": getCookiePolicy() docs: " + JSON.stringify(docs));
 
 
             var markup = docs.cookie_policy_docs['informativa-estesa'];
+            
+            if(this.settings.debug === true) console.log(pluginName + ": getCookiePolicy() markup: " + JSON.stringify(markup));
 
             markup = markup.replace(/\[\[NOME SITO\]\]/g, config.globals.site.name);
             markup = markup.replace(/\[\[URL SITO\]\]/g, config.globals.site.url);
@@ -556,7 +482,7 @@
             markup = markup.replace(/\[\[ELENCO SERVIZI\]\]/g, '<div id="cookiePolicyServices" class="fdctool__services panel-group" role="tablist" aria-multiselectable="true"></div>');
             markup = markup.replace(/\[\[PRIVACY-POLICY\]\]/g, '<a href="'+ config.privacyPolicy.url +'" class="fdc-cookielaw__privacy-link">LINK</a>');
 
-            $(plugin.element).html(markup);
+            $(this.element).html(markup);
 
             var buttons = '',
                 cookieData = {
@@ -565,10 +491,10 @@
                     cvalue_rejected: config.cookieBanner.cookieValueRejected, // @update 1.3.1
                     exdays: config.cookieBanner.cookieExpire
                 },
-                cookieHunter = this.cookieHunter(plugin,cookieData),
+                cookieHunter = this.cookieHunter(cookieData),
                 btnClasses = {
-                    accept: (plugin.settings.bootstrap === true) ? 'btn btn-primary' : 'button',
-                    reject: (plugin.settings.bootstrap === true) ? 'btn btn-danger' : 'button button-red'
+                    accept: (this.settings.bootstrap === true) ? 'btn btn-primary' : 'button',
+                    reject: (this.settings.bootstrap === true) ? 'btn btn-danger' : 'button button-red'
                 };
 
 
@@ -577,7 +503,9 @@
                         '    <button class="' + btnClasses.reject + ' on-policypage fdc-cookielaw__reject-button">Rimuovo il consenso all\'uso dei cookie</button>'+
                         '</div>';
 
-            $(plugin.element).append(buttons);
+            $(this.element).append(buttons);
+
+            console.log('cookieHunter VAR: ' + cookieHunter)
 
             if (cookieHunter === false) {
                 $('.fdc-cookielaw__reject-button.on-policypage').hide();
@@ -590,10 +518,10 @@
 
 
             // cookie policy accept
-            plugin.cookieAcceptClick(plugin,cookieData);
-            plugin.cookieRejectClick(plugin,cookieData);
+            this.cookieAcceptClick(cookieData);
+            this.cookieRejectClick(cookieData);
 
-            plugin.getServices(plugin,config,docs);
+            this.getServices(config,docs);
 
 
         },
@@ -602,21 +530,21 @@
         /* Services Text */
         /* ==================================================== */
 
-        getServices: function (plugin,config,docs) {
-            $.each(config.cookiePolicy.services, function(index) {
+        getServices: function (config,docs) {
+            $.each(config.cookiePolicy.services, (index, element) => {
 
-                if (this.active === true) {
+                if (element.active === true) {
 
                     var catLabel = config.cookiePolicy.services[index].catLabel,
                         catName = config.cookiePolicy.services[index].catName,
                         catID = "servicesTool-" + catName,
                         collapseClass = (index === 0) ? ' collapse in' : ' collapse',
                         bootstrapCss = {
-                            panel: (plugin.settings.bootstrap === true) ? " panel panel-default" : "",
-                            panelHeading: (plugin.settings.bootstrap === true) ? " panel-heading" : "",
-                            panelTitle: (plugin.settings.bootstrap === true) ? " panel-title" : "",
-                            panelCollapse: (plugin.settings.bootstrap === true) ? " panel-collapse" + collapseClass : "",
-                            panelBody: (plugin.settings.bootstrap === true) ? " panel-body" : ""
+                            panel: (this.settings.bootstrap === true) ? " panel panel-default" : "",
+                            panelHeading: (this.settings.bootstrap === true) ? " panel-heading" : "",
+                            panelTitle: (this.settings.bootstrap === true) ? " panel-title" : "",
+                            panelCollapse: (this.settings.bootstrap === true) ? " panel-collapse" + collapseClass : "",
+                            panelBody: (this.settings.bootstrap === true) ? " panel-body" : ""
                         };
 
                     $('#cookiePolicyServices').append('<div id="' + catID + '" class="fdctool__services_cat panel' + bootstrapCss.panel + '"></div>');
@@ -627,13 +555,13 @@
 
 
 
-                    $.each(config.cookiePolicy.services[index].services, function(key, value) {
+                    $.each(config.cookiePolicy.services[index].services, (key, value) => {
 
                         if (value === true) {
                             var markup = docs.cookie_policy_docs[key];
                             
                             // @NEW-CODE Gix075 ----------------------------------------- * 
-                            markup += plugin.serviceChoise_buttonBar_markup(plugin, config, key); // @update 1.3.0
+                            markup += this.serviceChoise_buttonBar_markup(config, key); // @update 1.3.0
                             // /@NEW-CODE ----------------------------------------------- * 
                             
                             // Prevent code failure if docs.complete.json is not consistent
@@ -652,7 +580,7 @@
             });
             
             // @NEW-CODE Gix075 ----------------------------------------- * 
-            plugin.serviceChoise_buttonBar_click(plugin, config); // @update 1.3.0
+            this.serviceChoise_buttonBar_click(config); // @update 1.3.0
             // /@NEW-CODE ----------------------------------------------- * 
         },
         
@@ -660,14 +588,14 @@
         /* BANNER TEXT */
         /* Get the right banner text */
         /* ========================================================= */
-        getBannerText: function (plugin,config,docs,bannerData) {
+        getBannerText: function (config,docs) {
 
             var bannerText = "";
 
             if (config.cookieBanner.text.customText === false || config.cookieBanner.text.customText === "") {
 
                 // @DEBUG 
-                if(plugin.settings.debug === true) console.log(pluginName + ': getBannerText() -> load text');
+                if(this.settings.debug === true) console.log(pluginName + ': getBannerText() -> load text');
 
                 // Technical
                 if (config.cookieBanner.text.techCookies === true && config.cookieBanner.text.profCookies === false)  {
@@ -688,8 +616,8 @@
             } else {
 
                 // @DEBUG 
-                if(plugin.settings.debug === true) console.log(pluginName + ': getBannerText() -> load custom text');
-
+                if(this.settings.debug === true) console.log(pluginName + ': getBannerText() -> load custom text');
+                
                 bannerText = config.cookieBanner.text.customText;
             }
 
@@ -701,18 +629,18 @@
         /* COOKIE BANNER GENERATOR */
         /* This function generates a cookie info banner */
         /* ====================================================== */
-        getCookieBanner: function (config,plugin,docs,bannerData) {
+        getCookieBanner: function (config,docs,bannerData) {
 
             // @DEBUG 
             if(this.settings.debug === true) console.log(pluginName + ": getCookieBanner() -> load banner");
 
-            var cookieHunter = plugin.cookieHunter(plugin,bannerData);
+            var cookieHunter = this.cookieHunter(bannerData);
 
             // if cookie is not found load banner
             if (cookieHunter === false) {
 
                 // banner text
-                bannerData.text = plugin.getBannerText(plugin,config,docs,bannerData);
+                bannerData.text = this.getBannerText(config,docs);
                 bannerData.textLink = '<a href="'+ config.cookiePolicy.url +'" title="Informativa Estesa">informativa estesa</a>';
 
                 bannerData.text = bannerData.text.replace(/\[\[INFORMATIVA-ESTESA\]\]/g, bannerData.textLink);
@@ -720,8 +648,7 @@
 
 
                 // banner markup
-                var bootstrapClass = (plugin.settings.bootstrap === true) ? "bootstrap" : "no-bootstrap",
-                    closeButtonMarkup = '<div class="fdc-cookielaw__banner-close fdc-cookielaw__reject-button"><span>X</span></div>',           
+                var closeButtonMarkup = '<div class="fdc-cookielaw__banner-close fdc-cookielaw__reject-button"><span>X</span></div>',           
                     bannerMarkup = '<div id="fdCookieLawBanner" class="fdc-cookielaw__banner '+ bannerData.position +'Banner">',
                     //@update 1.6.0
                     // cookieData aggiunto per rifiuto cookie alla chiusura (tramite x o pulsante "solo necessari") del banner
@@ -731,10 +658,10 @@
                         cvalue_rejected: config.cookieBanner.cookieValueRejected, // @update 1.3.1
                         exdays: config.cookieBanner.cookieExpire
                     };
-                
+                    
+                    
 
-                
-                if (plugin.settings.bootstrap === true) {
+                if (this.settings.bootstrap === true) {
                     // bootstrap markup
                     bannerMarkup += '   <div class="container-fluid">';
                     bannerMarkup += '       <div class="row">';
@@ -744,11 +671,11 @@
                     bannerMarkup += '       </div>';
                     bannerMarkup += '       <div class="row">';
                     bannerMarkup += '           <div class="fdc-cookielaw__banner-buttons col-md-12">';
-                    bannerMarkup += '               <a href="'+ config.cookiePolicy.url +'" class="btn btn-primary privacy">Informativa Estesa</a>';
-                    if(plugin.settings.bannerRejectButton === true) {
-                        bannerMarkup += '               <a href="#" class="btn btn-danger fdc-cookielaw__reject-button">Solo Necessari</a>';
+                    bannerMarkup += '               <a href="'+ config.cookiePolicy.url +'" class="btn btn-primary privacy">' + bannerData.buttons_label.bannerPrivacyButtonLabel + '</a>';
+                    if(this.settings.bannerRejectButton === true) {
+                        bannerMarkup += '               <a href="#" class="btn btn-danger fdc-cookielaw__reject-button">' + bannerData.buttons_label.bannerRejectButtonLabel + '</a>';
                     }
-                    bannerMarkup += '               <a href="#" id="cookieAccept" class="btn btn-success accept fdc-cookielaw__accept-button">Accetto Tutto</a>';
+                    bannerMarkup += '               <a href="#" id="cookieAccept" class="btn btn-success accept fdc-cookielaw__accept-button">' + bannerData.buttons_label.bannerAcceptAllButtonLabel + '</a>';
                     bannerMarkup += '           </div>';
                     bannerMarkup += '       </div>';
                     bannerMarkup += '   </div>';
@@ -758,15 +685,15 @@
                     bannerMarkup +=         bannerData.text;
                     bannerMarkup += '   </div>';
                     bannerMarkup += '   <div class="fdc-cookielaw__banner-buttons">';
-                    bannerMarkup += '       <a href="'+ config.cookiePolicy.url +'" class="button privacy">Informativa Estesa</a>';
-                    if(plugin.settings.bannerRejectButton === true) {
-                        bannerMarkup += '               <a href="#" class="button button-red reject fdc-cookielaw__reject-button">Solo Necessari</a>';
+                    bannerMarkup += '       <a href="'+ config.cookiePolicy.url +'" class="button privacy">' + bannerData.buttons_label.bannerPrivacyButtonLabel + '</a>';
+                    if(this.settings.bannerRejectButton === true) {
+                        bannerMarkup += '               <a href="#" class="button button-red reject fdc-cookielaw__reject-button">' + bannerData.buttons_label.bannerRejectButtonLabel + '</a>';
                     }
-                    bannerMarkup += '       <a href="#" id="cookieAccept" class="fdc-cookielaw__accept-button button accept button-green">Accetto Tutto</a>';
+                    bannerMarkup += '       <a href="#" id="cookieAccept" class="fdc-cookielaw__accept-button button accept button-green">' + bannerData.buttons_label.bannerAcceptAllButtonLabel + '</a>';
                     bannerMarkup += '   </div>';
                 }
 
-                if(plugin.settings.bannerCloseButton === true) {
+                if(this.settings.bannerCloseButton === true) {
                     bannerMarkup += closeButtonMarkup;
                 }
 
@@ -784,8 +711,8 @@
                 
 
                 // cookie policy accept
-                plugin.cookieAcceptClick(plugin,bannerData);
-                plugin.cookieRejectClick(plugin,cookieData);
+                this.cookieAcceptClick(bannerData);
+                this.cookieRejectClick(cookieData);
 
                 if (bannerData.acceptOnScroll === true) {
                     $(window).one('scroll', function() {
@@ -793,7 +720,7 @@
                         setTimeout(function () {
                             $('#fdCookieLawBanner').remove();
                         },1000);
-                        plugin.writeCookie(bannerData.cname,bannerData.cvalue,bannerData.exdays);
+                        this.writeCookie(bannerData.cname,bannerData.cvalue,bannerData.exdays);
                     });
                 }
 
@@ -805,34 +732,34 @@
         /* ========================================================= */
         /* COOKIE POLICY ACCEPT
         /* ========================================================= */
-        cookieAcceptClick: function (plugin, cookieData) {
+        cookieAcceptClick: function (cookieData) {
             // cookie policy accept
-            $('.fdc-cookielaw__accept-button').on('click', function(e) {
+            $('.fdc-cookielaw__accept-button').on('click', (e) => {
                 e.preventDefault();
-                plugin.cookieAccept(plugin, cookieData, true);
+                this.cookieAccept(cookieData, true);
             });
         },
         
-        cookieAccept: function (plugin, cookieData, acceptAllServices) {
+        cookieAccept: function (cookieData, acceptAllServices) {
             $('#fdCookieLawBanner').removeClass('showBanner');
             setTimeout(function () {
                 $('#fdCookieLawBanner').remove();
             },1000);
             $('.fdc-cookielaw__accept-button.on-policypage').hide();
             $('.fdc-cookielaw__reject-button.on-policypage').fadeIn();
-            plugin.writeCookie(cookieData.cname, cookieData.cvalue, cookieData.exdays);
+            this.writeCookie(cookieData.cname, cookieData.cvalue, cookieData.exdays);
 
 
             // @NEW-CODE Gix075 ----------------------------------------- * 
             // @update 1.3.0
             if(acceptAllServices === true) {
-                plugin.servicesChoise_handleAll(plugin, cookieData.cname, true);
-                plugin.serviceChoise_buttonBar_acceptAllUpdate(plugin);
+                this.servicesChoise_handleAll(cookieData.cname, true);
+                this.serviceChoise_buttonBar_acceptAllUpdate();
             }
             // /@NEW-CODE ----------------------------------------------- * 
 
             // Callback OnAccepted
-            if ( plugin.settings.callbackOnAccepted !== null ) plugin.settings.callbackOnAccepted();
+            if ( this.settings.callbackOnAccepted !== null ) this.settings.callbackOnAccepted();
         },
 
         /* ========================================================= */
@@ -841,20 +768,20 @@
         // @TODO: verificare dopo il click l'esistenza del banner e se non esiste caricarlo
         // @TODO: testare bene se la soluzione proposta funziona
 
-        cookieRejectClick: function (plugin,cookieData) {
+        cookieRejectClick: function (cookieData) {
             // cookie policy accept
-            $('.fdc-cookielaw__reject-button').on('click', function(e) {
+            $('.fdc-cookielaw__reject-button').on('click', (e) => {
                 e.preventDefault();    
-                plugin.cookieReject(plugin, cookieData);
+                this.cookieReject(cookieData);
             });
         },
         
-        cookieReject: function (plugin,cookieData) {
-            plugin.writeCookie(cookieData.cname,cookieData.cvalue_rejected,cookieData.exdays);
+        cookieReject: function (cookieData) {
+            this.writeCookie(cookieData.cname,cookieData.cvalue_rejected,cookieData.exdays);
                 
             // @NEW-CODE Gix075 ----------------------------------------- * 
             // @update 1.3.0
-            plugin.servicesChoise_handleAll(plugin, cookieData.cname, false);
+            this.servicesChoise_handleAll(cookieData.cname, false);
             // /@NEW-CODE ----------------------------------------------- * 
 
             
@@ -865,7 +792,7 @@
                 /* $('.fdc-cookielaw__reject-button.on-policypage').hide();
                 $('.fdc-cookielaw__accept-button.on-policypage').fadeIn(); */
             }else {
-                plugin.plugInit(plugin,true);
+                this.plugInit(true);
             }
            
             
@@ -873,7 +800,7 @@
             //plugin.plugInit(plugin,true); 
 
             // Callback OnRejected
-            if ( plugin.settings.callbackOnRejected !== null ) plugin.settings.callbackOnRejected();
+            if ( this.settings.callbackOnRejected !== null ) this.settings.callbackOnRejected();
         },
 
         
@@ -892,23 +819,24 @@
             
             // @DEBUG 
             if(this.settings.debug === true) console.log(pluginName + ": searchService() -> start");
-            var plugin = this;
+            
             $.ajax({
                 url: this.settings.config,
                 dataType: 'json',
-                success: function(config) {
+                success: (config) => {
                     // @DEBUG 
-                    if(plugin.settings.debug === true) console.log(pluginName + ": searchService() -> get config");
-                    var servicesCookie = plugin.serviceChoise_serviceHunter(plugin, config, serviceName);
+                    if(this.settings.debug === true) console.log(pluginName + ": searchService() -> get config");
+                    if(this.settings.debug === true) console.log(pluginName + ": config: " + JSON.stringify(config));
+                    var servicesCookie = this.serviceChoise_serviceHunter(config, serviceName);
                     if (servicesCookie === true) {
                         callbackOnTrue();
                     }else{
                         callbackOnFalse();
                     }
                 },
-                error: function() {
+                error: () => {
                     // @DEBUG 
-                    if(plugin.settings.debug === true) console.log(pluginName + ": searchService() -> AJAXERROR! getting config");
+                    if(this.settings.debug === true) console.log(pluginName + ": searchService() -> AJAXERROR! getting config");
                 }
             });
         },
@@ -919,10 +847,12 @@
         /* Single Service Hunter */
         /* Tests if a service is accepted by the user */
         /* ================================================================ */
-        serviceChoise_serviceHunter: function(plugin, config, service) {
+        serviceChoise_serviceHunter: function(config, service) {
+
+            if(this.settings.debug === true) console.log(pluginName + ": serviceChoise_serviceHunter() -> launching readCookie");
             
             var servicesCookieName = config.cookieBanner.cookieName + "_services",
-                currentCookie = plugin.readCookie(servicesCookieName),
+                currentCookie = this.readCookie(servicesCookieName),
                 result;
             
             currentCookie = currentCookie.split(',');
@@ -935,10 +865,12 @@
         /* ================================================================ */
         /* Single Service Handler */
         /* ================================================================ */
-        serviceChoise_handleServiceCookie: function(plugin, config, service, action, launch_callback) {
+        serviceChoise_handleServiceCookie: function(config, service, action, launch_callback) {
+
+            if(this.settings.debug === true) console.log(pluginName + ": serviceChoise_handleServiceCookie() -> launching readCookie");
             
             var servicesCookieName = config.cookieBanner.cookieName + "_services",
-                currentCookie = plugin.readCookie(servicesCookieName),
+                currentCookie = this.readCookie(servicesCookieName),
                 newCookieValue,
                 callbackData = {
                     action: action,
@@ -963,16 +895,16 @@
                         // @NEW-CODE Gix075 ----------------------------------------- * 
                         // @update 1.4.0
                         // add single service cookie
-                        plugin.writeCookie(config.cookieBanner.cookieName + '_' + service, "true", config.cookieBanner.cookieExpire);
+                        this.writeCookie(config.cookieBanner.cookieName + '_' + service, "true", config.cookieBanner.cookieExpire);
                         // @/NEW-CODE ----------------------------------------------- * 
                     }else{
                         callbackData.allowed_services = [service];
                         newCookieValue = service;  
-                        plugin.cookieAccept(plugin, cookieData, false);
+                        this.cookieAccept(cookieData, false);
                         // @NEW-CODE Gix075 ----------------------------------------- * 
                         // @update 1.4.0
                         // add single service cookie
-                        plugin.writeCookie(config.cookieBanner.cookieName + '_' + service, "true", config.cookieBanner.cookieExpire);
+                        this.writeCookie(config.cookieBanner.cookieName + '_' + service, "true", config.cookieBanner.cookieExpire);
                         // @/NEW-CODE ----------------------------------------------- * 
                     }
                     
@@ -990,21 +922,21 @@
                         if (newCookieValue === "") {  
                             callbackData.allowed_services = [];
                             newCookieValue = cookieData.cvalue_rejected;
-                            plugin.cookieReject(plugin, cookieData);        
+                            this.cookieReject(cookieData);        
                         }
                         // @NEW-CODE Gix075 ----------------------------------------- * 
                         // @update 1.4.0
-                        plugin.writeCookie(config.cookieBanner.cookieName + '_' + service, "false", config.cookieBanner.cookieExpire);
+                        this.writeCookie(config.cookieBanner.cookieName + '_' + service, "false", config.cookieBanner.cookieExpire);
                         // @/NEW-CODE ----------------------------------------------- * 
                     }
                     break;
             }
             
-            if (plugin.settings.callbackOnChoiseChange !== null && launch_callback === true) {
-                plugin.settings.callbackOnChoiseChange(callbackData);
+            if (this.settings.callbackOnChoiseChange !== null && launch_callback === true) {
+                this.settings.callbackOnChoiseChange(callbackData);
             }
             
-            plugin.writeCookie(servicesCookieName, newCookieValue, config.cookieBanner.cookieExpire);
+            this.writeCookie(servicesCookieName, newCookieValue, config.cookieBanner.cookieExpire);
             
             
         },
@@ -1012,42 +944,42 @@
         /* ================================================================ */
         /* All services Handler */
         /* ================================================================ */
-        servicesChoise_handleAll: function (plugin, cookieName, action) {
+        servicesChoise_handleAll: function (cookieName, action) {
             
             var servicesCookieName = cookieName + "_services";
             
             
                 
                 $.ajax({
-                    url: plugin.settings.config,
+                    url: this.settings.config,
                     dataType: 'json',
-                    success: function (config) {
+                    success: (config) => {
                         // @DEBUG 
-                        if(plugin.settings.debug === true) console.log(pluginName + ': servicesChoise_acceptAll() -> config loaded!');
+                        if(this.settings.debug === true) console.log(pluginName + ': servicesChoise_acceptAll() -> config loaded!');
                         if(action === true) {
-                            $.each(config.cookiePolicy.services, function(index) {
+                            $.each(config.cookiePolicy.services, (index) => {
                                 if (this.active === true) { 
-                                    $.each(config.cookiePolicy.services[index].services, function(key, value) {
-                                        if(value === true) plugin.serviceChoise_handleServiceCookie(plugin, config, key, "add", false);
+                                    $.each(config.cookiePolicy.services[index].services, (key, value) => {
+                                        if(value === true) this.serviceChoise_handleServiceCookie(config, key, "add", false);
                                     });
                                 }
                             });
                         }else{
-                            plugin.writeCookie(servicesCookieName, 'rejected', 365);
+                            this.writeCookie(servicesCookieName, 'rejected', 365);
                             // @NEW-CODE Gix075 ----------------------------------------- * 
                             // @update 1.4.0
                             $.each(config.cookiePolicy.services, function(index) {
-                                $.each(config.cookiePolicy.services[index].services, function(key, value) {
-                                    plugin.serviceChoise_handleServiceCookie(plugin, config, key, "remove", false);
+                                $.each(config.cookiePolicy.services[index].services, (key) => {
+                                    this.serviceChoise_handleServiceCookie(config, key, "remove", false);
                                 });
                             });
                             // @/NEW-CODE ----------------------------------------------- * 
                         }
 
                     },
-                    error: function () {
+                    error: () => {
                         // @DEBUG 
-                        if(plugin.settings.debug === true) console.log(pluginName + ': servicesChoise_acceptAll() -> AJAX ERROR!');
+                        if(this.settings.debug === true) console.log(pluginName + ': servicesChoise_acceptAll() -> AJAX ERROR!');
                     }
                 });
                 
@@ -1060,7 +992,7 @@
         /* Single Service Choise Button Bar Generator */
         /* Generates a button bar for each service in Cookie Policy */
         /* ================================================================ */
-        serviceChoise_buttonBar_markup: function (plugin, config, service) {
+        serviceChoise_buttonBar_markup: function (config, service) {
             
             var acceptBtnDisabled,
                 rejectacceptBtnDisabled,
@@ -1072,7 +1004,7 @@
                 panelClasses = {},
                 markup;
             
-            if(plugin.serviceChoise_serviceHunter(plugin, config, service) === true) {
+            if(this.serviceChoise_serviceHunter(config, service) === true) {
                 acceptBtnDisabled = ' disabled="disabled"';
                 rejectacceptBtnDisabled = '';
                 elementClass = 'accepted';
@@ -1082,7 +1014,7 @@
                 elementClass = 'rejected';
             }
             
-            if(plugin.settings.bootstrap === true) {
+            if(this.settings.bootstrap === true) {
                 btnAcceptClass = "btn btn-primary";
                 btnRejectClass = "btn btn-danger";
                 panelClasses.panel = "panel panel-default ";
@@ -1123,28 +1055,31 @@
         /* Choise Button Click Handler */
         /* Update Services Cookie on Click */
         /* ================================================================ */
-        serviceChoise_buttonBar_click: function (plugin,config) {
+        serviceChoise_buttonBar_click: function (config) {
             
-            $('.fdctool__services_item-choise').find('.item-choise-btn').on('click', function (e) {
+            $('.fdctool__services_item-choise').find('.item-choise-btn').on('click', (e) => {
                 e.preventDefault();
+
+                console.log('clicked target: ' + e.target);
                 
-                var service = $(this).closest('.fdctool__services_item-choise').data('cookie'),
-                    msgDiv = $(this).closest('.fdctool__services_item-choise').find('.fdctool__services_item-choise-msg');
+                var service = $(e.target).closest('.fdctool__services_item-choise').data('cookie'),
+                    msgDiv = $(e.target).closest('.fdctool__services_item-choise').find('.fdctool__services_item-choise-msg');
                 
+                console.log('clicked service: ' + service);
                 msgDiv.hide();
                 
-                if ($(this).hasClass('accept')) {
-                    plugin.serviceChoise_handleServiceCookie(plugin, config, service, "add", true);
-                    $(this).attr('disabled',true);
-                    $(this).closest('.fdctool__services_item-choise').find('.reject').attr('disabled',false);
-                    $(this).closest('.fdctool__services_item-choise').removeClass('rejected');
-                    $(this).closest('.fdctool__services_item-choise').addClass('accepted');
+                if ($(e.target).hasClass('accept')) {
+                    this.serviceChoise_handleServiceCookie(config, service, "add", true);
+                    $(e.target).attr('disabled',true);
+                    $(e.target).closest('.fdctool__services_item-choise').find('.reject').attr('disabled',false);
+                    $(e.target).closest('.fdctool__services_item-choise').removeClass('rejected');
+                    $(e.target).closest('.fdctool__services_item-choise').addClass('accepted');
                 }else{
-                    plugin.serviceChoise_handleServiceCookie(plugin, config, service, "remove", true);
-                    $(this).attr('disabled',true);
-                    $(this).closest('.fdctool__services_item-choise').find('.accept').attr('disabled',false);
-                    $(this).closest('.fdctool__services_item-choise').removeClass('accepted');
-                    $(this).closest('.fdctool__services_item-choise').addClass('rejected');
+                    this.serviceChoise_handleServiceCookie(config, service, "remove", true);
+                    $(e.target).attr('disabled',true);
+                    $(e.target).closest('.fdctool__services_item-choise').find('.accept').attr('disabled',false);
+                    $(e.target).closest('.fdctool__services_item-choise').removeClass('accepted');
+                    $(e.target).closest('.fdctool__services_item-choise').addClass('rejected');
                 }
                 msgDiv.fadeIn();
                 setTimeout(function() {
@@ -1156,7 +1091,7 @@
         /* ================================================================ */
         /* Choise Buttons Bar Update (all services accepted) */
         /* ================================================================ */
-        serviceChoise_buttonBar_acceptAllUpdate: function (plugin) {
+        serviceChoise_buttonBar_acceptAllUpdate: function () {
             $('.fdctool__services_item-choise').removeClass('rejected');
             $('.fdctool__services_item-choise').addClass('accepted');
             $('.fdctool__services_item-choise').find('.item-choise-btn.accept').attr('disabled',true);
@@ -1179,9 +1114,12 @@
         /* ============================================================ */
         /* Cookie Hunter */
         /* ============================================================ */
-        cookieHunter: function (plugin,bannerData) {
+        cookieHunter: function (bannerData) {
 
-            var cookieVal = plugin.readCookie(bannerData.cname);
+            if(this.settings.debug === true) console.log(pluginName + ': cookieHunter() bannerData: ' + bannerData);
+            if(this.settings.debug === true) console.log(pluginName + ': cookieHunter() launch readCookie');
+
+            var cookieVal = this.readCookie(bannerData.cname);
             var bannerNeeded;
             
             if (cookieVal !== undefined && cookieVal !== bannerData.cvalue && cookieVal !== bannerData.cvalue_rejected) {

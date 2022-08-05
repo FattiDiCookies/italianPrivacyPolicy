@@ -1,12 +1,28 @@
 
-<link rel="stylesheet" href="css/fdCookieLaw.css">
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>FDC CookieLaw Tool</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/fdCookieLaw.css">
+        <link rel="stylesheet" href="css/demo.css">
 
-<div id="privacyPolicy" class="fdc-cookielaw__policy"></div>
+    </head>
+    <body>
 
-<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="js/jquery.fdCookieLaw.js"></script>
-<script> 
-    $(document).on('ready',function() {
-        $('#privacyPolicy').fdCookieLaw({page: 'privacy', banner: 'false'});
-    }); 
-</script>
+        <div id="privacyPolicy" class="fdc-cookielaw__policy"></div>
+
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="js/jquery.fdCookieLaw.js"></script>
+        <script> 
+            $(document).on('ready',function() {
+                $('#privacyPolicy').fdCookieLaw({
+                    page: 'privacy', 
+                    banner: 'false'
+                });
+            }); 
+        </script>
+
+    </body>
+</html>

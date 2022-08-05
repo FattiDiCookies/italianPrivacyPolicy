@@ -31,7 +31,12 @@
             "embedCode": true,
             "customText": false
         },
-        "rejectButton": false,
+        "buttons_label": {
+            "bannerRejectButtonLabel": false ,
+            "bannerAcceptAllButtonLabel": false,
+            "bannerPrivacyButtonLabel": false
+        },
+        "rejectButton": true,
         "closeButton": true,
         "acceptOnScroll": false,
         "cookieName": "fdCookieLaw",

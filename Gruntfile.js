@@ -15,7 +15,7 @@ module.exports = function(grunt) {
                 " *\n" +
                 " *  (c) 2015 by <%= pkg.author %>\n" +
                 " *  Made by <%= pkg.author %> and released under <%= pkg.license.tool %> License\n" +
-		        " */\n"
+                " */\n"
     },  
 
     clean : {
@@ -253,9 +253,9 @@ module.exports = function(grunt) {
             },
 
             processors: [
-                require('pixrem')(), // add fallbacks for rem units
-                require('autoprefixer')({ browsers: 'last 2 versions'}), // add vendor prefixes
-                require('cssnano')() // minify the result
+                //require('pixrem')(), // add fallbacks for rem units
+                //require('autoprefixer')(), // add vendor prefixes
+                //require('cssnano')() // minify the result
             ]
         },
         dev: {
@@ -352,7 +352,7 @@ module.exports = function(grunt) {
   grunt.registerTask('dist', [
     'clean:dist',
     'md2html:dist',
-    'dom_munger:dist',
+    //'dom_munger:dist',
     'string-replace:dist',
     'htmljson:dist_1',
     'htmljson:dist_2',
@@ -360,9 +360,12 @@ module.exports = function(grunt) {
     'sass:dist',
     'postcss:dist',
     'copy:dist',
-    'jshint:dist',
+    //'jshint:dist',
     'concat:dist',  
     'uglify:dist'  
   ]);
 
+  grunt.registerTask('checkjs', [
+    'jshint:dev'
+  ]);
 };

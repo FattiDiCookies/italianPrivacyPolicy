@@ -10,6 +10,9 @@ Plugin jQuery per la gestione delle pagine necessarie agli adempimenti della Coo
 
 ### Changes
 
+##### version 1.7.0
+* Introdotta la possibilità di personalizzare i testi dei pulsanti del banner attraverso il file di configurazione o dagli appositi parametri del plugin.
+
 ##### version 1.6.0
 * Introdotti cambiamenti per conformità ultime linee guida 10 Gennaio 2022
 * Piccoli cambiamenti CSS
