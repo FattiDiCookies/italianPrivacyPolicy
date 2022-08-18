@@ -1,4 +1,4 @@
-# FDC CookieLaw Tool 1.6.0 
+# FDC CookieLaw Tool 1.8.1
 Plugin jQuery per la gestione delle pagine necessarie agli adempimenti della CookieLaw
 
 * Informativa breve sull'uso dei cookie (banner)
@@ -9,6 +9,9 @@ Plugin jQuery per la gestione delle pagine necessarie agli adempimenti della Coo
 * Privacy Policy
 
 ### Changes
+
+##### version 1.8.1
+* Bugfixing
 
 ##### version 1.8.0
 * JS refactoring

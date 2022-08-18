@@ -1,0 +1,68 @@
+{
+  "name": "italian-privacy-policy",
+  "version": "1.12.0",
+  "description": "Italian Cookie and Privacy policy",
+  "directories": {
+    "doc": "docs"
+  },
+  "tool": {
+    "name": "FDC CookieLaw Tool",
+    "description": "Cookie & Privacy management tool",
+    "version": "1.8.0",
+    "github": "https://github.com/FattiDiCookies/italianPrivacyPolicy/tree/master/dist/tool",
+    "docs": "https://github.com/FattiDiCookies/italianPrivacyPolicy/wiki/FDC-Tool"
+  },
+  "docs": {
+    "version": "1.5.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FattiDiCookies/italianPrivacyPolicy.git"
+  },
+  "keywords": [
+    "cookielaw",
+    "cookie",
+    "law",
+    "cookies",
+    "cookie",
+    "privacy",
+    "policy"
+  ],
+  "author": "FDC Crew",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FattiDiCookies/italianPrivacyPolicy/issues"
+  },
+  "homepage": "https://github.com/FattiDiCookies/italianPrivacyPolicy",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.32.0",
+    "@typescript-eslint/parser": "^5.32.0",
+    "eslint": "^8.21.0",
+    "eslint-plugin-vue": "^9.3.0",
+    --"grunt": "^1.5.3",
+    --"grunt-contrib-clean": "^2.0.1",
+    --"grunt-contrib-concat": "^2.1.0",
+    --"grunt-contrib-copy": "^1.0.0",
+    xx"grunt-contrib-cssmin": "^4.0.0",
+    --"grunt-contrib-jshint": "^3.2.0",
+    xx"grunt-contrib-less": "^3.0.0",
+    --"grunt-contrib-uglify": "^5.2.2",
+    --"grunt-contrib-watch": "^1.1.0",
+    --"grunt-dom-munger": "~4.0.0",
+    "grunt-html-json-wrapper": "^0.1.3",
+    "grunt-htmljson": "^0.1.1",
+    --"grunt-md2html": "^0.6.1",
+    --"grunt-merge-data": "^0.4.5",
+    "grunt-postcss": "^0.9.0",
+    --"grunt-string-replace": "~1.3.3"
+  },
+  "dependencies": {
+    "grunt-babel": "^8.0.0",
+    --"grunt-contrib-sass": "^2.0.0",
+    "grunt-pixrem": "^0.1.2",
+    "postcss": "^8.4.14"
+  }
+}

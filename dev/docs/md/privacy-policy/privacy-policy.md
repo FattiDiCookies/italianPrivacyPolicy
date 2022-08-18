@@ -31,7 +31,6 @@ dai server che ospitano il sito.
 ## 2) Scopi
 
 I dati personali inviati verranno utilizzati ai seguenti fini: 
-
 [[SCOPI RACCOLTA DATI]]
 
 I dati raccolti saranno conservati in forma digitale nei server e/o negli archivi delle società incaricate della conservazione e del trattamento (vedi paragrafi relativi al responsabile e al luogo di trattamento).
@@ -42,7 +41,6 @@ I dati raccolti saranno conservati in forma digitale nei server e/o negli archiv
 [[SERVIZI DI TERZE PARTI]]
 
 ### 3.2) Dati conservati e trattati direttamente dal proprietario del sito
-
 [[SERVIZI DI PRIMA PARTE]]
 
 I dati personali, conservati e trattati direttamente dal proprietario del sito, saranno conservati e trattati dalla società:<br>  

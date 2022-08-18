@@ -69,6 +69,26 @@ pre code {
     font-weight: bold;
 }
 
+
+.cookie-block-element {
+    background-color: #333;
+    color: white;
+    padding: 50px;
+}
+
+.cookie-block-element h3 {
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+.cookie-block-element-content.rejected {
+    display: block;
+}
+
+.cookie-block-element-content.accepted {
+    display: none;
+}
+
 .youtubevideo__example {
     margin-top: 40px;
     padding-top: 40px;

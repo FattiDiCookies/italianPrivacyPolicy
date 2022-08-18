@@ -25,11 +25,6 @@ module.exports = function(grunt) {
 
     md2html : {
       dev : {
-        options: {
-            markedOptions: {
-                gfm: false,
-              }
-        },
         files :[{
           expand : true,
           cwd : 'dev/docs/md/cookie-policy/',
@@ -87,12 +82,8 @@ module.exports = function(grunt) {
           selector : 'h6',
           attribute : 'id',
           value : 'none'
-        }],
-        /* remove: [
-            {selector:'html'},
-            {selector:'body'},
-            {selector:'head'},
-        ] */
+        }
+    ]
       },
       dev : {
         files : [{
@@ -117,7 +108,7 @@ module.exports = function(grunt) {
         saveUnchanged : true,
         replacements : [{
           //pattern: /<h1 (\\S+)=[\"']?((?:.(?![\"']?\\s+(?:\\S+)=|[>\"']))+.)[\"']>?/,
-          pattern : / id="(.)*?"/g,
+          pattern : / id="none"/g,
           replacement : ''
         }]
       },
@@ -163,7 +154,6 @@ module.exports = function(grunt) {
         },
       }
     },
-
 
     merge_data : {
       options : {
@@ -323,18 +313,18 @@ module.exports = function(grunt) {
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-md2html');
-  //grunt.loadNpmTasks('grunt-dom-munger');
+  grunt.loadNpmTasks('grunt-dom-munger');
   grunt.loadNpmTasks('grunt-string-replace');
   grunt.loadNpmTasks('grunt-htmljson');
-  //grunt.loadNpmTasks('grunt-html-json-wrapper');
+  grunt.loadNpmTasks('grunt-html-json-wrapper');
   grunt.loadNpmTasks('grunt-merge-data');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-sass');
-  //grunt.loadNpmTasks('grunt-postcss');
-  //grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-postcss');
+  grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  //grunt.loadNpmTasks('grunt-contrib-cssmin');   
+  grunt.loadNpmTasks('grunt-contrib-cssmin');   
   grunt.loadNpmTasks('grunt-contrib-uglify');   
   grunt.loadNpmTasks('grunt-contrib-concat');    
 
@@ -342,17 +332,15 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'clean:dev',
     'md2html:dev',
-    //'dom_munger:dev',
+    'dom_munger:dev',
     'string-replace:dev',
     'htmljson:dev_1',
     'htmljson:dev_2',
-    /* 'html_json_wrapper:dev_1',
-    'html_json_wrapper:dev_2', */
     'merge_data:dev',
     'sass:dev',
-    //'postcss:dev',
+    'postcss:dev',
     'copy:dev',
-    //'jshint:dev',
+    'jshint:dev',
   ]);
     
   // Tool Developing task(s).
@@ -371,7 +359,7 @@ module.exports = function(grunt) {
     'htmljson:dist_2',
     'merge_data:dist',
     'sass:dist',
-    //'postcss:dist',
+    'postcss:dist',
     'copy:dist',
     //'jshint:dist',
     'concat:dist',  
